@@ -1,0 +1,42 @@
+<html>
+	<head>	
+		<meta name="viewport" content="width=device-width">
+        <title>Blog</title>
+	</head>
+
+	<body>
+		<header>
+			<div>
+				<h1>Date in header </h1>
+			</div>
+		</header>
+
+		<main>
+            <nav>
+                <a href="menu.html">Home</a>
+                <a href="index.html">Article 1</a>
+            </nav>
+		    <h1>This is my blog!</h1>
+            <h3>Author: D.B. Sima</h3>
+            <hr>
+                 <iframe src="index.html">No article one!</iframe>
+                
+            </hr>
+            <hr>
+            </hr>
+		</main>
+
+		<footer>
+            Footer
+            <hr>
+			    <h3> Copywrite</h1>
+                <p>You can not copyy this!</p>
+            </hr>
+            <hr>
+                <h3>Contact</h1>
+                <p>All day, all night, UPB!</p>
+            </hr>
+		</footer>
+
+	</body>
+</html>
