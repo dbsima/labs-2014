@@ -1,0 +1,65 @@
+<html>
+	<head>	
+		<meta name="viewport" content="width=device-width">
+        <meta name="keywords" content="article, padawam, mp4, jpg">
+        <title>Article 1</title>
+	</head>
+
+	<body>
+		<header>
+			<div>
+				<h1>Date in header </h1>
+                <p>Posted at <time datetime="2014-02-28">2014-02-28</time></p>
+			</div>
+		</header>
+
+		<main>
+                <article>
+				    <h1>Hello, PadaWans!</h1>
+                    <hr>
+                        <p>This is my first paragraph from my first article for you!</p>
+                    </hr>
+                    <hr>
+                        <p>This is my second paragraph from my first article for you!</p>
+                    </hr>
+                    <img src="http://d24w6bsrhbeh9d.cloudfront.net/photo/azbZ7bB_460s.jpg" width=200 height=200><br>
+
+                    <video width="320" height="240" controls>
+                      <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </article>
+		</main>
+
+		<footer>
+			<h1> Comment section from the footer</h1>
+                <article>
+                    <hr>
+                        <p>These are the best two paragraphs I've read in my hole life!</p>
+                    </hr>
+                </article>
+                <article>
+                    <hr>
+                        <p>You are stupid!</p>
+                    </hr>
+                </article>
+                <form>
+                      <fieldset>
+                             <legend>Your comment:</legend>
+                              Username: <br><input type="text" name="username"><br>
+                              Text: <br><textarea name="comment"></textarea><br>
+                              <select>
+                                  <option value="one">1</option>
+                                  <option value="two">2</option>
+                                  <option value="three">3</option>
+                                  <option value="four">4</option>
+                                  <option value="five">5</option>
+                              </select> Rate me please!<br>
+                              <input id="cb1" type="checkbox" name="agree" value="agree"><label for="cb1">Do you agree?</label><br>
+                              <input type="checkbox" name="mail" value="mail">Confirm mail?<br> 
+                              <input type="submit" value="Submit">
+                        </form>
+		</footer>
+
+	</body>
+</html>
