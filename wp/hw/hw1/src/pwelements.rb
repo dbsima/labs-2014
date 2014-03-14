@@ -92,6 +92,17 @@ class HTMLPage < HWElement
 		puts "Se verifica pagina #{filename}"
 		file_path = "#{File.dirname(__FILE__)}/#{filename}"
 		
+		if (filename == "index.html") 
+			puts "Se elimina tag-urile <blockquote> pentru a se putea incarca corect pagina in browser."
+			contents = (f = File.new(file_path)).read
+			f.close
+			contents.gsub!(/<blockquote.*?>/,"")
+			contents.gsub!("</blockquote>", "")
+			f = File.new(file_path, "w")
+			f.write(contents)
+			f.close
+		end
+
 		assert_score("Verificare Existenta Pagina", "Pagina este prezenta", "Pagina #{file_path} nu exista pe disk") { File.exists?(file_path) }
 		
 		b.goto "file://#{file_path}"
@@ -197,8 +208,30 @@ class Text < HWElement
 end
 
 class Image < HWElement
-	def verify(browser)
+	def img_ext(src)
+		s = src.split(".")
+		s[s.size-1].upcase
 	end
+
+	def verify(b)
+		loaded = false
+		assert_score("Verificare existenta imagine de tip #{img_type} cu dimensiunile #{width}x#{height} si text alternativ #{alt_text}", "OK", "Not OK") {
+			exists = false
+			b.imgs.each { |img|
+				ext=img_ext(img.attribute_value("src"))
+				w = img.attribute_value("width").to_i
+				h = img.attribute_value("height").to_i
+				alt = img.attribute_value("alt")
+				if (ext == img_type && w == width && h == height && alt == alt_text)
+					exists = true
+					loaded = img.loaded?
+				end
+			}
+			exists
+		}
+		assert_score("Imagine a fost incarcata corect", "OK", "Not OK") { loaded == true }
+	end
+
 	def image_type
 		$type = $prng.rand(1..3)
 		case $type
@@ -301,7 +334,26 @@ class Title < Div
 end
 
 class Video < HWElement
-	def verify(browser)
+	def vid_ext(src)
+		s = src.split(".")
+		s[s.size-1].upcase
+	end
+
+	def verify(b)
+		el = b.video
+		assert_score("Verificare existenta Video", "OK", "Not OK") {
+			el.exists?
+		}
+		assert_score("Verificare tip video", "OK", "Not OK"){
+			(vid_ext(el.source.attribute_value("src")) == sources[:format_video]) && 
+			(el.source.attribute_value("type") == "video/#{sources[:format_video].downcase}")
+		}
+		assert_score("Verificare dimensiuni video", "OK", "Not OK") {
+			w = el.attribute_value("width")
+			h = el.attribute_value("height")
+			wh = "#{w}x#{h}"
+			wh == sources[:dimensiuni]
+		}
 	end
 
 	def generate_sources
@@ -329,8 +381,18 @@ class Video < HWElement
 end
 
 class ArticleTable < HWElement
-	def verify(browser)
-		
+	def verify(b)
+		el = b.table
+		assert_score("Verificare existenta tabel", "OK", "Not OK") {
+			el.exists?
+		}
+		assert_score("Verificare numar de randuri", "OK", "Not OK #{el.rows.size} != #{numar_randuri}"){
+			el.rows.size == numar_randuri
+		}
+		assert_score("Verificare numar de coloane", "OK", "Not OK #{el[0].elements.size} != #{numar_coloane}"){
+			el[0].elements.size == numar_coloane
+		}
+		el[rand_text - 1].elements[coloana_text - 1]
 	end
 	def subelements
 		[
@@ -459,7 +521,21 @@ class MainPage < HTMLPage
 end
 
 class UserInput < HWElement
-	def verify(browser)
+	def verify(b)
+		el = b.input(:type => "text")
+		assert_score("Existenta caseta de input text", "OK", "Nu exista nici un astfel de element") {
+			el.exists?
+		}
+		assert_score("Verificare nume camp text", "OK", "Nume incorect #{el.attribute_value("name")}, se astepta #{field_name}"){
+			el.attribute_value("name") == field_name
+		}
+		assert_score("Verificare lungime maxima camp text", "OK", "Lungime incorecta #{el.attribute_value("maxlength")}, se astepta #{maxlength}"){
+			el.attribute_value("maxlength").to_i == maxlength
+		}
+		assert_score("Verificare text initial pentru camp", "OK", "Text initial incorect #{el.attribute_value("value")}, se astepta #{initial_text}"){
+			el.attribute_value("value") == initial_text
+		}
+
 	end
 
 	def generate
@@ -480,7 +556,18 @@ class UserInput < HWElement
 end
 
 class PasswordInput < HWElement
-	def verify(browser)
+	def verify(b)
+		el = b.input(:type => "password")
+		assert_score("Existenta caseta de password", "OK", "Nu exista nici un astfel de element") {
+			el.exists?
+		}
+		assert_score("Verificare nume camp password", "OK", "Nume incorect #{el.attribute_value("name")}, se astepta #{field_name}"){
+			el.attribute_value("name") == field_name
+		}
+		assert_score("Verificare lungime maxima camp text", "OK", "Lungime incorecta #{el.attribute_value("maxlength")}, se astepta #{maxlength}"){
+			el.attribute_value("maxlength").to_i == maxlength
+		}
+
 	end
 	def generate
 		[
@@ -575,9 +662,22 @@ class LoginPage < HTMLPage
 	end
 end
 
-class SearchField < HWElement
-	
-	def verify(browser)
+class SearchField < HWElement	
+	def verify(b)
+		el = b.input(:type => "text")
+		assert_score("Existenta caseta de input text", "OK", "Nu exista nici un astfel de element") {
+			el.exists?
+		}
+		assert_score("Verificare nume camp text", "OK", "Nume incorect #{el.attribute_value("name")}, se astepta #{field_name}"){
+			el.attribute_value("name") == field_name
+		}
+		assert_score("Verificare lungime maxima camp text", "OK", "Lungime incorecta #{el.attribute_value("maxlength")}, se astepta #{maxlength}"){
+			el.attribute_value("maxlength").to_i == maxlength
+		}
+		assert_score("Verificare text initial pentru camp", "OK", "Text initial incorect #{el.attribute_value("value")}, se astepta #{initial_text}"){
+			el.attribute_value("value") == initial_text
+		}
+
 	end
 
 	def generate
@@ -599,7 +699,10 @@ class SearchField < HWElement
 end
 
 class SearchSubmit < HWElement
-	def verify(browser)
+	def verify(b)
+		sb = b.input(:type => "submit")
+		assert_score("Verificare Prezenta Submit", "OK", "Nu a fost gasit nici un buton de submit") { sb.exists? }
+		assert_score("Verificare Text Submit", "OK", "Se astepta ca butonul de submit sa aiba textul #{button_text}") { sb.value.include?(button_text) }
 	end
 
 	def generate
@@ -617,8 +720,14 @@ class SearchSubmit < HWElement
 end
 
 class SearchForm < HWElement
-	def verify(browser)
+	
+	def verify(b)
+		form = b.form(:action => pagina_destinatie)
+		assert_score("Verificare existenta formular", "OK", "Nu exista nici un element form care sa se submita catre #{pagina_destinatie}") { form.exists? }
+		assert_score("Verificare metoda de submit formular", "OK", "Metoda incorecta, se astepta #{form_method}") { form.attribute_value("method").upcase == form_method }
+		form
 	end
+
 	def subelements
 		[
 			SearchField.new,
