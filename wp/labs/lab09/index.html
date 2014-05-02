@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <body onload="isImageLoaded()">
+    <p id="text"></p>
+    <script>
+        var colors = ['red', 'green', 'blue'];
+        
+        var beep = function() {
+            document.querySelector('#text').textContent = "hello world!";
+            document.querySelector('#text').style.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        setInterval(beep, 400);
+    </script>
+      
+    <form name="Show">
+        <input type="text" name="MouseX" value="0" size="4"> X<br>
+        <input type="text" name="MouseY" value="0" size="4"> Y<br>
+    </form>
+
+    <script type="text/javascript">
+        document.onmousemove = getMouseXY;
+
+        var tempX = 0
+        var tempY = 0
+
+        function getMouseXY(e) { 
+             tempX = e.pageX
+             tempY = e.pageY
+
+            document.Show.MouseX.value = tempX
+            document.Show.MouseY.value = tempY
+
+            return true
+        }
+    </script> 
+      
+    <script>
+        console.log("--------------");
+        console.log("Script started");
+        
+        document.addEventListener('DOMContentLoaded', function(){
+           console.log('document ready'); 
+        });
+        
+        function isImageLoaded() {
+            if (document.getElementById("myImg").complete === true) {
+            console.log("image loaded");
+            }
+        } 
+        
+        console.log("Script finished");
+        console.log("--------------");
+        
+    </script>
+      
+    <img id="myImg" src="http://i.imgur.com/FbrrYDf.jpg" alt="got">
+     
+    <script>
+        var submit_form = function() {
+            console.log("Form value is " + document.forms['go']['q'].value);
+            return false;
+        }
+    </script>  
+      
+    <form name="go" id="go" onsubmit="return submit_form()">
+        <input name="q">
+        <button type="submit">go</button>
+    </form>
+      
+    <script>
+        var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        
+        var test = document.createElement('section');
+        test.setAttribute('id','test');
+        
+        var ul = document.createElement('ul');
+
+        document.body.appendChild(test);
+        test.appendChild(ul);
+
+        for (var i = 0; i < array.length; i++){
+            var li = document.createElement('li');
+
+            ul.appendChild(li);
+            li.innerHTML = li.innerHTML + array[i];
+        }    
+    </script>
+      
+    <form name="win">
+        <input type="areatext" name="letter" value="">text<br>
+    </form>
+
+    <script type="text/javascript">
+        var string = "risti si castigi!".split("");
+        
+        document.onkeypress = getLetter;
+
+        var i = 0;
+        if (i < string.length) {
+            function getLetter(e) { 
+                letter = document.win.letter.value + string[i];
+                i++;
+
+                document.win.letter.value = letter
+
+                return true
+            }
+        }
+        else i = 0;
+    </script> 
+      
+      
+  </body>
+</html>
