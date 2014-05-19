@@ -7,12 +7,10 @@ define(['marionette', 'vent', 'templates', 'views/Page'], function (Marionette, 
         itemView: PageView,
         tagName: 'ul',
         initialize : function(){
-		  console.log("initializing view");
-
           var self = this;
           this.timer = setInterval(function() {
-              self.collection.fetch();
+            self.collection.fetch();
           }, 3000);
-		}
+		    }
     });
 });

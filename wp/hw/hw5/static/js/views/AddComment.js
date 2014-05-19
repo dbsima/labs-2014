@@ -29,7 +29,8 @@ define(['app', 'marionette', 'vent', 'templates'], function (App, Marionette, ve
                     contentType: 'application/json;charset=UTF-8',
                     data: JSON.stringify({"page_id": page_id, "username": username, "email": email, "text": text}, null, '\t'),
                     success: function (response) {
-                        console.log("success POST");                    
+                        console.log("success POST");
+                        App.vent.trigger("updateCommentList", {"comments": "updated"});
                     },
                     error: function (response) {
                         console.log("error POST");
@@ -45,6 +46,8 @@ define(['app', 'marionette', 'vent', 'templates'], function (App, Marionette, ve
                 $("#error").show();
                 $("#error").text("Make sure the the text has maximum 100 characters");
             }
+
+            //App.vent.trigger("updateList", {"cacat": "maro"});
         }
     });
 });
