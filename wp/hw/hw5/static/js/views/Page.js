@@ -15,23 +15,16 @@ define(['jquery', 'marionette', 'backbone', 'vent', 'templates'], function ($, M
             console.log("btnDeletePage");
             
             var page_id = document.getElementById('btnDeletePage').getAttribute('data-id');
-            
-            //form_data.append("page_name", page_name);
-            console.log(page_id);
+
             $.ajax({
                 async: "false",
                 type: "DELETE",
                 url: "/pages/" + page_id,
-                //contentType: 'application/json;charset=UTF-8',
-                //data: JSON.stringify({"composed_image": dataUrl}, null, '\t'),
                 success: function (response) {
                     console.log("success POST on /assets/:assetID");
-                    //console.log(response);
-                    
                 },
                 error: function (response) {
                     console.log("error POST on /assets/:assetID");
-                    //console.log(response);
                 }
             });
 

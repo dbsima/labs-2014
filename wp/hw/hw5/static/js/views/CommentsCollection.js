@@ -1,10 +1,17 @@
 /*global define*/
 
-define(['marionette', 'vent', 'templates', 'views/Comment'], function (Marionette, vent, templates, CommentView) {
+define(['app', 'marionette', 'vent', 'templates', 'views/Comment'], function (App, Marionette, vent, templates, CommentView) {
     "use strict";
 
     return Marionette.CollectionView.extend({
         itemView: CommentView,
-        tagName: 'ul'
+        tagName: 'ul',
+
+		initialize: function (options) {
+            var self = this;
+            this.timer = setInterval(function() {
+                self.collection.fetch();
+            }, 3000);
+        }
     });
 });

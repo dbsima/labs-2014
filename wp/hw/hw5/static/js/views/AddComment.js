@@ -1,6 +1,6 @@
 /*global define*/
 
-define(['marionette', 'vent', 'templates'], function (Marionette, vent, templates) {
+define(['app', 'marionette', 'vent', 'templates'], function (App, Marionette, vent, templates) {
     "use strict";
 
     return Marionette.Layout.extend({
@@ -18,28 +18,33 @@ define(['marionette', 'vent', 'templates'], function (Marionette, vent, template
             var username = document.getElementById('username').value;
             var email = document.getElementById('email').value;
             var text = document.getElementById('text').value;
-            //form_data.append("page_name", page_name);
-            console.log(page_id);
-            
-            $.ajax({
-                async: "false",
-                type: "POST",
-                url: "/comments",
-                contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({"page_id": page_id, "username": username, "email": email, "text": text}, null, '\t'),
-                success: function (response) {
-                    console.log("success POST");
-                    console.log(response);
-                    
-                },
-                error: function (response) {
-                    console.log("error POST");
-                    console.log(response);
-                }
-            });
-            // Remove model from collection 
-            // (TODO: it's a hack; if the model has more than one collection it wont work)
-            //this.model.collection.add(this.model);
+            var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/;
+
+            if (username && emailFilter.test(email) && text && text.length <= 100) { 
+                $("#error").hide();
+                $.ajax({
+                    async: "false",
+                    type: "POST",
+                    url: "/comments",
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({"page_id": page_id, "username": username, "email": email, "text": text}, null, '\t'),
+                    success: function (response) {
+                        console.log("success POST");                    
+                    },
+                    error: function (response) {
+                        console.log("error POST");
+                    }
+                });
+            } else if (!emailFilter.test(email)) {
+                $("#error").show();
+                $("#error").text("Make sure the email is valid");
+            } else if (!username) {
+                $("#error").show();
+                $("#error").text("Add username");
+            } else {
+                $("#error").show();
+                $("#error").text("Make sure the the text has maximum 100 characters");
+            }
         }
     });
 });

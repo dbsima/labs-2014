@@ -9,10 +9,7 @@ require.config({
         tpl         :   'lib/tpl',
         prettify    :   'lib/prettify.min',
         wreqr       :   'lib/backbone.wreqr',
-        kinetic     :   'lib/kinetic-v5.1.0',
-        cookie      :   'lib/jquery.cookie',
-        modernizr   :   'lib/modernizr.custom',
-        morphingdevice: 'lib/morphingdevice'
+        modernizr   :   'lib/modernizr.custom'
     },
 
     shim : {

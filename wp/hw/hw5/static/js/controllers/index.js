@@ -33,7 +33,6 @@ define(['app',
         return {
             initialize: function (options) {
                 this.options = options;
-                //this.user_model = new UserModel();
             },
             
             index: function () {
@@ -58,7 +57,7 @@ define(['app',
                     success: function (pages) {
                         var comments_view = new CommentsCollectionView({ collection: self.collection });
                         app.body.show(new BodyView({
-                            add_to_list: new AddCommentView(),
+                            add_to_list: new AddCommentView({collection: self.collection}),
                             list: comments_view
                         }));
                     }

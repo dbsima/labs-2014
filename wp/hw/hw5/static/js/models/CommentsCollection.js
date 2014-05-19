@@ -7,6 +7,8 @@ define(["jquery", "backbone", "models/Comment"],
             initialize: function (options) {
                 console.log(options);
                 this.path = options.path;
+
+                this.listenTo(this, "change", this.render);
             },
             url: function() {
             	return '/comments/' + this.path;

@@ -5,6 +5,14 @@ define(['marionette', 'vent', 'templates', 'views/Page'], function (Marionette, 
 
     return Marionette.CollectionView.extend({
         itemView: PageView,
-        tagName: 'ul'
+        tagName: 'ul',
+        initialize : function(){
+		  console.log("initializing view");
+
+          var self = this;
+          this.timer = setInterval(function() {
+              self.collection.fetch();
+          }, 3000);
+		}
     });
 });
