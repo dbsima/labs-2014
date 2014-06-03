@@ -1,0 +1,130 @@
+. 331CA, 2009 
+Teorie 50 min: 
+1) Implementarea salturilor conditionate in SIMD si MIMD - comparatie 
+2) Structura PMS 
+3) Retea de comutare de tip interclasare perfecta 
+4) Comutator de trunchi K ierarhic si neierarhic 
+5) Comunicatia intercluster in MIMD slab cuplate 
+6) Sa se scrie programul SIMD si MIMD care aduna 2 vectori (pe 
+elemente). Sa se analizeze performantele. Specificati organizarea 
+datelor 
+7) Sa se proiecteze o retea de comutare de tip delta intre 4 
+procesoare si 9 module de memorie 
+8) Comparatia generala intre SIMD si MIMD 
+9) Clasificarea Flynn a sistemelor de calcul 
+10) Organigrama KML de la SBC-uri. 
+
+La problema: 
+De implementat si in Python si in CELL ceva cu o imagine si se 
+impartea la 4 SPU-uri. SPU-urile randau imaginea, o trimiteau inapoi 
+la PPU care o afisa. Nu prea am idee despre ce era vorba exact 
+aici :). 
+Cam asta era. Ai o animatie, si ti se cere sa o randezi in paralel 
+(nu ti se cer detalii despre randarea propriu-zisa, ci doar despre 
+modul in care imparti sarcinile catre thread-uri(Python) sau SPU-uri 
+(Cell) ). 
+
+2. 
+15.06.09 - 333CA 
+Teorie 50min: 
+1) Reprezentarea datelor pe SIMD si MIMD 
+2) Sa se scrie programul ce determina produsul elementelor unei 
+matrice pe SIMD si MIMD. Sa se analizeze performanta. Reprezentarea 
+datelor. 
+3) Compara?ie RC Cross Bar si RC Delta 
+4) Sa se proiecteze o retea de comutatie Delta cu 16 procesoare si 16 
+memorii. 
+5) Exemplificati primitivele P si M de pe calculatorul propriu 
+6) Comparatie intre intercalare perfecta si butterfly 
+7) Clasificarea calc Flynn 
+8) Comunica?ia intercluster intr-un sistem MIMD slab cuplat 
+9) Kmap - descriere generala 
+10) Sa se aleaga un calculator din TOP 500 si sa vorbim despre el. 
+
+Problema 1h: 
+Avem o imagine reprezentata printr-o matrice cu elemente de la 0 la 
+255. Se cere sa se mareasca dimensiunea matricei pana la un X dat 
+astfel: 
+Exemplu: 
+Pas 0: 
+10 30 
+15 25 
+Pas1: 
+10 20 30 
+12.5 20 30 
+15 20 25 
+... 
+20 = media aritemtica a lui 10 si 30 
+12.5 = media aritmetica a lui 10 si 15 
+etc. 
+1)0.2p Sa se descrie cum paralelizati algoritmul pentru CELL. 
+2)0.4p Sa se discute despre performantele programului: comunicare, 
+instructiuni SIMD. Se poate folosi Double Buffering? Ce avantaje 
+aduce? 
+3)0.2p Sa se crie pseudocod SPU si PPU 
+4)0.2p Este algoritmul viabil pentru CELL? Ce a?i putea folosi altceva 
+pentru a implementa algoritmul? 
+
+3. 
+ah si 332CA 14.06.09: 
+1)Comparatie generala SIMD MIMD 
+2)Adunare elemente dintr-o matrice cod SIMD MIMD plus organizarea 
+datelor si concluzii 
+3)Comparatie salturi conditionate SIMD MIMD 
+4)Comparatie cross-bar si delta 
+5)Comparatie intercalare perfecta si permutarea de baza 
+6)Diagrama KBUS 
+7)Diagrama Kmap 
+8)Switch K ierarhic si neierarhic 
+9)Descrie calculatorul tau folosind primitive PMS 
+10)Retea delta 16x9 
+
+Problema: 
+Se da un teren de NxN ?i un nor de MxM cu M < N, norul deasupra 
+terenului ?i incepe sa ploua. Terenul e denivelat si fiecare element 
+din matrice contine inaltimea acelui punct. 
+Cand ploua apa de pe zonele inalte se revarsa in mod egal pe zonele 
+vecine mai joase 
+1)Explicati cum se poate paraleliza. 
+2)Pseudocod CELL. 
+3)Se pot folosi instructiuni SIMD ? Cum? 
+4)Se poate folosi double buffering? Cum? 
+5)Se merita utilizarea CELL pentru aceasta problema? Daca nu, ce ai 
+folosi in schimb? 
+
+4. 
+332 CB + 334 CB 
+Teorie : 
+1. Nivelul structural de organizare a sistemelor numerice. Exemplu de 
+modelare PMS a unui sistem multiprocesor. 
+2.Organizarea datelor in SIMD. Realizarea inmultirii unei matrici cu 
+ea 
+insasi 
+3. Logica si arhitectura Kbus(SBC) 
+4. Care sunt cele 4 elemente de care trebuie tinut cont cand se 
+realizeaza designul unui cache. 
+5. De ce nu se poate realiza un procesor de 10TFlops(minim 3 motive) ? 
+6. Caracteristici HPC Challenge Benchmark. 
+7. Caracteristicile arhitecturale pentru arhitectura cea mai des 
+intalnita in top 500 
+8. Comparatie Base Line Permutation - Bit Reversal Permutation 
+9. Retele de comutatie de tip Delta. Exemplu pentru 9 procesoare si 4 
+memorii. 
+10. Cum se masoara dimensiunea liniei unui cache? Exemplu de program 
+si 
+grafic. 
+(pentru inlocuirea oricarui alt subiect :) 
+11. Arhitectura unui calculator din top 500 (arhitectura, numar 
+procesoare, so, ...) 
+La problema se cerea implementarea in pe arhitectura Cell a unui 
+Client 
+de BitTorrent. Se cerea explicarea functionalitatii clientului si 
+aplicabilitatea pe arhitectura Cell precum si pseudocod. (se punea mai 
+mult accent pe explicatii nu neaparat pe pseudo-cod) 
+Se explica in enuntul functionarea unui client de torrent. 
+
+Examenul a durat 50 de minute teoria, 45 problema. Corectarea s-a 
+facut 
+lejer, notele de la oral au fost incurajatoare ( de la 8.5 in sus , 
+desi 
+doar 3 candidati ).

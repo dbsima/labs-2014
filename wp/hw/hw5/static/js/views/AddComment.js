@@ -23,7 +23,7 @@ define(['app', 'marionette', 'vent', 'templates'], function (App, Marionette, ve
             if (username && emailFilter.test(email) && text && text.length <= 100) { 
                 $("#error").hide();
                 $.ajax({
-                    async: "false",
+                    //async: "false",
                     type: "POST",
                     url: "/comments",
                     contentType: 'application/json;charset=UTF-8',

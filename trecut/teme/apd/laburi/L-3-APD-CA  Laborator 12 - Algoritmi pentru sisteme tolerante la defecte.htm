@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)http://cs.curs.pub.ro/2012/mod/page/view.php?id=3125 -->
+<html dir="ltr" lang="ro" xml:lang="ro" xmlns="http://www.w3.org/1999/xhtml" class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>L-3-APD-CA: Laborator 12 - Algoritmi pentru sisteme tolerante la defecte</title>
+    <link rel="shortcut icon" href="http://cs.curs.pub.ro/2012/theme/image.php/sky_high/theme/1361453064/favicon">
+    <meta name="description" content="">
+    
+<meta name="keywords" content="moodle, L-3-APD-CA: Laborator 12 - Algoritmi pentru sisteme tolerante la defecte">
+<link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo.php"><script type="text/javascript" async="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/ga.js"></script><script type="text/javascript" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(1).php"></script><script type="text/javascript" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(2).php"></script>
+<link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(3).php">
+<script charset="utf-8" id="yui_3_5_1_1_1363544547090_2" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(4).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544547090_8" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(5).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544547090_9" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?3.5.1/build/overlay/assets/skins/sam/overlay.css&3.5.1/build/widget-base/assets/skins/sam/widget-base.css&3.5.1/build/widget-stack/assets/skins/sam/widget-stack.css"><script charset="utf-8" id="yui_3_5_1_1_1363544547090_10" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(6).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544547090_11" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(7).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544547090_12" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?moodle/1361453064/enrol/notification/notification.css"><script charset="utf-8" id="yui_3_5_1_1_1363544547090_13" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(8).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544547090_29" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/dock.js" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544547090_30" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(9).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544547090_794" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?3.5.1/build/node-menunav/assets/skins/sam/node-menunav.css"><script charset="utf-8" id="yui_3_5_1_1_1363544547090_795" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/yui_combo(10).php" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/all">
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {}; var moodleConfigFn = function(me) {var p = me.path, b = me.name.replace(/^moodle-/,'').split('-', 3), n = b.pop();if (/(skin|core)/.test(n)) {n = b.pop();me.type = 'css';};me.path = b.join('-')+'/'+n+'/'+n+'.'+me.type;}; var galleryConfigFn = function(me) {var p = me.path,v=M.yui.galleryversion,f;if(/-(skin|core)/.test(me.name)) {me.type = 'css';p = p.replace(/-(skin|core)/, '').replace(/\.js/, '.css').split('/'), f = p.pop().replace(/(\-(min|debug))/, '');if (/-skin/.test(me.name)) {p.splice(p.length,0,v,'assets','skins','sam', f);} else {p.splice(p.length,0,v,'assets', f);};} else {p = p.split('/'), f = p.pop();p.splice(p.length,0,v, f);};me.path = p.join('/');};
+M.yui.loader = {"base":"http:\/\/cs.curs.pub.ro\/2012\/lib\/yui\/3.5.1\/build\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","insertBefore":"firstthemesheet","modules":{"yui2-event":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event\/event-min.js","async":false},"yui2-animation":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/animation\/animation-min.js","async":false},"yui2-swfstore":{"type":"js","requires":["yui2-element","yui2-cookie","yui2-swf"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swfstore\/swfstore-min.js","async":false},"yui2-datatable":{"requires":["yui2-element","yui2-datasource"],"type":"js","optional":["yui2-calendar","yui2-dragdrop","yui2-paginator"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datatable\/datatable-min.js","async":false},"yui2-swfdetect":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swfdetect\/swfdetect-min.js","async":false},"yui2-menu":{"requires":["yui2-containercore"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/menu\/menu-min.js","async":false},"yui2-treeview":{"requires":["yui2-event","yui2-dom"],"type":"js","optional":["yui2-json","yui2-animation","yui2-calendar"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/treeview\/treeview-min.js","async":false},"yui2-get":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/get\/get-min.js","async":false},"yui2-progressbar":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/progressbar\/progressbar-min.js","async":false},"yui2-uploader":{"type":"js","requires":["yui2-element"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/uploader\/uploader-min.js","async":false},"yui2-datasource":{"requires":["yui2-event"],"type":"js","optional":["yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datasource\/datasource-min.js","async":false},"yui2-profiler":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/profiler\/profiler-min.js","async":false},"yui2-connection":{"supersedes":["yui2-connectioncore"],"requires":["yui2-event"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/connection\/connection-min.js","async":false},"yui2-json":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/json\/json-min.js","async":false},"yui2-datemath":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datemath\/datemath-min.js","async":false},"yui2-calendar":{"supersedes":["yui2-datemath"],"requires":["yui2-event","yui2-dom"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/calendar\/calendar-min.js","async":false},"yui2-simpleeditor":{"requires":["yui2-element"],"type":"js","optional":["yui2-containercore","yui2-menu","yui2-button","yui2-animation","yui2-dragdrop"],"pkg":"editor","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/editor\/simpleeditor-min.js","async":false},"yui2-swf":{"supersedes":["yui2-swfdetect"],"requires":["yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swf\/swf-min.js","async":false},"yui2-event-simulate":{"type":"js","requires":["yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-simulate\/event-simulate-min.js","async":false},"yui2-yuiloader-dom-event":{"supersedes":["yui2-yahoo","yui2-dom","yui2-event","yui2-get","yui2-yuiloader","yui2-yahoo-dom-event"],"rollup":5,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuiloader-dom-event\/yuiloader-dom-event.js","async":false},"yui2-storage":{"requires":["yui2-yahoo","yui2-event","yui2-cookie"],"type":"js","optional":["yui2-swfstore"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/storage\/storage-min.js","async":false},"yui2-container":{"supersedes":["yui2-containercore"],"requires":["yui2-dom","yui2-event"],"type":"js","optional":["yui2-dragdrop","yui2-animation","yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/container\/container-min.js","async":false},"yui2-profilerviewer":{"requires":["yui2-profiler","yui2-yuiloader","yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/profilerviewer\/profilerviewer-min.js","async":false},"yui2-imagecropper":{"requires":["yui2-dragdrop","yui2-element","yui2-resize"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/imagecropper\/imagecropper-min.js","async":false},"yui2-paginator":{"requires":["yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/paginator\/paginator-min.js","async":false},"yui2-tabview":{"requires":["yui2-element"],"type":"js","optional":["yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/tabview\/tabview-min.js","async":false},"yui2-layout":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation","yui2-dragdrop","yui2-resize","yui2-selector"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/layout\/layout-min.js","async":false},"yui2-imageloader":{"type":"js","requires":["yui2-event","yui2-dom"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/imageloader\/imageloader-min.js","async":false},"yui2-containercore":{"requires":["yui2-dom","yui2-event"],"type":"js","pkg":"container","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/container\/container_core-min.js","async":false},"yui2-event-mouseenter":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-mouseenter\/event-mouseenter-min.js","async":false},"yui2-logger":{"requires":["yui2-event","yui2-dom"],"type":"js","optional":["yui2-dragdrop"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/logger\/logger-min.js","async":false},"yui2-cookie":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/cookie\/cookie-min.js","async":false},"yui2-stylesheet":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/stylesheet\/stylesheet-min.js","async":false},"yui2-connectioncore":{"requires":["yui2-event"],"type":"js","pkg":"connection","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/connection\/connection_core-min.js","async":false},"yui2-utilities":{"supersedes":["yui2-yahoo","yui2-event","yui2-dragdrop","yui2-animation","yui2-dom","yui2-connection","yui2-element","yui2-yahoo-dom-event","yui2-get","yui2-yuiloader","yui2-yuiloader-dom-event"],"rollup":8,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/utilities\/utilities.js","async":false},"yui2-dragdrop":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/dragdrop\/dragdrop-min.js","async":false},"yui2-colorpicker":{"requires":["yui2-slider","yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/colorpicker\/colorpicker-min.js","async":false},"yui2-event-delegate":{"requires":["yui2-event"],"type":"js","optional":["yui2-selector"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-delegate\/event-delegate-min.js","async":false},"yui2-yuiloader":{"type":"js","supersedes":["yui2-yahoo","yui2-get"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuiloader\/yuiloader-min.js","async":false},"yui2-button":{"requires":["yui2-element"],"type":"js","optional":["yui2-menu"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/button\/button-min.js","async":false},"yui2-resize":{"requires":["yui2-dragdrop","yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/resize\/resize-min.js","async":false},"yui2-element":{"requires":["yui2-dom","yui2-event"],"type":"js","optional":["yui2-event-mouseenter","yui2-event-delegate"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/element\/element-min.js","async":false},"yui2-history":{"type":"js","requires":["yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/history\/history-min.js","async":false},"yui2-yahoo":{"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yahoo\/yahoo-min.js","async":false},"yui2-element-delegate":{"type":"js","requires":["yui2-element"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/element-delegate\/element-delegate-min.js","async":false},"yui2-charts":{"type":"js","requires":["yui2-element","yui2-json","yui2-datasource","yui2-swf"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/charts\/charts-min.js","async":false},"yui2-slider":{"requires":["yui2-dragdrop"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/slider\/slider-min.js","async":false},"yui2-selector":{"type":"js","requires":["yui2-yahoo","yui2-dom"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/selector\/selector-min.js","async":false},"yui2-yuitest":{"requires":["yui2-logger"],"type":"js","optional":["yui2-event-simulate"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuitest\/yuitest-min.js","async":false},"yui2-carousel":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/carousel\/carousel-min.js","async":false},"yui2-autocomplete":{"requires":["yui2-dom","yui2-event","yui2-datasource"],"type":"js","optional":["yui2-connection","yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/autocomplete\/autocomplete-min.js","async":false},"yui2-yahoo-dom-event":{"supersedes":["yui2-yahoo","yui2-event","yui2-dom"],"rollup":3,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yahoo-dom-event\/yahoo-dom-event.js","async":false},"yui2-dom":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/dom\/dom-min.js","async":false},"yui2-editor":{"supersedes":["yui2-simpleeditor"],"requires":["yui2-menu","yui2-element","yui2-button"],"type":"js","optional":["yui2-animation","yui2-dragdrop"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/editor\/editor-min.js","async":false},"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/lib\/javascript.php\/1361453064\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","moodle-core_filepicker"]},"core_dock":{"name":"core_dock","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/lib\/javascript.php\/1361453064\/blocks\/dock.js","requires":["base","node","event-custom","event-mouseenter","event-resize"]}},"groups":{"moodle":{"name":"moodle","base":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?moodle\/1361453064\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"moodle\/1361453064\/","patterns":{"moodle-":{"group":"moodle","configFn":moodleConfigFn},"root":"moodle"}},"local":{"name":"gallery","base":"http:\/\/cs.curs.pub.ro\/2012\/lib\/yui\/gallery\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"gallery\/","patterns":{"gallery-":{"group":"gallery","configFn":galleryConfigFn},"root":"gallery"}}}};
+M.cfg = {"wwwroot":"http:\/\/cs.curs.pub.ro\/2012","sesskey":"HIRSLZGN1J","loadingicon":"http:\/\/cs.curs.pub.ro\/2012\/theme\/image.php\/sky_high\/core\/1361453064\/i\/loading_small","themerev":"1361453064","slasharguments":1,"theme":"sky_high","jsrev":"1361453064"};
+//]]>
+</script>
+<script type="text/javascript" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/javascript-static.js"></script>
+<script type="text/javascript" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/head"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3568376-26']);
+  _gaq.push(['_setDomainName', '.curs.pub.ro']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+<body id="page-mod-page-view" class=" path-mod path-mod-page safari dir-ltr lang-ro yui-skin-sam yui3-skin-sam cs-curs-pub-ro--2012 pagelayout-incourse course-95 context-20482 cmid-3125 category-10 side-pre-only has_custom_menu background jsenabled">
+<div class="skiplinks"><a class="skip" href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=3125#maincontent">Salt la conţinutul principal</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<div id="page">
+    <div id="wrapper" class="clearfix">
+
+<!-- START OF HEADER -->
+
+    <div id="page-header" class="clearfix">
+        <div id="page-header-wrapper">
+                            <img class="logo" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/UPB_header_logo_cs.png" alt="Custom logo here"><h1 class="headerwlogo">- Algoritmi paraleli şi distribuiţi (Seria: CA)</h1>
+            
+            <div class="headermenu">
+                <div class="logininfo">Sunteţi autentificat ca <a href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715">Dragoş - Bogdan SIMA</a>  (<a href="http://cs.curs.pub.ro/2012/login/logout.php?sesskey=HIRSLZGN1J">Ieşire</a>)</div>            </div>
+        </div>
+    </div>
+
+<!-- END OF HEADER -->
+
+<!-- START OF CONTENT -->
+      <div id="custommenu"><div id="custom_menu_1" class="yui3-menu yui3-menu-horizontal" role="menu"><div class="yui3-menu-content" role="presentation"><ul role="presentation" class="first-of-type"><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Cursuri UPB" href="http://www.curs.pub.ro/" role="menuitem" tabindex="0" id="yui_3_5_1_1_1363544547090_837">Cursuri UPB</a></li><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Portal studenti" href="https://studenti.pub.ro/" role="menuitem" tabindex="-1" id="yui_3_5_1_1_1363544547090_839">Portal studenti</a></li><li role="presentation"><a class="yui3-menu-label" title="Ajutor Site" href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=3125#cm_submenu_1" id="yui_3_5_1_1_1363544547090_803" role="menuitem" aria-haspopup="true" tabindex="-1">Ajutor Site</a><div id="cm_submenu_1" class="yui3-menu custom_menu_submenu yui3-menu-hidden" role="menu" aria-labelledby="yui_3_5_1_1_1363544547090_802" aria-hidden="true"><div class="yui3-menu-content" role="presentation"><ul role="presentation" class="first-of-type"><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Tips&amp;Tricks Wiki" href="http://www.curs.pub.ro/" role="menuitem">Tips&amp;Tricks Wiki</a></li><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Moodle Docs" href="http://docs.moodle.org/" role="menuitem">Moodle Docs</a></li></ul></div></div></li></ul></div></div></div>
+<div class="navbar clearfix">
+        <div class="breadcrumb"><span class="accesshide">Cale pagină</span><ul><li><a title="Pagina mea" href="http://cs.curs.pub.ro/2012/my/">Pagina mea</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <span tabindex="0">Cursurile mele</span></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Algoritmi paraleli şi distribuiţi (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <span tabindex="0"> 17 decembrie -  23 decembrie</span></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Page" href="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte.htm">...12 - Algoritmi pentru sisteme tolerante la defecte</a></li></ul></div>
+    <div class="navbutton"> </div>
+    </div>
+
+<div id="page-content-wrapper">
+    <div id="page-content">
+        <div id="region-main-box">
+            <div id="region-post-box">
+
+                <div id="region-main-wrap">
+                    <div id="region-main">
+                        <div class="region-content">
+                            <span id="maincontent"></span><h2 id="pageheading" class="main">Laborator 12 - Algoritmi pentru sisteme tolerante la defecte</h2><div class="box generalbox center clearfix"><div class="no-overflow"><h1 style="font-weight: bold">
+  <span style="font-family: Verdana; font-size: medium;">Laboratorul 12 -
+  Algoritmi pentru sisteme tolerante la defecte. Problema
+  generalilor bizantini</span>
+</h1>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">
+  <span style="font-family: Verdana; font-size: medium;">Introducere</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"></p>
+<div style="text-align: justify;">
+  <p style="margin-top: 0pt; margin-bottom: 0pt;">
+    <span style="font-family: Verdana; font-size: x-small;">Un
+    obiectiv important in proiectarea sistemelor distribuite este
+    ca acestea sa continue sa functioneze corect chiar si in
+    situatiile in care o parte dintre componente se defecteaza. Una
+    dintre metodele de a indeplini acest obiectiv este replicarea
+    proceselor si organizarea lor in grupuri, pentru a micsora
+    probabilitatea ca sistemul sa cedeze in momentul in care un
+    proces nu mai functioneaza corect.</span>
+  </p>
+  <p style="margin-top: 0pt; margin-bottom: 0pt;">
+    <span style="font-family: Verdana; font-size: x-small;">Un
+    sistem este <b>k tolerant la defecte (k fault tolerant)</b>
+    daca functioneaza corect in conditiile in care k componente
+    sunt defecte.</span>
+  </p>
+  <p style="margin-top: 0pt; margin-bottom: 0pt;">
+    <span style="font-family: Verdana;"><span style="font-size: x-small;">Exista mai multe moduri in care un proces
+    se poate comporta atunci cand se defecteaza: poate inceta sa
+    mai trimita mesaje (in acest caz, sunt suficiente k+1 procese
+    pentru a realiza un sistem k tolerant la defecte) sau poate
+    trimite mesaje incorecte (defectele de acest fel sunt numite
+    "de tip bizantin"; pentru a avea un sistem k tolerant la
+    defecte in aceasta situatie, sunt necesare 3k+1
+    procese).</span><br></span>
+  </p>
+  <p style="margin-top: 0pt; margin-bottom: 0pt;">
+    <span style="font-family: Verdana;">&nbsp;</span>
+  </p>
+</div>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">
+  <span style="font-family: Verdana; font-size: medium;">Problema
+  generalilor bizantini</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+  <span style="font-family: Verdana; font-size: x-small;">Se
+  presupune ca n unitati ale armatei bizantine trebuie sa ia o
+  decizie comuna referitoare la actiunea ce va fi initiata
+  impotriva unui adversar. Pentru simplificare, presupunem ca
+  exista doar doua decizii posibile - atac sau retragere (dar
+  problema poate fi extinsa usor la situatia in care sunt mai multe
+  variante).</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+  <span style="font-family: Verdana; font-size: x-small;">Unitatile
+  sunt conduse de cate un general. Dintre acestia, unul este
+  comandant si initiaza procesul de decizie; pe ceilalti ii vom vom
+  numi locotenenti. O parte dintre generali sunt neloiali, adica
+  incearca sa ii impiedice pe ceilalti sa ajunga la consens (chiar
+  si comandantul poate fi neloial). Rezultatul dorit este ca toti
+  locotenentii loiali sa ia aceeasi decizie, indiferent care este
+  aceasta.</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+  <span style="font-family: Verdana; font-size: x-small;">Dupa cum
+  am aratat mai sus, daca t generali sunt neloiali, trebuie sa
+  existe 2t+1 generali loiali pentru ca acestia sa poata ajunge la
+  consens.</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+  <span style="font-family: Verdana; font-size: x-small;">Prezentam
+  in continuare algoritmul prin care generalii loiali ajung la
+  consens. Acesta consta din t+1 iteratii, unde t este numarul
+  generalilor neloiali. Fiecare general loial pastreaza o variabila
+  booleana d in care retine decizia sa (atac/retragere) si un
+  vector con in care retine ceea ce stie el la momentul curent
+  despre deciziile celorlalti generali. In fiecare iteratie, el
+  trimite tuturor celorlalti generali variabila sa d si vectorul
+  con, dupa care receptioneaza de la toti ceilalti generali
+  (inclusiv de la el insusi) aceste valori, si isi actualizeaza
+  variabilele locale pe baza valorilor primite.</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+  <span style="font-family: Verdana; font-size: x-small;">&nbsp;</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"></p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>type</b>
+  tip_con = <b>aray</b> [1:n] <b>of</b> bool;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>chan</b> ch
+  [1:n] (id:int, d:bool, con:tip_con);<br></span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">&nbsp;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">Nod
+  (u:1..n)::</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">&nbsp;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>var</b> c:int
+  := index_comandant;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>var</b> byz:
+  bool;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>var</b>
+  con_nou: tip_con, v:int; d_nou: bool;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>var</b> d:
+  bool := false, con: tip_con := ([n]false);<br></span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">&nbsp;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>fa</b> r:=1
+  <b>to</b> t+1 -&gt;</span></span>
+</p>
+<div style="margin-left: 40px;">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>broadcast</b>
+  ch( u, d, con );</span></span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<div style="margin-left: 40px;">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>fa</b> j:=1
+  <b>to</b> n -&gt;</span></span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<div style="margin-left: 80px;">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>receive</b></span></span>
+  <span style="font-family: Courier New; font-size: x-small;">ch[u]( v, d_nou,
+  con_nou );</span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<div style="margin-left: 80px;">
+  <span style="font-family: Courier New; font-size: x-small;">con[v] := d_nou
+  ;</span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<div style="margin-left: 80px;">
+  <span style="font-family: Courier New; font-size: x-small;"><b>fa</b> x:=1
+  <b>to</b> n -&gt; con[x] := con[x] <b>or</b> con_nou[x]
+  <b>af</b>;</span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+</p>
+<div style="margin-left: 40px;">
+  <span style="font-family: Courier New; font-size: x-small;"><b>af</b></span><span style="font-family: Courier New; font-size: x-small;">;</span>
+</div>
+<div style="margin-left: 40px;">
+  <span style="font-family: Courier New; font-size: x-small;">d :=
+  d</span> <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>or</b>
+  ((con[*] &gt;= r) <b>and</b> con[c]);</span></span>
+</div>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;"><b>af</b></span><span style="font-family: Courier New; font-size: x-small;">;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">byz :=
+  d;</span></span>
+</p>
+<p style="margin-bottom: 0pt; margin-top: 0pt; text-align: left">
+  <span style="font-family: Verdana; font-size: x-small;"><span style="font-family: Courier New; font-size: x-small;">&nbsp;</span></span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">
+  <span style="font-family: Verdana; font-size: medium;">Implementare in
+  MPI</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">
+  <span style="font-family: Verdana; font-size: medium;">&nbsp;</span>
+</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p>
+  <span style="font-family: Verdana; font-size: x-small;">Se cere
+  sa implementati in MPI algoritmul de mai sus, completand acest
+  <a href="http://cs.curs.pub.ro/2012/pluginfile.php/20482/mod_page/content/2/byz_incomplet.c">
+  program</a></span>
+</p></div></div><div class="modified">Ultima modificare: joi, 20 decembrie 2012, 11:51 </div>                        </div>
+                    </div>
+                </div>
+
+                                <div id="region-pre" class="block-region">
+                    <div class="region-content">
+                        <a href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=3125#sb-1" class="skip-block">Omite Navigation</a><div id="inst4" class="block_navigation  block"><div class="header"><div class="title" id="yui_3_5_1_1_1363544547090_865"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Ascunde blocul Navigation" title="Ascunde blocul Navigation" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Arată blocul Navigation" title="Arată blocul Navigation" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/switch_plus"><input type="image" class="moveto customcommand requiresjs" alt="Mută asta pe doc" title="Mută asta pe doc" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/block_to_dock"></div><h2>Navigation</h2><div class="commands"></div></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch navigation_node"><a title="Pagina mea" href="http://cs.curs.pub.ro/2012/my/">Pagina mea</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a title="Pagina principală" href="http://cs.curs.pub.ro/2012/?redirect=0"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Pagina principală</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="Cursuri Facultatea de Automatica si Calculatoare" tabindex="0">Pagini site</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Site blogs" href="http://cs.curs.pub.ro/2012/blog/index.php?courseid=0"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Site blogs</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Etichete" href="http://cs.curs.pub.ro/2012/tag/search.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Etichete</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Calendar" href="http://cs.curs.pub.ro/2012/calendar/view.php?view=month"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Calendar</a></p></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Forum" href="http://cs.curs.pub.ro/2012/mod/forum/view.php?id=1421"><img alt="Forum" class="smallicon navicon" title="Forum" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/icon">Ştiri site</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Profilul meu</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Vezi profilul" href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Vezi profilul</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Intervenţii forum</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Intervenţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Intervenţii</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discuţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Discuţii</a></p></li></ul></li>
+<li class="type_unknown depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="View all of my entries" href="http://cs.curs.pub.ro/2012/blog/index.php?userid=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Adaugă intrare nouă" href="http://cs.curs.pub.ro/2012/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Adaugă intrare nouă</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Blog RSS feed" href="http://cs.curs.pub.ro/2012/rss/file.php/1/c3c6a16fabc4dee472136ab64c17b5f5/blog/user/2715/rss.xml"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Mesaje" href="http://cs.curs.pub.ro/2012/message/index.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Mesaje</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Fişierele mele personale" href="http://cs.curs.pub.ro/2012/user/files.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Fişierele mele personale</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><span tabindex="0">Cursurile mele</span></p><ul><li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_1"><a title="Ingineria programelor" href="http://cs.curs.pub.ro/2012/course/view.php?id=118">L-3-IPr-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_2"><a title="Sisteme de operare (Seria: 3CA, 3CB, 3CC)" href="http://cs.curs.pub.ro/2012/course/view.php?id=116">L-3-SO</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_3"><a title="Arhitectura sistemelor de calcul" href="http://cs.curs.pub.ro/2012/course/view.php?id=115">L-3-ASC</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_4"><a title="Proiectarea cu microprocesoare (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=114">L-3-PM</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_5"><a title="Elemente de grafică pe calculator (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=105">L-3-EGC-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_6"><a title="Reţele locale (Serii multiple)" href="http://cs.curs.pub.ro/2012/course/view.php?id=101">L-3-RL</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_7"><a title="Reţele locale (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=100">L-3-RL-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_8"><a title="Limbaje formale si automate (Seria: CA &amp;amp; CB)" href="http://cs.curs.pub.ro/2012/course/view.php?id=98">L-3-LFA-CA&amp;CB</a></p></li>
+<li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="Algoritmi paraleli şi distribuiţi (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Participanţi" href="http://cs.curs.pub.ro/2012/user/index.php?id=95">Participanţi</a></p><ul><li class="type_custom depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Course blogs" href="http://cs.curs.pub.ro/2012/blog/index.php?courseid=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Course blogs</a></p></li>
+<li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Dragoş - Bogdan SIMA" href="http://cs.curs.pub.ro/2012/user/view.php?id=2715&course=95">Dragoş - Bogdan SIMA</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Vezi profilul" href="http://cs.curs.pub.ro/2012/user/view.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Vezi profilul</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Intervenţii forum</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Intervenţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Intervenţii</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discuţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&course=95&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Discuţii</a></p></li></ul></li>
+<li class="type_unknown depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="View all of my entries" href="http://cs.curs.pub.ro/2012/blog/index.php?userid=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Adaugă intrare nouă" href="http://cs.curs.pub.ro/2012/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Adaugă intrare nouă</a></p></li>
+<li class="type_setting depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Blog RSS feed" href="http://cs.curs.pub.ro/2012/rss/file.php/1/c3c6a16fabc4dee472136ab64c17b5f5/blog/user/2715/rss.xml"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Mesaje" href="http://cs.curs.pub.ro/2012/message/index.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Mesaje</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Fişierele mele personale" href="http://cs.curs.pub.ro/2012/user/files.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Fişierele mele personale</a></p></li></ul></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_9"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_10"><span tabindex="0"> 1 octombrie -  7 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_11"><span tabindex="0"> 8 octombrie -  14 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_12"><span tabindex="0"> 15 octombrie -  21 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_13"><span tabindex="0"> 22 octombrie -  28 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_14"><span tabindex="0"> 29 octombrie -  4 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_15"><span tabindex="0"> 5 noiembrie -  11 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_16"><span tabindex="0"> 12 noiembrie -  18 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_17"><span tabindex="0"> 19 noiembrie -  25 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_18"><span tabindex="0"> 26 noiembrie -  2 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_19"><span tabindex="0"> 3 decembrie -  9 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_20"><span tabindex="0"> 10 decembrie -  16 decembrie</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0"> 17 decembrie -  23 decembrie</span></p><ul><li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Folder" href="http://cs.curs.pub.ro/2012/mod/folder/view.php?id=3122"><img alt="Folder" class="smallicon navicon" title="Folder" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/icon(1)">Resurse lab 12</a></p></li>
+<li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte.htm"><img alt="Page" class="smallicon navicon" title="Page" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/icon(2)">...12 - Algoritmi pentru sisteme tolerante la defecte</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_21"><span tabindex="0"> 24 decembrie -  30 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_22"><span tabindex="0"> 31 decembrie -  6 ianuarie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_23"><span tabindex="0"> 7 ianuarie -  13 ianuarie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_24"><span tabindex="0"> 14 ianuarie -  20 ianuarie</span></p></li></ul></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_25"><a title="Structuri de date (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=39">L-1-SD-CA</a></p></li></ul></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=3125#sb-2" class="skip-block">Omite Settings</a><div id="inst5" class="block_settings  block"><div class="header"><div class="title" id="yui_3_5_1_1_1363544547090_886"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Ascunde blocul Settings" title="Ascunde blocul Settings" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Arată blocul Settings" title="Arată blocul Settings" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/switch_plus"><input type="image" class="moveto customcommand requiresjs" alt="Mută asta pe doc" title="Mută asta pe doc" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/block_to_dock"></div><h2>Settings</h2><div class="commands"></div></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_course collapsed contains_branch" aria-expanded="false"><p class="tree_item branch root_node"><span tabindex="0">Administrare curs</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Note" href="http://cs.curs.pub.ro/2012/grade/report/index.php?id=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/grades">Note</a></p></li></ul></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><hr><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">Setări profilul meu</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Editează profil" href="http://cs.curs.pub.ro/2012/user/edit.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Editează profil</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Schimbă parola" href="http://cs.curs.pub.ro/2012/login/change_password.php?id=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Schimbă parola</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Security keys" href="http://cs.curs.pub.ro/2012/user/managetoken.php?sesskey=HIRSLZGN1J"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Security keys</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Mesagerie" href="http://cs.curs.pub.ro/2012/message/edit.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Mesagerie</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Preferences" href="http://cs.curs.pub.ro/2012/blog/preferences.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Preferences</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="External blogs" href="http://cs.curs.pub.ro/2012/blog/external_blogs.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">External blogs</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Register an external blog" href="http://cs.curs.pub.ro/2012/blog/external_blog_edit.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/navigationitem">Register an external blog</a></p></li></ul></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span>                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF CONTENT -->
+
+</div>
+
+<!-- END OF WRAPPER -->
+
+<!-- START OF FOOTER -->
+        <div id="page-footer">
+
+<!-- START OF FOOTER-INNER -->
+
+        <div id="page-footer-inner">
+            <div class="footnote"><p>Acest site este hostat pe platfoma hardware achitionata din proiectul nr. 154/323 cod SMIS – 4428, "Platforma de e-learning si curricula e-content pentru invatamantul superior tehnic". Pentru mai multe detalii vezi <a href="https://cluster.grid.pub.ro/index.php/cursuri-upb-despre-proiect" _mce_href="https://cluster.grid.pub.ro/index.php/cursuri-upb-despre-proiect">http://www.curs.pub.ro</a>.</p></div>
+            <div class="logininfo">Sunteţi autentificat ca <a href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715">Dragoş - Bogdan SIMA</a>  (<a href="http://cs.curs.pub.ro/2012/login/logout.php?sesskey=HIRSLZGN1J">Ieşire</a>)</div>        </div>
+
+<!-- END OF FOOTER-INNER -->
+
+        <p class="helplink"></p>
+        <div class="homelink"><a href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></div>        
+
+</div>
+
+<!-- END OF FOOTER -->
+
+</div>
+
+<!-- END OF PAGE -->
+<script type="text/javascript" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Ultima modificare","name":"Nume","error":"Eroare","info":"Informa\u0163ii","viewallcourses":"Vezi toate cursurile","cancel":"Anuleaz\u0103","yes":"Da"},"repository":{"type":"Tip","size":"Dimensiune","invalidjson":"\u0218ir de caractere JSON invalid","nofilesattached":"Nu exist\u0103 fi\u0219iere ata\u0219ate","filepicker":"Selector de fi\u0219iere","logout":"Ie\u0219ire","nofilesavailable":"Nu sunt fi\u0219iere disponibile","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"Fi\u0219ierul exist\u0103","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Redenumi\u021bi ca \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source"},"block":{"addtodock":"Mut\u0103 asta pe doc","undockitem":"Deandocheaz\u0103 acest obiect","undockall":"Deandocheaz\u0103 tot"},"langconfig":{"thisdirectionvertical":"btt"},"admin":{"confirmation":"Confirmare"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions4 = [{"id":"expandable_branch_1","key":"118","type":20},{"id":"expandable_branch_2","key":"116","type":20},{"id":"expandable_branch_3","key":"115","type":20},{"id":"expandable_branch_4","key":"114","type":20},{"id":"expandable_branch_5","key":"105","type":20},{"id":"expandable_branch_6","key":"101","type":20},{"id":"expandable_branch_7","key":"100","type":20},{"id":"expandable_branch_8","key":"98","type":20},{"id":"expandable_branch_9","key":"1599","type":30},{"id":"expandable_branch_10","key":"1600","type":30},{"id":"expandable_branch_11","key":"1601","type":30},{"id":"expandable_branch_12","key":"1602","type":30},{"id":"expandable_branch_13","key":"1603","type":30},{"id":"expandable_branch_14","key":"1604","type":30},{"id":"expandable_branch_15","key":"1605","type":30},{"id":"expandable_branch_16","key":"1606","type":30},{"id":"expandable_branch_17","key":"1607","type":30},{"id":"expandable_branch_18","key":"1608","type":30},{"id":"expandable_branch_19","key":"1609","type":30},{"id":"expandable_branch_20","key":"1610","type":30},{"id":"expandable_branch_21","key":"1612","type":30},{"id":"expandable_branch_22","key":"1613","type":30},{"id":"expandable_branch_23","key":"1614","type":30},{"id":"expandable_branch_24","key":"1615","type":30},{"id":"expandable_branch_25","key":"39","type":20}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI(M.yui.loader).use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"4","instance":"4","candock":true,"courselimit":"20","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"5","instance":"5","candock":true});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("node-menunav",function() {(function(){M.core_custom_menu.init(Y, "custom_menu_1");
+})();
+});
+M.util.init_block_hider(Y, {"id":"inst4","title":"Navigation","preference":"block4hidden","tooltipVisible":"Ascunde blocul Navigation","tooltipHidden":"Arat\u0103 blocul Navigation"});
+M.util.init_block_hider(Y, {"id":"inst5","title":"Settings","preference":"block5hidden","tooltipVisible":"Ascunde blocul Settings","tooltipHidden":"Arat\u0103 blocul Settings"});
+
+});
+//]]>
+</script>
+
+
+<div id="dock" role="menubar" class="dock dock_left_vertical nothingdocked"><div class="buttons_container" id="yui_3_5_1_1_1363544547090_49"><div class="dockeditem_container"></div><div class="controls"><img alt="Deandochează tot" title="Deandochează tot" tabindex="0" src="./L-3-APD-CA  Laborator 12 - Algoritmi pentru sisteme tolerante la defecte_files/dock_to_block"></div></div></div><div style="display: none;"></div></body></html>

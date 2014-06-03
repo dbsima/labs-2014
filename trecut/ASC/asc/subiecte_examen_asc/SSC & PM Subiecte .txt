@@ -1,0 +1,228 @@
+ 					SSC 341CA
+1).  Structura PMS la ce se intampla in laborator
+2).  Sa se scrie programul SIMD si MIMD care aduna 2 vectori (pe elemente). Sa se analizeze 
+performantele.
+3).  Sa se realizeze un comutator delta intre 16 procesoare si 16 memorii.
+4).  Sa se calculeze probabilitatea de satisfacere a unei cereri intr-un switch cross-bar cu p 
+procesoare si m memorii
+5).  Sa se clasifice sistemele de calcul in functie de fluxul de instructiuni si cel de date
+6).  Comutatoare de tip trunchi K ierarhic si neierarhic
+7).  Implementarea salturilor in instructiunile de tip SIMD 
+8).  Structurarea datelor in sisteme SIMD
+9).  Comunicarea intercluster
+10). Permutare fundamentala de tip intercalare perfecta				
+
+Probleme 
+1.Sa se realizeze schema logica si organigrama pentru un comutator 2:3 fullduplex.
+2.Sa se realizeze organigrama si codul C pentru un program ce simuleaza o retea tip token ring cu
+3 statii folosind trei cozi care fac legatura intre 2 statii.Se va realiza codul doar pentru una
+din statii (simulare transmisiei tata-fiu) .Se utilizeaza un fisier de configurare pe care 
+fiecare student si-l va defini cum doreste.Se pot folosi mecanisme de tip pipa dar nu se vor 
+folosi alte tipuri de mecanisme IPC.Programul nu trebuie sa aiba parametrii la linia de comanda.
+(+ o gramada de alte conditii care m-au depasit ca de altfel intreaga problema).
+	
+				SSC 348 CB
+1)   Descrieti primitiva M (memorie) utillizand PMS
+2)   Considerand o structura multiprocesor pe o magistrala comuna descrieti unitatea de acces la 
+memoria locala
+3)   Sa se scrie programul de adunare a doi vectori de dimensiune n pentru o structura SIMD si 
+pentru una MIMD;(specificati organizarea datelor)
+4)   Implementarea salturilor conditionate in structura SIMD si in MIMD
+5)   Comparatia generala intre SIMD si MIMD
+6)   Succesiunea operatiilor in unui cluster
+7)   Comutarea de tip interclasare perfecta
+8)   Sa se proiecteze o retea de comutare de tip delta intre 16 procesoare si 9 module de 
+memorie (specificati calea intre   procesorul 8 si memoria 3)
+9)   Probabilitatea de a rezolva o cerere in cadrul unui comutator CROSSBAR 16 procesoare si 9 
+memorii
+10)  Descrieti PMS structura laboratorului
+
+					SSC 348 CB Probleme
+
+1) 0,5 puncte     
+     2a-2b (2 procesoare si 2 memorii) .
+   a)	Schema logica 
+   b)	Organigrama cu arbitru care sa functioneze full-duplex
+2) 1,5 puncte
+   a)  Un vector de 3n/2 dimensiune n+1 procesoare prin metoda interclasarii perfecte suma 
+elementelor (pseudocod)
+   b) Sa se implementeze algoritmul de mai sus in C sau C++ vectorul se citeste din fisier iar 
+in loc de procesoare se folosesc procese
+
+					SSC 345 CB
+
+1)   Definiti PMS si dati exemple de primitive
+2)   Comparatie intre comutatorul Cross-Bar si Trunchi K
+3)   Comparatie intre SIMD si MIMD
+4)   Comparatie intre instructiunile de salt conditionat la SIMD si MIMD
+5)   Comparatie intre structura datelor la SIMD si MIMD
+6)   Comunicarea interclustere la MIMD slab cuplate
+7)   Comutator cu intercalare perfecta shuffle (ambele situatii)
+8)   Se da o retea delta de 16 procesoare si 16 memorii. Sa se arate drumul de la procesorul 7 la
+memoria 6
+9)   Definiti probabilitatea de acceptare a unei cereri oarecare la o retea Cross-Bar
+10)  Inmultirea a doi vectori an si bn in SIMD si MIMD unde c[i]=a[i]*b[i]
+
+					SSC 345 CB Probleme
+
+
+1) 0,5 puncte
+	2 procesoare si 3 memorii schema bloc si schema logica
+2)  1,5 puncte
+        Un vector de 3n/4 numere de adunat si n procesoare unde n putere a lui 2
+
+					PM 345CB
+
+1).  Arhitectura generala a microprocesorului 8086
+2).  Comparatii intre ciclul masina 8086 si 80386
+3).  Sincronizarea prin semafoare la 8086
+4.)  Unitatea de arbitrare a microprocesorului - DMA
+5.)  Sa se cupleze o memorie EPROM in spatiul 768k, 768+64k
+6.)  Sa se cupleze o memorie statica RAM de 4Mo la o structura cu microprocesorul 80386 plasat in
+spatiul 0-4M
+7.)  Sa se cupleze 8 porturi de intrare si 8 porturi de iesire considerate ca registre in spatiul
+de adrese 78-7Fh
+8),  Sa se cupleze un sistem de intreruperi la o structura cu microprocesoare
+9).  Caracteristicile generale ale unui procesor pentium
+10). Descrieti calculatorul personal pe care lucrati
+
+					PM
+1)Formatul general al instructiunilor microprocesorului 8086
+2)Lucrul cu intreruperi la 8086
+3)Controlul registrului de adrese la o stuctura cu 8086
+4)Comparatie intre ciclul masina 8086 si 80386
+5)Cuplati la o structura cu microprocesor 8086 o memorie EPROM in spatiul 512-576k
+6)Cuplati 8 porturi de iesire (acestea fiind considerate 8 registre de iesire) in spatiul de 
+adresare 30H-37H
+7)Cuplati o memorie RAM de 4Mo la o structura cu 80386 , incepand de la adresa 0
+8)Cuplarea unui port paralel 8255
+9)Cuplarea unui modul DMA 8237
+10)Organizarea spatului de I/O la 8086
+
+					PM
+1)Spatiul de adresare memorie si I/O la uP 8086
+2)Posibilitati de sincronizare cu exteriorul la 8086
+3)Logica de acces la magistrala de date a sistemului
+4)Cuplarea unei memorii EPROM in spatiul 64k-128k
+5)Conectarea unei memorii RAM statica de 2M in spatiul de adresare 0-2M la o structura cu 386
+6)Lucrul de intreruperi la o structura 8086
+7)Cuplarea a 3 numaratoare programabile , unul utilizat pentru ceas de timp real , iar celelalte
+doua pentru controlul ratei de transfer a interfetei seriale 
+8)Sa se cupleze un modul DMA
+9)Comparatie generala intre 8086 , 80386 , 80486
+10)Sa se conecteze 4 porturi de intrare si 4 porturi de iesire in spatiul 68H-6BH 
+ 
+					PM - Probleme
+
+1)Sa se proiecteze o structura cu un uP generic ce are adrese pe 16 biti , date pe 8 biti si 
+semnale de comanda IORQ,MEMRQ,RD/WR(si INTA,RESET,CLK).Procesorul poate accesa direct 64k SRAM
+si 4k memorie EPROM mapata in spatiul 0-4k.Sistemul este prevazut cu un mecanism de a accesa 
+un total de memorie de 256k impartitia in pagini de 64k.Selectia unei pagini se face printr-un 
+OUT pe portul 100H.La RESET se alege implicit pagina 0 de memorie.Cei 4k de SRAM de la baza 
+memoriei sunt mascati de memoria EPROM.
+ In sistem mai exista si un sistem de intreruperi cu 22 niveluri, selectia uneia din cele 4 
+pagini genereaza o intrerupere pe unul din nivelurile IRQ2,IRQ3,IRQ4 respectiv IRQ5.
+ Un numarator modulo 256 numara schimbarile de pagina generand intrerupere IRQ1 la depasire.
+ Se cere:
+ a)Schema bloc a sistemului
+ b)Detalierea sistemului de memorie SRAM (folosind cipuri de 32k*8)
+ c)Schema sistemului de intreruperi si cuvintele de intializare
+ d)Detalierea sistemului de schimbare a paginilor de memorie
+
+2)Sa se proiecteze o structura cu uP generic cu magistrala de adrese de 16 biti, magistrala de 
+date de 8 biti si cu urmatoarele semnale de control:IORQ,MREQ,RD,WR,INT.
+  Memoria:IORQ,MREQ,RD,WR,INT,cu memorie EPROM in spatiul 0-32k si restul de memorie RAM statica 
+in 32-64k.Accesul la memorie se face combinand semnalele MREQ cu RD sau WR, accesul la spatiul de
+I/O se face folosind IORQ combinat cu RD sau WR.
+  In sistem exista un modul de urmarire a acceselor de I/O in domeniul 0-ffH, adresa de I/O fiind
+de 16 biti.Este posibila urmarirea mai multor adrese de port simultan folosind in acest scop un 
+registru masca ce contine partea fixa din setul de adrese ce intereseaza si un registru de 
+adresa.Toate accesele in spatiul de I/O indicate prin registrele de masca si adresa vor fi 
+memorate in 3 memorii statice:8 biti pentru adresa, 8 biti pentru date si 1 bit pentru tipul 
+accesului (RD/WR).
+  Memoriile statice au capacitatea de 256 cuvinte.Pentru contorizarea acceselor se foloseste un 
+contor de 8 biti ce genereaza INT la depasire.Sistemul mai dispune de un circuit generator de 
+ceas de 4MHz si un circuit timer 8253.Ceasul necesar sistemului este de 2 MHz.
+  Se cere:
+  a)Schema bloc a sistemului(magistrale,procesor,elemente principale)
+  b)Detalierea sistemului de memorie SRAM 32-64K cu cipuri de 8k*8
+  c)Obtinerea ceasului sistem de 2MHz si programarea 8253 pentru generarea unei frecvente de 20HZ
+  d)Schema detaliata a sistemului de urmarire a acceselor
+  e)Alocarea porturilor:
+    -port IN/OUT 100H
+      -reset contor adrese
+      -scrie registru adresa acces SRAM 256
+    -101H citeste tipul accesului(I/O)
+    -102H citeste adresa/scrie registrul adresa
+    -103H citeste date/scrie registru masca
+
+3)Se considera un sistem de dezvoltare pentru un uP cu magistrala de adrese pe 16 biti si 
+magistrala de date pe 8 biti, complet separate si semnale de control:RD,WR,IORQ,MREQ,CLK,RESET
+  Sistemul este prevazut cu o interfata seriala, o memorie RAM de 64k (8k*8) si o memorie ROM de 
+16K(un singur circuit 16k*8).ROM-ul contine un program de incarcare (BOOT) ce transfera un 
+program de test pe interfata seriala in RAM.Dupa punerea sub tensiune, sistemul este in faza de 
+BOOT, cand este permis accesul numai la scriere in RAM si citire din ROM(pentru executia 
+programului de BOOT).Dupa incarcarea completa a programului de test in RAM, se comanda o scriere
+la portul 37H pentru a dezactiva ROM-ul de BOOT si pentru a reseta la cald sistemul astfel incat
+sa ruleze programul de test(din RAM).In aceasta faza este permis accesul de citire in toata 
+memoria RAM si de scriere in spatiul 32k-64k.
+  Se cere:
+  a)Schema bloc(procesor,interfata seriala,memorie)
+  b)Schema detaliata a RAM-ului static(se folosesc DCD 3.8)
+  c)Decodificare port 37H si logica de schimbare a modului de lucru
+  d)Logica de RESET la punerea sub tensiune si la schimbarea modului.
+
+4)Sa se proiecteze o structura cu 8086 ce contine:
+  -memorie EPROM de 64k mapata in spatiul 1M-64k->1M(cipuri 8k*8)
+  -sistem de intreruperi 
+  -timer cu ceas de 5MHz;genereaza intreruperi la fiecare 20ms, avand adresa da baza 0x20h.
+  Sistemul este prevazut cu un circuit de urmarire a acceselor de scriere la portul 0x70h.Toate
+datele scrise la acest port sunt stocate intr-o memorie SRAM de 2k*8(un singur cip). mapata in 
+spatiul 512k->514k.Cand memoria este umpluta se genereaza o interupere IRQ3.Memoria SRAM este 
+accesata de procesor numai pe 8 biti.
+  Se va folosi un numarator binar(pe 11 biti) pentru contorizarea acceselor la portul 0x70h.
+  Se cere:
+  a)Schema bloc, cu evidentierea modului de functionare a procesorului(mod max/min)
+  b)Detalierea memoriei EPROM(schema,mapare)
+  c)Detalierea timerului(schema,initializarea modului de lucru,setarea divizorului)
+  d)Schema bloc a circuitului de urmarire acceselor la portul 0x70h(folosind modulele indicate 
+mai jos) si detalierea blocului de control.(num,sram,mux)
+
+  Pentru a putea obtine dintr-o frecventa de 5MHz un tact cu frecventa de 20ms, trebuie o 
+divizare cu 100000.Rezulta ca trebuie sa folosim 2 din cele 3 numratoare ale circuitului 
+periferic 8253.Primul divizor poate fi setat 50000 iar celalalt cu 2,dar amandoua trebuie setate 
+pentru o numarare zecimala.
+  
+  Decodificarea accesului la portul 0x70h se face:
+    DEC.IN[0,7]=Adr[0,7] ->adresa portului
+    DEC.En=IOW           ->acces la periferice LA
+   
+  Umplerea memoriei SRAM este echivalenta cu terminarea numararii:
+    IRQ3=NUM.Carry
+
+  Fiecare acces la portu 0x70h duce la incrementarea numaratorului
+    NUM.Clk=DEC.Out
+
+  Adresele generate de numarator sunt multiplexate cu adresele generate de procesor
+    MUX.In1[0,10]=NUM.Out[0,10]
+    MUX.In2[0,10]=Adr[0,10]       ->Accesul se face pe 8 biti
+
+  Selectia pentru multiplexor este data tot de iesirea decodificatorului
+    MUX.Sel=DEC.Out ->Daca este activ selecteaza iesirea numaratoprului
+
+  Memoria este conectata pe magistrala de date a sistemului
+    SRAM.Data[0,7]=Data[0,7]
+
+  Daca procesorul vrea sa scrie la port(iesirea decodificatorului este activa) sau vrea sa 
+citeasca din memorie atunci inseamna ca trebuie activat SRAM-ul:
+    SRAM.CS=DEC.Out+SelectSRAMCitire unde:
+  SelectSRAMCitire se obtine cand Adr[0,19] indica spatiul SRAM-ului iar MEMR este activ(0)
+
+  Daca se aceseaza portul atunci facem o acriere in SRAM 
+    SRAM.WR=DEC.Out
+
+  Daca procesorul vrea sa acceseze SRAM-ul atunci citire:
+    SRAM.RD=PROCESOR.MEMRD 
+
+  
+       

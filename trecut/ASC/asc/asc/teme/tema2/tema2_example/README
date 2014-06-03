@@ -1,0 +1,95 @@
+ASC - TEMA2
+Implementarea operatiei dsymv din BLAS
+Sima Dragos-Bogdan 332CA
+
+Cuprins
+1.Functionalitate
+2.Utilizare
+3.Implementare
+4.Testare
+5.Continutul Arhivei
+
+1. Functionalitate
+	Programul realizeaza implementarea operatiei dsymv din BLAS 
+(http://www.netlib.org/blas/) in limbajul C. Operatia realizeaza produsul 
+general intre o matrice si un vector pentru numere in virgula mobila cu dubla 
+precizie dupa formula 
+	y:= alpha*A*x + beta*y, 
+cu alpha si beta scalari, x si y vectori, si A o matrice simetrica.
+
+2. Utilizare
+- $ unzip Sima_Dragos_332CA_Tema2ASC.zip
+- $ scp -R Sima_Dragos_332CA_Tema2ASC username@fep.grid.pub.ro:/asc/tema2
+- $ ssh username@fep.grid.pub.ro
+- $ cd asc/tema2
+- $ ./run.sh
+- $ qstat
+- $ ./test.sh
+
+3. Implementare
+	 Implementarea "de mana" urmareste algoritmul descris la urmatorul link 
+http://www.netlib.org/blas/dsymv.f cu prefizarea ca functia prezentata este
+in limbajul Fortran.
+
+4. Testare
+	4.1 Mediu de testare:
+	Hardware:
+		Memory: 3.7 GiB
+		Processor: Intel Core i5-2410M CPU @ 2.30GHz x 4
+	Software:
+		Release 13 (maya) 64-bit Kernel: Linux 3.2.0-23-generic 
+
+	4.2 Rezultate
+		Au fost efectuate teste pe mai multe seturi de matrici si vectori, 
+	fiecare set de dimensiune diferita. Testul evidentiat de graficul prezent 
+	in arhiva are la baza o matrice de 17000*17000 si 2 vectori de dimensiune 
+	17000 cu elemente generati aleator.
+		Urmarind graficul, realativ la cele 3 arhitecturi, putem observa faptul
+	ca implementarea "de mana", neoptimizata a operatiei BLAS dsymv obtine cei
+	mai slabi timi, apelul functiei cblas_dsymv din libraria cblas.h cei mai 
+	buni timpi si undeva foarte aproape optimizatarea primei implementari.
+
+	Tip procesor	simple_dsymv	cblas_dsymv		optim_dsymv
+	"Xeon Nehalem"	1.377609		0.191444		0.298138
+	"AMD Opteron"	2.010689		0.338944		0.369085
+	"Xeon Quad"		2.335821		0.451079		1.4826191
+
+		Motivul imbunatatirii performantelor il reprezinta folosirea flagurilor
+	de optimizare:
+	
+	- march=native: care teoretic foloseste toate flag-urile de optimizare 
+	aplicabile unui tip de arhitectura
+	
+	- O3: sau -ftree-vectorize pe x64 poate genera conditional move(jump) 
+	pentru ca sa nu existe diferente intre date sortate sau nesortate
+	
+	- fprefetch-loop-arrays: genereaza instructii pentru ca sa fie reduse
+	starile de wait astfel incat sa fie imbunatatite performantele ciclurilor
+	ce acceseaza tablouri de dimensiuni mari
+	
+	- frename-registers: incearca sa evite dependentele false din codul progra-
+	mat prin folosirea registrilor ramasi in urma alocarii (util in cazul pro-
+	cesoarelor cu multi registri)
+	
+		Daca pentru prime 2 procesoare timpii sunt apropiati, singurul tip de 
+	arhitectura care nu are o imbunatatie semnificativa (aproximativ 1 sec) a 
+	timpilor de executie in cazul optimizarii este Xeon Quad. Motivul este 
+	faptul ca este cel mai "batran" si cel cu cele mai slabe performante dintre
+	cele 3, dar si probabil deoarece nu suporta toate optimizarile introduse.
+
+5. Continutul Arhivei
+- README - fisier cu detaliile implementarii temei
+- run.sh - script standard care submite un job folosind pe cozile si cu 
+environment-ul specificat
+- exec_nehalem.sh - fisierul executat pe nodurile din infrastructura "Xeon 
+Nehalem"
+- exec_opteron.sh - fisierul executat pe nodurile din infrastructura "AMD 
+Opteron"
+- exec_quad.sh    - fisierul executat pe nodurile din infrastructura "Xeon 
+Quad"
+- test.sh - script ce afiseaza timpii scosi de pe cele 3 arhitecturi
+- Makefile - fisier folosit pentru automatizarea compilarii si rularii
+- dsymv.c - fisier ce contine implementarea "de mana" si apelul functiei dsymv
+din BLAS, precum si apelul funciei cblas_dsymv din cblas.h
+- opt_dsymv.c - fisier ce contine implementarea "de mana" optimizata si apelul
+functiei dsymv din BLAS

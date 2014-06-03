@@ -1,0 +1,43 @@
+subiectele de azi 05.02.2007 (teorie):
+ 
+1. Primitivele descrierii PMS. Un exemplu de primitive pentru un calculator personal PC.
+2. Organizarea datelor in structura SIMD
+3. Comunicatia intercluster, etapele principale
+4. Probabilitatea de acceptare a unei cereri pentru comutatorul de tip Cross-Bar
+5. Comparatie intre SIMD si MIMD. Structura si implementarea algoritmilor
+6. Structura generala a Kmap-ului.
+7. Comparatie intre permutarea de baza si intercalarea perfecta
+8. Sa se realizeze o retea de comutare Delta intre 16 procesoare si 16 memorii (procesul i - memoria i)
+9. Organigrama generala a unei unitati de control a accesului la magistrala sistemului.
+10. Considerand o structura SIMD si una MIMD cu n procesoare si un vector v(n) sa se scrie un program care face sortarea elementelor.
+ 
+La problema mi-e lene sa mai scriu, poate pune cineva scanata foaia in cauza..
+
+
+
+Bafta!asta e un rand : 
+1.pms - procesorul central
+2.trunchi-k
+3.KML schema logica si functionare
+4.tax. flynn 
+5.mimd - ex de fct fara dep de date + concluzii
+6.org datelor in simd + ex
+7. shuffle descriere si apl generale
+8.comunicatia kbus-map bus 
+9.retele de comutare delta: ex 8x8 cu coresp directa Ii->Oi
+10.caract ale HPC challenge benchmark
+11. arh si/sau apl unuia din sist din top10
+iar celalalt
+
+1. PMS - memoria
+2. Comutatoare: simplex, duplex, dual-duplex
+3. Comunicare Kmag - Pmap
+4. Tipuri sisteme de calcul (nu Flynn) 
+5. MIMD - dependenta de date + concluzii
+6. Organizarea datelor in SIMD
+7. Comunicare intr-un cluster 
+8. PErmutari cu negare pe bit 
+9. Retele delta 9x4 
+10. Avantaje/ dezavantaje LINPACK Se putea inlocui subiectul 11 cu oricare din cele 10.
+11. arh si/sau apl unuia din sist din top10
+astea le-a dat profu nostru anu trecul la cc

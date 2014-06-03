@@ -1,0 +1,1475 @@
+grupe 342 + 344 ca
+
+Subiecte conform asteptarilor 50 min teorie + 50 min problema (e voie
+cu doumentatie)
+
+Teorie:
+1. clasificare sist de calcul dupa Flynn
+2. adunarea a 2 vct in simd + mimd + organizarea datelor
+3. comunicare intercluster
+4. retea intercalare perfecta
+5. comutatoare k ierarhic/neierarhic
+6. Retele delta 9 proc , 4 memorii drumul de la 4 la 3
+7. automatul Kml
+8. salturi simd + mimd
+9. comparatie simd+mimd
+10. pms - facultate
+
+Problema
+
+Un server cu un vector cu n pozitii. P procesoare cu un buffer de
+receptie/trimitere de n/p. Serverul trimite la copii bucati din
+vector sa le sorteze. Astia le sorteaza si dupa aia trimit la toata
+lumea ce au sortat ei. Cu ce primesc de la ceilalti fac intercalare
+(pe masura ce primesc). La sfarsit fiecare copil stie practic tot
+vectorul. de implementat structura de sincronizare, ce se intampla
+daca n nu e multiplu de p, cod pseudocod.
+
+
+teorie:
+
+1. structura PMS din reteaua locala de la facultate
+2. clasificarea FLYNN a sistemelor multiprocesor
+3. comutatot truchi-K ierarhic si neierarhic
+4. sa se proiecteze o retea delta cu 9 procesoare si 4 memorii
+5. se se descrie unitatea de comanda a memoriei locale de la o 
+magistrala (Kml)
+6. salturile neconditionate in SIMD si MIMD
+7. paralela intre structurile SIMD si MIMD
+8. comunicatia interclustere la retele slab cuplate
+9. intercomutarea - interclasare perfecta
+10. sa se adune pe elemente 2 vectori in SIMD si MIMD
+
+
+
+Problema: p procesoare, un vector de n elemente. fiecare procesor are un 
+buffer
+de emisie-receptie de capacitate n/p. toate procesoarele puteau comunica 
+intre
+ele. un procesor mai intai isi sorta datele si dupa aceea trimitea datele
+sortate la celelalte.
+
+cerinte:
+- algoritm : sortarea locala a datelor, interclasarea datelor locale cu cele
+primite
+- complexitatea algoritmului ..
+- ce se intampla daca n nu este multiplu de p
+... problema este neclara ..
+
+
+teorie:
+
+1. structura PMS din reteaua locala de la facultate
+2. clasificarea FLYNN a sistemelor multiprocesor
+3. sa se proiecteze o retea delta cu 16 procesoare si 16 memorii
+4. se se descrie unitatea de comanda pt accesul la magistrala (Kmag)
+5. paralela intre salturi la SIMD si MIMD
+6. implementarea salturilor la MIMD (subiectul nu exista in curs, da' 
+Tapus a
+zis ca vrea parerea noastra).
+7. moduri de stocare a datelor la SIMD.
+8. comunicatia interclustere la retele slab cuplate.
+9. mecanisme de sincronizare la sistemele multiprocesor.
+10. descrierea algoritmului de aflare a maximului pe fiecare coloana a unei
+matrice A[n,n] in SIMD.
+
+TIMP: 50 min - aproximativ destul si ceva (!) - apuci sa rezolvi subiectele.
+
+Problema: se dau N procesoare; fiecare genereaza un numar aleator in fiecare
+runda. Castigatorul rundei este procesorul care a generat numarul cel mai
+apropiat de media celor N numere.
+
+Exista m runde.
+
+Fiecare procesor isi cunoaste propriii vecini ( simplificare: graful 
+vecinilor
+este aciclic). Initial au zis ca fiecare procesor nu cunoaste N, dar pe la
+jumatea timpului au zis sa consideram ca N este cunoscut de procesoare.
+
+Sunt doua cazuri de rezolvat:
+
+a. procesele sunt pe acelasi calculator;
+
+b.procesele sunt pe calculatoare diferite.
+
+Cerinte:
+
+Pseudocod in C (! adica un C aproximativ in care nu trebuia sa 
+specificam strict
+parametrii unor functii...) pt rezolvarea problemei. - 2.5 p
+
+Explicatii privind rezolvarea. - 5 p
+
+inca 2 cerinte pe care nu le mai stiu. - 2.5p+1p
+
+TIMP:1 h - berechet ca oricum nu stiam sa fac problema :).
+
+NOTARE: 1p problema
+4p teoria
+5p lab+teme de casa (probabil 5p lab si teme de casa 0p)
+
+TOTAL: 10p
+
+Prezenta- desi Tapus a facut atata valva - nu cred ca a contat (decat- cine
+stie- poate la rotunjiri ).
+
+Corecteaza asistentii si problemele si teoria (s-ar parea ca e bine asa).
+
+BAFTA.
+
+PS: scuze pt eventualele erori.
+
+A fost pe 4 numere teoria, o singura problema de bash la toata lumea. La
+numarul meu a fost:
+
+I. Implementarea mem virtuale la MULTICS si Intel.
+
+II.
+1. Sist de fisiere FAT. Imbunatatiri aduse de FAT32 si VFAT.
+2. Problema filosofilor.
+3. Implementarea planificarii la multicalculatoare. Probleme care apar,
+algoritmii graf..., initiat de senedr, initiat de receiver.
+4. LRU cu matrice de biti. Era un vector oarecare etc pe care sa explici.
+5. Comparatie intre spinning si switching
+
+Problema a fost ceva de genul acesta: sa da ca parametru un nume de 
+fisier, iar
+scriptul trebuie sa determine ce procese, care ruleaza momentan, apar in 
+tabela
+de fisiere deschise si cu ce fd... In /proc sunt directoarele ptr PID-urile
+curente. In directorul unui PID este un fisier fd unde sunt fisierele 
+deschise.
+Ex in /proc/456/fd.
+
+Output script:
+PID, numele executabilului, file descriptor.
+
+Ex:
+467 fisier.out 3
+Salut!
+
+pentru cei interesati de subiecte de examen BD:
+
+1. Se da R = A B C D E F si F= { A->B,CD->A,BC->D,AE->F,CE->D}
+Se cere:
+a) sa se gaseasca o cheie pentru R si sa calculeze inchiderea
+b) sa se gaseasca o descompunere ro in FNBC
+
+2. Se da R = A B C D E F si F = {A->B,A->F,B->E,D->B,E->A}si ro = (AB, 
+BCD, AEF,
+CDE )
+Se cere:
+a) sa se gaseasca o cheie pt R si sa se demonstreze logic si calculand
+inchiderea.
+b) sa se demonstreze j.f.p.
+c) sa se gaseasca o descompunere in FN3.
+
+3. Problema de SQL
+Se dadeau trei tabele, PRODUSE, PRETURI_PRODUSE si INFORMATII_LUNARE. Se
+cerea crearea tabelelor si stabilirea relatiilor dintre acestea ( sa 
+stabilim
+singuri cheile ), inserarea unei linii intr-o coloana, o stergere, un update
+destul de complicat si un raport de facut.
+
+From: cireseanu iulia <iuly_ciri@y...>
+Date: Tue Jan 28, 2003 9:42 pm
+Subject: PM-28.01.2003-problema
+
+Problema:
+
+Date:
+uP generic, adrese si date pe 16 biti.Are:
+- EPROM 8K la sfarsit
+- SRAM 16K in primii 32K (aici era smecheria, ceva mem
+virtuala...)
+- o stiva HW in spatiul 32K - 32K+1, accesul R/W se
+face la portul 123h
+Cerinte:
+1. Schema bloc :1p
+2. Mapare EPROM cu 8Kx8 :2p
+3. Mapare SRAM cu 8kx8 :3p
+4. implementare stiva :4p
+
+From: DORU Liviu <liviu_doru@y...>
+Date: Thu Jan 30, 2003 8:43 am
+Subject: PM-29ian2003_341&346CA
+
+Subiecte PM:
+
+1. Comparatie intre ciclul masina 8086 si 80386.
+2. Sa se mapeze o memorie EPROM in spatiul 0-64k. (parca)
+3. Sa se mapeze o memorie SRAM in spatiul 128k- (128k+526k).
+4. Sa se cupleze 4 porturi de intrare in spatiul 38h-3Bh si 4 porturi de 
+iesire
+in spatiul 3Ch-3Fh.
+5. Sa se cupleze o interfata pentru timp real.
+6. Unitatea de arbitrare intre uP si DMA. Principii, schema.
+7. Paralela intre organizarea memoriei la 8086 si 80386.
+8. Descrieti un calculator la care ati lucrat.(adica structura: uP, mem,
+magistrale, I/O).
+9. Sincronizarea cu module externe folosind semnalul TEST.
+10. Modalitati de initializare a sistemului.
+
+Timp: 50min.
+
+Problema: Structura bazata pe uP 8086. Semnale: MEMR,MEMWR,IOR,IOW,INT. 
+Date:8
+biti, Adrese:16 biti. EPROM: 16k in ultimii 16k de memorie. SRAM: 128 k in
+primii 32k de memorie(HINT: 4 bancuri de cate 32k, bancul e selectat de un
+registru cu adresa 100h, adica poti scrie sau citi nr bancului la/de la 
+adresa
+100h). La asta se cupleaza o interfata seriala sincrona (adica clk vine din
+afara ei) la adresa 3F8 h (parca).
+
+a. Schema bloc.
+b. Mapare EPROM cu chipuri de 16kx4.
+c. Mapare SRAM cu chipuri de 16kx8.
+d. Schema pt interfata seriala.
+
+Timp de lucru: 45min(Asistenta ne-a mai dat insa inca 10 min).
+
+Se zvonea ca a corectat Tapus dar nu stiu daca e asa. Au fost multe note 
+mari.
+Nu stiu cum e cu notele mici/picat etc.
+
+ENJOY PM.
+
+From: "Stefan-Mihai MOGA" <nota10@m...>
+Date: Fri Jan 31, 2003 2:27 pm
+Subject: Subiecte PM * 343CB * 31-ian-2003
+
+Salut!
+
+iata subiectele de azi date la PM, grupa 343CB:
+
+Teoria:
+1. Sincronizare cu semafoare la 8086
+2. K arbitru ptr DMA si uP
+3. Sa se mapeze EPROM 256K:256K+128K
+4. Sa se cupleze la magistrala 8255
+5. Comparatie intre organizarea sp memorie si sp I/O
+6. Cuplare DMA
+7. Mapare SRAM in spatiul 512K: 512K+64K
+8. Sa se mapeze 4 porturi intrare, 4 porturi iesire in spatiul 1CH:1FH
+9. Cuplarea sist de intreruperi
+10. Calc pe care il visam:))
+
+Problema suna ceva de genul:
+- uP generic, Adrese pe 16 biti, date pe 8 biti
+- semnale: MEMRD MEMWR IORD IOWR INT
+- EPROM 16k
+- RAM 16k
+Sist de nr a scrierilor la adrese pare reale in RAM
+
+Se cere:
+1. schema bloc (1p)
+2. Mpare EPROM in primii 16k memorie, folosind 16kX4 (3p)
+3. Mapare RAM in ultimii 32K, cu 4kX8 (3p)
+4. schema ptr sistemul de numarare (3p)
+
+p.s. textul original ii apartine domnisoarei Cristina SERAFINEANU.
+
+Stefan-Mihai MOGA, 343CA
+email: nota10@m...
+phone: +40-788-23.93.53
+
+From: "Radu Blat" <ioradu@g...>
+Date: Mon Feb 3, 2003 8:23 pm
+Subject: Sub. RC, 3.2.03
+
+
+ADVERTISEMENT
+
+
+Sub. RC, 3 feb. 2003 (ce-mi amintesc din ele):
+
+1.. Modelul OSI. Descriere generala.
+2.. Interconectarea subretelelor
+3.. Secventa FCS. Principiul si situatiile detectate
+4.. Prioritati la Token Ring
+5.. Nivelele ATM
+6.. Descrierea protocolului CSMA/CD
+7.. Principiul de functionare Token Bus
+8.. Functiile nivelelor OSI.
+9.. Descrierea retelei din laborator
+10.. Descriere functii MAC si LLC
+Nu s-a dat problema. 50 min.
+
+From: DORU Liviu <liviu_doru@y...>
+Date: Tue Feb 4, 2003 3:53 pm
+Subject: BD-03.02.2003; 346+341CA
+
+
+ADVERTISEMENT
+
+
+Subiecte BD de luni 03.02.2003:
+
+P1. Se da schema de relatie R=ABCDEF si multimea de DF F={A->E,D->F, C->A,
+CD->E}. Se cere:
+
+a. Sa se gaseasca mai intai logic o cheie minimala pentru R si apoi sa se
+calculeze inchiderea sa.(a pus accent sa respectam cerinta intocmai). 
+Exista si
+alte chei minimale?
+
+b. Sa se gaseasca o descompunere ro a schemei date in FNBC si sa se 
+calculeze
+la fiecare pas proiectia de DF de la pasul anterior pe subschema de 
+relatie din
+pasul curent.(a pus accent si pe chestia asta - sa calculam fiecare 
+proiectie
+in parte, nu doar "sa desenam" - citez). Sa se arate ca fiecare subschema
+obtinuta este in FNBC utilizand definitia FNBC.
+
+c. ro obtinut pastreaza DF?
+
+P2. (surpriza!!!) Se dau 2 tranzactii T1 si T2:
+
+T1: Read A->a1; a1+1->a1; Write a1->A
+Read B->b1; b1+1->b1; Write b1->B
+
+T2: Read A->a2; a2*2->a2; Write a2->A
+Read B->b2; b2*2->b2; Write b2->B
+
+Se da si constrangerea de integritate A=B.
+
+a. Sa se gaseasca o secventa de executie care sa puna in evidenta o 
+pierdere de
+operatie.
+
+b. Sa se gaseasca o secventa de executie a operatiilor care sa duca la o BD
+neconsistenta.
+
+c. Sa se gaseasca o secventa de executie a operatiilor care sa duca la o BD
+consistenta.
+
+Timp (P1+P2): 45 min.
+
+pauza : 2min
+
+P3. Se dau tabelele :
+
+ANGAJAT: ID_Angajat, nume, prenume, cod_departament, varsta, etc
+
+SALARIU_LUNAR: ID_Angajat, luna, an, prima, salariu_baza, penalizare,
+salariu_net.
+
+PLAFON_SALARII: ID_PLAFON, Den_plafon, Salariu_minim, Salariu_maxim
+
+Obs: initial campul salariu_net este null. El va fi inlocuit cu expresia
+SALARIU_NET=SALARIU_BAZA+PRIMA-PENALIZARE.
+
+Cheile primare si straine le stabilim noi. "Atentie la chei" - citat din
+Popeanga.
+
+Cerinte:
+a. sa se creeze tabelele
+b.sa se efectueze o operatie de inserare si o operatie de stergere in/din
+SALARIU_LUNAR (oarecare)
+c. sa se inlocuiasca Salariu_net cu expresia de mai sus pt 
+inregistrarile care
+- au luna si anul egale cu doua variabile citite de la tastatura
+- au salariul cuprins intre limitele impuse de plafonul PLAFON_TESA
+- persoana in cauza are varsta para
+- in luna si anul respectiv penalizarea nu depaseste o val data (nu-mi aduc
+aminte prea bine)
+-etc
+d. se cere un raport in care sunt incluse persoanele care au prima mai 
+mare de
+100 in formatul urmator:
+
+data
+nr pagina
+
+SITUATIA ....
+
+NR_DEP NUME PRENUME SAL_BAZA PRIMA PENALIZARE(?)
+
+1 Ionescu George 1000 120 10
+
+wiefjsjdf xxxxxxx
+
+<<rand gol>>
+
+2 popescu gigel 1022 150 21
+
+etc
+
+unde persoanele sunt trecute in ordine crescatoare a SAL_BAZA(parca) si la
+trecerea de la un departament la altul se lasa un rand gol. 60 
+caractere/linie
+30 linii pe ecran; se cerea sa se specifice cum am facut sa scriem nr de 
+pagina
+( raspuns: nr de pagina se afiseaza implicit cand se face titlul cu
+TTITLE 'SITUATIA...' :) ).
+
+Timp (P3): 45 min.
+
+Prof a dat subiectele si a plecat din sala. Am ramas cu Popeanga. A fost o
+surpriza P2 (cica anul trecut nu a predat asa ceva si deci asemenea pb 
+nu s-au
+dat anul trecut) dar a fost banal pt cei care au fost la curs sau s-au uitat
+macar o singura data pe cursul respectiv. Credeam ca da doar pb cu scheme de
+relatie si balareli de-alea. La pb am avut voie cu orice fel de 
+documentatie si
+Popeanga a zis ca are pretentia ca rezolvarea sa fie corecta sintactic.
+
+S-au luat note mari. Daca vreti sa-l iritati pe prof, intrebati-l ce punctaj
+are fiecare subiect in parte, ca se oftica rau. Raspunsul o sa fie ceva de
+genul: "faceti cat de mult stiti; incercati sa faceti perfect totul"- 
+aspiratia
+spre absolut :(. Asta probabil pt ca are un algoritm expert de calculare a
+notei (care se schimba in functie de situatie).
+
+La inceput ii pomeneste pe cei care au dus doar 1/nici o tema de casa, 
+dar nu
+cred ca mai conteaza la nota chestia asta.
+
+Nu stiu daca nota de la lab mai conteaza in vreun fel. Am auzit pareri 
+cum ca n-
+ar conta.
+
+Exm e usor - afirma tot mai multe persoane.
+
+Discleimar: Informatiile din prezenta sunt copiate din clipboardul 
+personal asa
+ca NU va asteptati sa fie neaparat corecte, complete sau mai stiu eu ce alte
+aberatii. Mi-am dat totusi silinta sa redau cat mai fidel realitatea 
+(noroc ca
+nu sunt poet ca nu mai intelegeati chiar nimic) si consider ca am respectat
+conditiile de integritate(adica ideile generale).
+
+
+ENJOY BD.
+
+From: "Razvan Musaloiu-E." <razvanme@y...>
+Date: Fri Jan 18, 2002 8:23 pm
+Subject: [Fwd: [NameFree] Examen BD!!!!]
+
+
+
+City:
+
+Check-in: Check-out:
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+
+
+
+
+Salut!
+
+Iaca un om bun care nu uitat de ceilaltzi... :-)
+
+andrei_arion wrote:
+ >
+ > //Pentru RAZVAN
+ > //te rog pune-le si tu pe nota 10 ca eu mi-am uitat
+ > //parola si nu am timp sa fac recovery (STUPID)
+ >
+ > Scuze pt hint-ul de la RC (dar noi n-am dat Novell, Winnt etc :-( )
+ > NOTA!!!!Asta e ceea ce am inteles eu si ceea ce-mi amintesc
+ > Teoria e fara documentatie in 45 de min
+ > 1)Fie R(A,B,C,D,E,G)
+ > F={A->C;B->D;D->B;BD->E}
+ > a)Gasiti 2 chei minimale pentru R si explicati de ce sunt chei si
+ > minimale .(Algoritm pe care ni-l cerea: Se calc inchiderile multimilor
+ > formate din 1 atribut,apoi combinatii de 2 atribute,etc pana gasim
+ > combinatii a caror inchidere este R ->sunt chei)
+ > b)De la F cu axiomele lui Armstrong si cu regulile de inferenta
+ > calculati toate DF care se deduc direct(din F aplicand o singura data
+ > cele de mai sus)
+ > - sunt f multe deci ar mai trebui explicat si redus unele
+ > c)Descompuneti intr-o desc FN3 care sa pastreaza DF si JFP
+ > (demonstrati ca pastr DF si JFP)
+ > - eu numai am aberat putin pe tema si a fost bine
+ > 2)Se da R=... si o descompunere ro=...Sa se dem ca e jfp.(alg cu
+ > tabelul din curs)
+ >
+ > 3) SQL (cu ORICE documentatie in 40 de min)
+ >
+ > NOTE(Matricola, Nume, Pren, Disciplina, Nota, Data)
+ > MEDIE(Matricola, Nume, Prenume, Medie_An, An)
+ > a) creati tabelele
+ > b) inserati niste valori in ele
+ > Restrictii: la inserare in Medie Medie_an se calc automat daca
+ > studentul respectiv are note la toate cele 10 discipline altfel nu se
+ > pune nimic.La inserare in Note data=sysdate(default)
+ > c)schimbat o nota
+ > d)sters o nota / medie
+ > e) selectat tori studentii cu media mai mare decat media unei grupe
+ > introduse de la tastatura (ordonat descrescator dupa medii grupat dupa
+ > grupa)
+ > f) Raport
+ > Cu nr linii: Nr de charact pe linii, etc.
+ >
+ > "Titlu"
+ > PAg 1 Data:sysdate
+ > Nr Gr Nume Pren Medie
+ > 341 X X 9.33
+ > Y Y 8.99
+ > z z 8.88
+ > ...
+ > Media grupa: 8.66
+ > 341 ....
+ > ..........
+ >
+ > Decan:
+ >
+ > Trebuie afisati pe grupe in ord descr a mediilor toti stud care
+ > indeplinesc cond de bursa (>8 media si ...)
+ > Trebuie salvat si intr-un fisier raport.lst in vederea salvarii
+ > ulterioare.
+ > etc.
+ >
+ > Bafta multa!
+ >
+ > Andrei(sau Apatrat?)
+ >
+
+--
+Sa fiti iubiti!
+Razvan ME
+
+Salut!
+
+Iata ce a povestit Emiran intr-o scurta discutzie intima:
+
+ > 1. Se da R=a,b,c,d,e,f, F= (cred ca era) {a-b, a-f, b-e, d-b, e-a}
+ > a. gasiti o cheie minimala. e unica?
+ > b. axioma a2 si R2 sa se aplice pe F si sa se obtina alte 6 noi DF
+ > c. fnbc
+ > d. fiecare descopmunere este fnbc sa se arate
+ > 2. Se dau F si R de mai sus si descompunerea P=..., => j.f.p
+ > 3. Aceeasi problema de sql care s-a mai dat:cu foart emici
+ > modificari (una sau doua)
+
+From: "razvanme" <razvanme@y...>
+Date: Tue Jan 22, 2002 9:16 am
+Subject: BD - 22 ian
+
+
+
+From: To:
+
+Departing: Returning:
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+
+
+
+
+Salut!
+
+Iata meniul de astazi:
+
+Prima parte (~45min):
+P1. Se da R = {A, B, C, D, E, F} shi multzimea de DF
+F = {A-> B, CD->A, BC->D, AE->F, CE->D}. Se cere:
+a. sa se afle o cheie minima. Sa se afla daca mai exista
+shi alte chei minime.
+b. sa se afla descompunea FNBC folosind algorimtul. La fiecare
+pas se cerea sa se verifice proprietatea FNBC a submultzimilor
+determinate.
+c. sa se demonstreze ca descompunerea de la b. are proprietatea
+de j.f.p.
+d. sa se demonstreze ca descompunearea de la b. conserva DF.
+
+P2. Sa se afla o descompunere sigma a lui R folsind agloritmul
+de descompunere FN3.
+
+Partea a doua (~40min):
+a. sa se creeze bazele de date. Se cerea sa punem noi ce
+contrangere credem de cuviintza. Erau trei baze de date.
+b. sa se faca o stergere shi un update pe una din baze.
+c. se faca un update mai ciudatzel le una din baze de date.
+Vroia sa facem update la SALARII la campul SALARIU la angajatzii
+care indeplineau un anumit criteriu. Campun SALARIU se calcula
+pe baza informatziilor din PONTAJ.
+d. un raport.
+
+Bazele de date era ceva de genul:
+ANGAJATI: ID, NUME, PRENUME...
+PONTAJ: ID, AN, LUNA, ORE_LUCRATE...
+SALARIU: ID, AN, LUNA, SALARIU
+
+Obs: seminaritul care a venit a fost Popeanga.
+
+Asta e tot... Pe noi ne-a chemat la 13:30 dupa rezultate.
+Acuma e 11:10 :-)
+
+--
+Razvan ME
+Sa fiti iubiti!
+
+From: "Ichim Aurel" <iky79@h...>
+Date: Tue Jan 22, 2002 9:15 am
+Subject: subiecte BD
+
+
+
+City:
+
+Check-in: Check-out:
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+JanFebMarAprMayJunJulAugSepOctNovDec12345678910111213141516171819202122232425262\
+728293031
+
+
+
+
+Azi 22 ian:
+
+P1:
+Se da schema de relatie: R=(A,B,C,D,E,F) si multimea de DF
+F={A->B,CD->A,AE->F, CE->D}
+a) sa se gaseasca o cheie minimala si sa se arate daca R mai are si alte
+chei minimale
+b) sa se gaseasca pt R o descompunere ro astfel incat toate subschemele sa
+fie in FNBC. La fiecare pas al aplic alg se vor calcula proiectiile
+anterioare de DF pe subschemele asociate cu pasul curent. Se vor dem in
+fiecare pas de ce subschemele sunt in FNBC.
+c)Sa se dem ca desc ro are prop de j.f.p. aplicand alg cunoscut
+d)Sa se analizeze pastrarea dependentelor functionale din F de catre
+descompunerea ro
+P2. Pt schema de relatii R si DF date sa se gaseasca o desc ro in FN3
+P3.Sa se scrie o secv SQL+ pentru:
+a) crearea tabelelor
+ANGAJAT PONTAJ SALARIU
+
+Id_Ang N(4) An N(4) An(4)
+Nume V(20) Luna N(2) Luna(2)
+Prenume V(20) Id_Ang N(4) Id_Ang N(4)
+Id_Dep N(2) Nr_Ore_Lucru N Salarii N
+Data_Ang D Lei_Ora N
+Meserie V(20) Lei_Prima N
+Nr_Ore_Lipsa N
+Retineri N
+b) Operatie de modificare si sterfere cu tabela PONTAJ
+c)completati in campul salariu din tabela salarii donform formulei
+specificate pt topti angajatii introdusi in pontaj care au lipsit mai putin
+de 10% din timpul de lucru.Anul si luna vor fi introduse de la tastatura
+Salariu = (ore_lucr -ore_lipsite) * lei_ora+prima-retineri
+sa se construiasca un raport sub forma unui tabel pt toti angajatii din
+depart nr par care nu au nici o ora lipsa , se vor ordona tralalalala
+intelegeti voi...
+
+
+
+Bafta!!!
+
+Nu mai stiu exact ordinea:
+1.Clasificare sisteme de calcul.
+2.Adunarea a doi vectori in SIMD si MIMD.Structurarea
+datelor.
+3.Retea de tip intercalare perfecta.
+4.Comutatoare de tip trunchi K ierarhic si neierarhic.
+5.Comunicarea intercluster.
+6.Realizarea unei retele de tip delta cu 9 proc
+conectate la 4 mem.Drumul de la proc. 4 la mem
+3.(parca!!)
+7.Unitatea Kml(automatul)
+8.Realizarea salturilor la SIMD si MIMD.
+9.Descrierea PMS a retelei din fac.(parca-pe asta abia
+am apucat sa-l citesc)
+10.-am uitat
+
+Problema!!!(noi n-am prea crezut ca o sa se dea asa ca
+luati-va cat mai multa doc.):
+n-proc trebuie sa calculeze max. unui sir de m
+element,folosind:
+a)metoda Token ring
+b)metoda comunicarii intercluster
+c)cele n procese au acces la o zona de mem. partajata
+a)Descrierea celor 3
+situatii(sincronizare,complexitate,eficienta)
+b)pseudocod la o situatie
+Bafta!!
+
+
+
+From: "Catalin Vlad" <catav@p...>
+Date: Tue Jan 22, 2002 8:22 am
+Subject: ssc si pm
+To: <cstanciu@f...>
+
+
+
+
+
+SSC 341CA
+1). Structura PMS la ce se intampla in laborator
+2). Sa se scrie programul SIMD si MIMD care aduna 2 vectori (pe 
+elemente). Sa
+se analizeze
+performantele.
+3). Sa se realizeze un comutator delta intre 16 procesoare si 16 memorii.
+4). Sa se calculeze probabilitatea de satisfacere a unei cereri intr-un 
+switch
+cross-bar cu p
+procesoare si m memorii
+5). Sa se clasifice sistemele de calcul in functie de fluxul de 
+instructiuni si
+cel de date
+6). Comutatoare de tip trunchi K ierarhic si neierarhic
+7). Implementarea salturilor in instructiunile de tip SIMD
+8). Structurarea datelor in sisteme SIMD
+9). Comunicarea intercluster
+10). Permutare fundamentala de tip intercalare perfecta
+
+Probleme
+1.Sa se realizeze schema logica si organigrama pentru un comutator 2:3
+fullduplex.
+2.Sa se realizeze organigrama si codul C pentru un program ce simuleaza 
+o retea
+tip token ring cu
+3 statii folosind trei cozi care fac legatura intre 2 statii.Se va 
+realiza codul
+doar pentru una
+din statii (simulare transmisiei tata-fiu) .Se utilizeaza un fisier de
+configurare pe care
+fiecare student si-l va defini cum doreste.Se pot folosi mecanisme de 
+tip pipa
+dar nu se vor
+folosi alte tipuri de mecanisme IPC.Programul nu trebuie sa aiba 
+parametrii la
+linia de comanda.
+(+ o gramada de alte conditii care m-au depasit ca de altfel intreaga 
+problema).
+
+SSC 348 CB
+1) Descrieti primitiva M (memorie) utillizand PMS
+2) Considerand o structura multiprocesor pe o magistrala comuna descrieti
+unitatea de acces la
+memoria locala
+3) Sa se scrie programul de adunare a doi vectori de dimensiune n pentru o
+structura SIMD si
+pentru una MIMD;(specificati organizarea datelor)
+4) Implementarea salturilor conditionate in structura SIMD si in MIMD
+5) Comparatia generala intre SIMD si MIMD
+6) Succesiunea operatiilor in unui cluster
+7) Comutarea de tip interclasare perfecta
+8) Sa se proiecteze o retea de comutare de tip delta intre 16 procesoare 
+si 9
+module de
+memorie (specificati calea intre procesorul 8 si memoria 3)
+9) Probabilitatea de a rezolva o cerere in cadrul unui comutator CROSSBAR 16
+procesoare si 9
+memorii
+10) Descrieti PMS structura laboratorului
+
+SSC 348 CB Probleme
+
+1) 0,5 puncte
+2a-2b (2 procesoare si 2 memorii) .
+a) Schema logica
+b) Organigrama cu arbitru care sa functioneze full-duplex
+2) 1,5 puncte
+a) Un vector de 3n/2 dimensiune n+1 procesoare prin metoda interclasarii
+perfecte suma
+elementelor (pseudocod)
+b) Sa se implementeze algoritmul de mai sus in C sau C++ vectorul se citeste
+din fisier iar
+in loc de procesoare se folosesc procese
+
+SSC 345 CB
+
+1) Definiti PMS si dati exemple de primitive
+2) Comparatie intre comutatorul Cross-Bar si Trunchi K
+3) Comparatie intre SIMD si MIMD
+4) Comparatie intre instructiunile de salt conditionat la SIMD si MIMD
+5) Comparatie intre structura datelor la SIMD si MIMD
+6) Comunicarea interclustere la MIMD slab cuplate
+7) Comutator cu intercalare perfecta shuffle (ambele situatii)
+8) Se da o retea delta de 16 procesoare si 16 memorii. Sa se arate drumul de
+la procesorul 7 la
+memoria 6
+9) Definiti probabilitatea de acceptare a unei cereri oarecare la o retea
+Cross-Bar
+10) Inmultirea a doi vectori an si bn in SIMD si MIMD unde c[i]=a[i]*b[i]
+
+SSC 345 CB Probleme
+
+
+1) 0,5 puncte
+2 procesoare si 3 memorii schema bloc si schema logica
+2) 1,5 puncte
+Un vector de 3n/4 numere de adunat si n procesoare unde n putere a lui 2
+
+PM 345CB
+
+1). Arhitectura generala a microprocesorului 8086
+2). Comparatii intre ciclul masina 8086 si 80386
+3). Sincronizarea prin semafoare la 8086
+4.) Unitatea de arbitrare a microprocesorului - DMA
+5.) Sa se cupleze o memorie EPROM in spatiul 768k, 768+64k
+6.) Sa se cupleze o memorie statica RAM de 4Mo la o structura cu
+microprocesorul 80386 plasat in
+spatiul 0-4M
+7.) Sa se cupleze 8 porturi de intrare si 8 porturi de iesire considerate ca
+registre in spatiul
+de adrese 78-7Fh
+8), Sa se cupleze un sistem de intreruperi la o structura cu microprocesoare
+9). Caracteristicile generale ale unui procesor pentium
+10). Descrieti calculatorul personal pe care lucrati
+
+PM
+1)Formatul general al instructiunilor microprocesorului 8086
+2)Lucrul cu intreruperi la 8086
+3)Controlul registrului de adrese la o stuctura cu 8086
+4)Comparatie intre ciclul masina 8086 si 80386
+5)Cuplati la o structura cu microprocesor 8086 o memorie EPROM in spatiul
+512-576k
+6)Cuplati 8 porturi de iesire (acestea fiind considerate 8 registre de 
+iesire)
+in spatiul de
+adresare 30H-37H
+7)Cuplati o memorie RAM de 4Mo la o structura cu 80386 , incepand de la 
+adresa 0
+8)Cuplarea unui port paralel 8255
+9)Cuplarea unui modul DMA 8237
+10)Organizarea spatului de I/O la 8086
+
+PM
+1)Spatiul de adresare memorie si I/O la uP 8086
+2)Posibilitati de sincronizare cu exteriorul la 8086
+3)Logica de acces la magistrala de date a sistemului
+4)Cuplarea unei memorii EPROM in spatiul 64k-128k
+5)Conectarea unei memorii RAM statica de 2M in spatiul de adresare 0-2M la o
+structura cu 386
+6)Lucrul de intreruperi la o structura 8086
+7)Cuplarea a 3 numaratoare programabile , unul utilizat pentru ceas de 
+timp real
+, iar celelalte
+doua pentru controlul ratei de transfer a interfetei seriale
+8)Sa se cupleze un modul DMA
+9)Comparatie generala intre 8086 , 80386 , 80486
+10)Sa se conecteze 4 porturi de intrare si 4 porturi de iesire in spatiul
+68H-6BH
+
+PM - Probleme
+
+1)Sa se proiecteze o structura cu un uP generic ce are adrese pe 16 biti 
+, date
+pe 8 biti si
+semnale de comanda IORQ,MEMRQ,RD/WR(si INTA,RESET,CLK).Procesorul poate 
+accesa
+direct 64k SRAM
+si 4k memorie EPROM mapata in spatiul 0-4k.Sistemul este prevazut cu un 
+mecanism
+de a accesa
+un total de memorie de 256k impartitia in pagini de 64k.Selectia unei 
+pagini se
+face printr-un
+OUT pe portul 100H.La RESET se alege implicit pagina 0 de memorie.Cei 4k 
+de SRAM
+de la baza
+memoriei sunt mascati de memoria EPROM.
+In sistem mai exista si un sistem de intreruperi cu 22 niveluri, 
+selectia uneia
+din cele 4
+pagini genereaza o intrerupere pe unul din nivelurile IRQ2,IRQ3,IRQ4 
+respectiv
+IRQ5.
+Un numarator modulo 256 numara schimbarile de pagina generand 
+intrerupere IRQ1
+la depasire.
+Se cere:
+a)Schema bloc a sistemului
+b)Detalierea sistemului de memorie SRAM (folosind cipuri de 32k*8)
+c)Schema sistemului de intreruperi si cuvintele de intializare
+d)Detalierea sistemului de schimbare a paginilor de memorie
+
+2)Sa se proiecteze o structura cu uP generic cu magistrala de adrese de 
+16 biti,
+magistrala de
+date de 8 biti si cu urmatoarele semnale de control:IORQ,MREQ,RD,WR,INT.
+Memoria:IORQ,MREQ,RD,WR,INT,cu memorie EPROM in spatiul 0-32k si restul de
+memorie RAM statica
+in 32-64k.Accesul la memorie se face combinand semnalele MREQ cu RD sau WR,
+accesul la spatiul de
+I/O se face folosind IORQ combinat cu RD sau WR.
+In sistem exista un modul de urmarire a acceselor de I/O in domeniul 0-ffH,
+adresa de I/O fiind
+de 16 biti.Este posibila urmarirea mai multor adrese de port simultan 
+folosind
+in acest scop un
+registru masca ce contine partea fixa din setul de adrese ce intereseaza 
+si un
+registru de
+adresa.Toate accesele in spatiul de I/O indicate prin registrele de masca si
+adresa vor fi
+memorate in 3 memorii statice:8 biti pentru adresa, 8 biti pentru date 
+si 1 bit
+pentru tipul
+accesului (RD/WR).
+Memoriile statice au capacitatea de 256 cuvinte.Pentru contorizarea 
+acceselor
+se foloseste un
+contor de 8 biti ce genereaza INT la depasire.Sistemul mai dispune de un 
+circuit
+generator de
+ceas de 4MHz si un circuit timer 8253.Ceasul necesar sistemului este de 
+2 MHz.
+Se cere:
+a)Schema bloc a sistemului(magistrale,procesor,elemente principale)
+b)Detalierea sistemului de memorie SRAM 32-64K cu cipuri de 8k*8
+c)Obtinerea ceasului sistem de 2MHz si programarea 8253 pentru generarea 
+unei
+frecvente de 20HZ
+d)Schema detaliata a sistemului de urmarire a acceselor
+e)Alocarea porturilor:
+-port IN/OUT 100H
+-reset contor adrese
+-scrie registru adresa acces SRAM 256
+-101H citeste tipul accesului(I/O)
+-102H citeste adresa/scrie registrul adresa
+-103H citeste date/scrie registru masca
+
+3)Se considera un sistem de dezvoltare pentru un uP cu magistrala de 
+adrese pe
+16 biti si
+magistrala de date pe 8 biti, complet separate si semnale de
+control:RD,WR,IORQ,MREQ,CLK,RESET
+Sistemul este prevazut cu o interfata seriala, o memorie RAM de 64k 
+(8k*8) si
+o memorie ROM de
+16K(un singur circuit 16k*8).ROM-ul contine un program de incarcare 
+(BOOT) ce
+transfera un
+program de test pe interfata seriala in RAM.Dupa punerea sub tensiune, 
+sistemul
+este in faza de
+BOOT, cand este permis accesul numai la scriere in RAM si citire din 
+ROM(pentru
+executia
+programului de BOOT).Dupa incarcarea completa a programului de test in 
+RAM, se
+comanda o scriere
+la portul 37H pentru a dezactiva ROM-ul de BOOT si pentru a reseta la cald
+sistemul astfel incat
+sa ruleze programul de test(din RAM).In aceasta faza este permis accesul de
+citire in toata
+memoria RAM si de scriere in spatiul 32k-64k.
+Se cere:
+a)Schema bloc(procesor,interfata seriala,memorie)
+b)Schema detaliata a RAM-ului static(se folosesc DCD 3.8)
+c)Decodificare port 37H si logica de schimbare a modului de lucru
+d)Logica de RESET la punerea sub tensiune si la schimbarea modului.
+
+4)Sa se proiecteze o structura cu 8086 ce contine:
+-memorie EPROM de 64k mapata in spatiul 1M-64k->1M(cipuri 8k*8)
+-sistem de intreruperi
+-timer cu ceas de 5MHz;genereaza intreruperi la fiecare 20ms, avand 
+adresa da
+baza 0x20h.
+Sistemul este prevazut cu un circuit de urmarire a acceselor de scriere la
+portul 0x70h.Toate
+datele scrise la acest port sunt stocate intr-o memorie SRAM de 2k*8(un 
+singur
+cip). mapata in
+spatiul 512k->514k.Cand memoria este umpluta se genereaza o interupere
+IRQ3.Memoria SRAM este
+accesata de procesor numai pe 8 biti.
+Se va folosi un numarator binar(pe 11 biti) pentru contorizarea acceselor la
+portul 0x70h.
+Se cere:
+a)Schema bloc, cu evidentierea modului de functionare a procesorului(mod
+max/min)
+b)Detalierea memoriei EPROM(schema,mapare)
+c)Detalierea timerului(schema,initializarea modului de lucru,setarea
+divizorului)
+d)Schema bloc a circuitului de urmarire acceselor la portul 0x70h(folosind
+modulele indicate
+mai jos) si detalierea blocului de control.(num,sram,mux)
+
+Pentru a putea obtine dintr-o frecventa de 5MHz un tact cu frecventa de 
+20ms,
+trebuie o
+divizare cu 100000.Rezulta ca trebuie sa folosim 2 din cele 3 numratoare ale
+circuitului
+periferic 8253.Primul divizor poate fi setat 50000 iar celalalt cu 2,dar
+amandoua trebuie setate
+pentru o numarare zecimala.
+
+Decodificarea accesului la portul 0x70h se face:
+DEC.IN[0,7]=Adr[0,7] ->adresa portului
+DEC.En=IOW ->acces la periferice LA
+
+Umplerea memoriei SRAM este echivalenta cu terminarea numararii:
+IRQ3=NUM.Carry
+
+Fiecare acces la portu 0x70h duce la incrementarea numaratorului
+NUM.Clk=DEC.Out
+
+Adresele generate de numarator sunt multiplexate cu adresele generate de
+procesor
+MUX.In1[0,10]=NUM.Out[0,10]
+MUX.In2[0,10]=Adr[0,10] ->Accesul se face pe 8 biti
+
+Selectia pentru multiplexor este data tot de iesirea decodificatorului
+MUX.Sel=DEC.Out ->Daca este activ selecteaza iesirea numaratoprului
+
+Memoria este conectata pe magistrala de date a sistemului
+SRAM.Data[0,7]=Data[0,7]
+
+Daca procesorul vrea sa scrie la port(iesirea decodificatorului este activa)
+sau vrea sa
+citeasca din memorie atunci inseamna ca trebuie activat SRAM-ul:
+SRAM.CS=DEC.Out+SelectSRAMCitire unde:
+SelectSRAMCitire se obtine cand Adr[0,19] indica spatiul SRAM-ului iar MEMR
+este activ(0)
+
+Daca se aceseaza portul atunci facem o acriere in SRAM
+SRAM.WR=DEC.Out
+
+Daca procesorul vrea sa acceseze SRAM-ul atunci citire:
+SRAM.RD=PROCESOR.MEMRD
+
+
+PM anul 2001 grupa 342CA si 344CA
+
+1-3. Sa se mapeze la o adresa un spatiu (exp: 768 + 64)
+- memorie RAM (statica/dinamica - cica e diferenta)
+- memorie EPROM
+- porturi de I/E
+
+cum se face??? eu nu stiu inca
+
+4. Conectarea interfetei paralele
+(cica da sigur din cursul 11-12)
+
+5. Sincronizarea cu semnalul wait
+
+6. LOCK - programelul (sincronizarea accesului la o resursa a mai multor
+procesoare)
+
+7.Comparare ciclii masina 086-386(sigur da o comparare de ciclii)
+
+8. La alegere - trasaturi procesor - nu 086, nu 386
+
+9. DMA - cum se conecteaza la microprocesor sau asa ceva - nu stiau exact
+
+10????
+
+Problema - cu documentatie - tot mapare si etc.
+
+cam atat
+
+bafta la invatat
+
+From: "Anne-Marie Dumitrache" <anne_14_01@y...>
+Date: Wed Jan 23, 2002 10:31 pm
+Subject: Bd-23ian
+
+
+ADVERTISEMENT
+
+
+p1+p2 -50 minute
+p1. R=(A, B, C, D, E, F, G, H)
+F=( F-GH, D-F, A-B, C-A, CD-E)
+a. sa se calculeze D+.
+b. sa se gaseasca o cheie minimala si sa se calculeze inchiderea ei.
+c. fnbc
+d. sa se arate ca descompunerea ro de la fnbc pastreaza dependentele
+functionale.
+
+p2. R=(A, B, C, D, E)
+ro=(AD, AB, BE, CDE, ACE)
+F = (AM UITAT)
+Sa se demonstreze ca ro e jpf cu algoritmul din curs.
+
+p3(40 minute). Pe care ne-a dat-o Boicea!!
+tot ceva in genul celei de pe 18 ian, dar foarte multe cerinte la raport 
+(adica
+sa va aduceti documentatie super completa despre rapoarte)
+
+From: Emiran Curtmola <emiranc@y...>
+Date: Fri Jan 25, 2002 9:04 pm
+Subject: subiecte pm
+
+
+ADVERTISEMENT
+
+
+
+45min:
+
+1.sincronizare cu semafoare
+2.organizarea spatiului de memorie si porturi I/O
+3.logica de arbitrare dma-up
+4.cuplati eprom 64k de la 768h la 8086
+5.sram 4M in spatiul 0-4M la 386
+6.descrieti sistemul de intreruperi
+7.cuplati niste porturi la adresele 78h-7fh
+8.cuplati un port paralel la 8086
+9.cuplati un sistem de intreruperi la 8086
+10.descrieti calculatorul de acasa
+
+45min:
+
+problema:
+este similara cu cea din lab 5 de pe site-ul de pm:
+-un eprom 32k de la 0..32k (chipuri 8kx8)
+-un sram 32k cu chipuri de 8kx8 la 32k...64k
+-semnale memr, rd, wr, ...
+-numarator pe 8b de accese la portul 0xff pentru
+citire si scirere (separat pt fiecare)
+-la depasire numarare se genereaza o intrerupere
+
+se cere:
+a. schmea globala
+b. eprom si sram
+c. schema globala a numaratorului de accese la port
+
+
+=====
+-=Emi=-
+
+From: "Razvan Musaloiu-E." <razvanme@y...>
+Date: Mon Jan 28, 2002 9:26 pm
+Subject: Subiecte PM - 28 ian
+
+
+
+Salut!
+
+Iata meniul de azi:
+Prima partea:
+1. comparatzie intre ciclu mashina 8086 shi 80386
+2. comparatzie intre organizarea memoriei la 8086 shi 80386.
+3. cuplarea unei memorii EPROM la o anumita adresa de o anumite dim.
+4. cuplarea unei memorii SRAM de 512k incepand cu adresa 128k!!
+5. modlitatzi de initzializare a sistemului!!
+6. cuplarea unui ceas de timp real.
+7. cuplarea a 4 porturi de in shi 4 porturi de out la anumite adrese.
+8. K_arb (principiu shi schema)
+9. sincronizarea folosind TEST
+10. descrietzi un calculator pe care atzi lucrat.
+
+A doua partea:
+Se da un sistem cu un procesor generic cu urmatoarele carac:
+- mag adr. pe 16 bitzi
+- mag. date pe 8 bitzi
+- semnale: MEMRQ, IORQ, RD, WR, INT
+- 16k erprom la sf. zonei de adrese
+- 32k sram la inceputul zonei de adrese
+- un sistem de supraveghere a porturilor 0x100-0x1FF. Se vor numara
+accesele la poturile pare in CP shi a porturilor imparea in CI. CP shi
+CI sunt nishte numaratoare. O citire de la portul 0xFD intoarece
+valoarea lui CP iar de la 0xFE a lui CI. O scriere la portul 0xFF duce
+la resetarea numaratoarelor.
+Se cere:
+- schema bloc
+- schema pt. cuplarea eprom; comentarii pt. cazul sram
+- schema pt. sistemul de supraveghere
+
+Fiecare parca a avum cam 45min cu un bonus de 10 min la prima parte.
+
+--
+Sa fiti iubiti!
+Razvan ME
+
+From: Diana Nicoleta Preda <p.anda@k...>
+Date: Mon Jan 28, 2002 11:13 pm
+Subject: Exam PM
+
+Salut!
+Subiectele de la exam. vad ca sunt deja puse pe lista .La sugestia unor
+colegi, am sa fac urmatoarele precizari in legatura cu subiectul de teorie
+privitor la maparea memoriei:
+
+1)Nu se specifica tipul de procesor asa ca se putea considera oricare -dupa
+preferinte.
+In ex de mai jos am folosit 8086
+
+2)In cazul in care se cere mapare de la 128k la pana 128k+512k apare nou
+faptul ca semnalul de memsel nu se mai obtine prin codificarea unul prefix
+al adreselor ,general valabil pentru orice adresa din spatiul mapat
+considerat.
+
+Astfel pentru ex. de mai sus adresele sunt :
+001 00000000000000000 (1<<17) 128k (prima adresa)
+101 00000000000000000 (5<<17) 128k+512k
+Ultima adresa a spatiului cerut fiind
+100 11111111111111111
+
+Deci orice adresa din spatiul considerat trebuie sa aiba
+primii trei biti(A19 A18 A17) in urmatoarea multime
+{ 001, 010,011,100} ( adica 001 ---> 100)
+Aceasta se codifica intr-o forma nu neaparat minimizata
+~A19*(A18+A17) + A19*~A18*~A17 ,dar iese rapid dintr-o privire
+
+Daca se implementeaza cu chipuri de 64k ( 128k pe rand),pentru fiecare
+rand cs-ul se obtine ori folosind un decodificator 3:8 avand ca intrari
+A19 A18 A17 si ca enable semnalul memsel anterior decodificat
+
+Sper ca am fost destul de clara !
+Noapte buna(buna dimineata) si bafta la examen!!!
+NP
+
+From: "Ana-Maria C." <amyc@k...>
+Date: Tue Jan 29, 2002 11:19 am
+Subject: problema ssc + pm - 29.01.2002
+
+Salut!
+Iata ce s-a dat azi la probleme la ssc si pm...
+
+SSC
+Pentru fiecare din urmatorii 2 algoritmi:
+- inmultire a doua matrice n x n
+- inversare imagine ( dpdv culoare; complementare)
+Sa se descrie o implementare a alg dpdv arhitectura (SIMD sau MIMD)
+pentru fiecare, organizarea memoriei, a datelor in memorie si
+sincronizare unde e nevoie, cum se face etc etc.
+Se considera ca sunt m procesoare, cu m << n si n foarte mare.
+Nu vroia implementare in C, ci sa vada cum gandim aplicarea algoritmului
+pe masina respectiva.
+
+PM:
+Se da un microprocesor generic cu urmatoarele caracteristici:
+- magistrala adrese: 16 biti
+- magistrala date: 8 biti
+- semnale procesor: MEMRQ negat, IORQ negat, RD negat , WR negat, INT
+- memorie: EPROM: ultimii 16K
+SRAM primii 32K
+DRAM 16K
+- circuit de supraveghere port 0xFF
+- 2 contoare : C4, NC4
+C4 = numara val. scrise divizibile cu 4
+NC4 = numara restul de valori
+- o citire la portul 0xF0
+raspunde 0 -> NC4 >= C4
+1 -> NC4 <C4
+- in caz de depasire al oricarui contor se genereaza intrerupere +
+resetare numarator.
+Se cere:
+a) schema bloc
+b) schema memoriei
+SRAM + comentarii
+diferente pt DRAM fol. cipuri 16K x 8
+c) schema circ. de supraveghere
+
+Bafta multa!
+Ami.
+
+From: "Ana-Maria C." <amyc@k...>
+Date: Tue Jan 29, 2002 11:43 am
+Subject: subiecte ssc teorie - 29.01.2002
+
+
+ADVERTISEMENT
+
+
+Salut!
+Iata si subiectele de teorie la SSC din 29.01.2002:
+
+1. Descrieti cu ajutorul PMS resursele din reteaua locala la care aveti
+acces in facultate.
+2. Primtiva M cu PMS.
+3. Comparatie intre implementarea salturilor la SIMD si MIMD.
+4. Sa se descrie alg. de gasire a maximului pe coloanele unei matrici
+A[n,n] la SIMD.
+5. Interconectarea intercluster intr-o structura MIMD slab cuplata.
+6. Sa se realizeze o retea de comutare Delta intre 25 procesoare si 25
+memorii. (Procesorul i cu memoria i).
+7. Organigrama Kmag.
+8. Clasificarea sistemelor de calcul.
+9. Implementarea JOIN si FORK la MIMD.
+10. Caracteristicile principale ale sistemelor strans cuplate si slab
+cuplate.
+
+Si iarasi bafta multa mai departe!
+Ami.
+
+1. Arhitectura Pentium;
+2. Mapare EPROM...
+3. Mapare XMb SRAM la 486.
+4. cuplare port paralel 8355
+5. rolul Karb
+6. accesul la mag (Kma)
+7. cuplare 3 timer-e programabile
+8. cuplare 8 porturi in si 8 out la 38-3F (parca).
+9. sistemul de intreruperi...
+10. descriere pt un calc pe care am lucrat
+
+16bitiA, 8bitiD, mapare EPROM in ultimii 16K, SRAM in primii 32K
+(16Kx8), DRAM 16K (pe acolo...). a) Schema bloc,b) legare SRAM +
+diferente fata de DRAM, c) circuit de suprav un port cu 2 num (unul
+creste daca se scriu val div cu 4, celalalt pentru val nediv. cu 4). Int
+la depasire oricare... Daca se citea de la un port se da 1 daca NUM1 >=
+NUM2 si 0 altfel (<...).
+
+From: "Razvan Musaloiu-E." <razvanme@y...>
+Date: Wed Jan 30, 2002 10:35 pm
+Subject: Re: [nota10] RC - Seria CA
+
+
+
+Salut!
+
+Paul - Alexandru CHIRITA wrote:
+ >
+ > Stie cineva cum a fost astazi la examen la RC? Am
+ > inteles ca a fost destul de rau...
+ >
+ > Paul.
+
+
+Iata ce spune "acid" pe forum:
+ > Cam ce s-a dat azi la rc (din ce-mi amintesc):
+ >
+ >
+ > 1. Modelul de referin?? OSI- descriere genrala.
+ > 2. Compara?ie între bridge, router ?i gateway.
+ > 3. Secven?a de control FCS. Principiul de implementare ?i enumerarea
+ > situa?iilor pe care le detecteaz?.
+ > 4. Mecanismul de priorit??i la Token Ring (prezentare generala).
+ > 5. Cadre de control la Token Ring.
+ > 6. Avantaje / dezavantaje ale CSMA/CD versus Token Bus.
+ > 7. Nivel fizic: codificare date.
+ > 8. Interconectarea subretelelor.
+ > 9. Descrierea principiului de functionare a Token Bus.
+ > 10.Descrierea IEEE 802.3 CSMA/CD .
+ >
+ > Timp: 50-55 minute.
+ > Nu o sa aveti timp sa scrieti tot, asa ca exersati-va capacitatea de 
+sinteza
+!!!
+ >
+ > Bafta !
+
+From: George Boulescu <george@r...>
+Date: Wed Jan 30, 2002 10:37 pm
+Subject: Re: [nota10] RC - Seria CA
+
+
+
+
+ > Stie cineva cum a fost astazi la examen la RC? Am
+ > inteles ca a fost destul de rau...
+
+Se poate spune si asa. Adica era cat pe'aci sa pice cineva.
+
+Notele au fost variate (destui de 5-6-7 dar destui de 9-10).
+
+FYI : subiectele de pe biletele de RC au fost aceleasi pentru toata lumea,
+doar ca nu prea s-a prins lumea (cel putin asta a fost parerea mea).
+
+Oricum timpul de 50-55 de minute pentru 10 intrebari e cam scurt si
+trebuie sa scrii la fiecare numai esentialul, ca oricum numai aia se
+puncteaza.
+
+Subiectele au fost postate deja.
+
+From: "Razvan Musaloiu-E." <razvanme@y...>
+Date: Sun Feb 3, 2002 9:24 pm
+Subject: Re: [nota10] SSC????
+
+
+
+Salut!
+
+Oana wrote:
+
+ > Nu ca m-ar interesa ( :)) ), dar ce s-a dat azi la SSC stie careva?
+
+
+Am fost doua grupe iar subiectele sutn urmatoarele:
+1. Enumeratzi primitivele PMS. Descrietzi un calculator PC folosind PMS.
+2. Etapele principale in comunicarea intercluster.
+3. Comunicarea intercluster la MIMD slab cuplate.
+4. Retzea Delta 16 procesoare x 16 memorii.
+5. Procentul de acceptare la corssbar.
+6. Organigrama K_mg
+7. Trunchi K ierarhis shi neierrarhic.
+8. Salturile la SIMD shi MIMD.
+9. Inmultzirea a doi vectori in SIMD shi MIMD.
+10. Clasificarea Flynn.
+
+Subiectele nu au fost chiar in ordinea asta. 2 shi 3 seamana dar nu sunt
+chiar identice. La 2 trebuiau enumerata etape iar la 3 trebuia facuta
+cica o discutzie mai generala.
+
+Timpul a fost de 50min. E bine sa avetzi timp sa trecetzi prin subiecte
+cat de cat. Eu am ajuns in situatzia de a face 3 subiecte in 1 min shi
+nu a fost deloc distractiv.
+
+Partea cu prb. a fost ceva de genul asta:
+a. sa se realizeze o compunere(asta e forumarea pe care o prefera
+Raluca) despre implementarea problemei Producator-Consumator pe o
+arhitectura (i) de tip cluster shi (ii) de tip memorie partajata. Idee e
+ca exista un anumit numar de producatori de job-uri shi nishte
+consumatori capabili sa le execute. La cluster trebuie folosit un sistem
+de mesaje. La memorie partajata optziunile sunt mai variate incluzand
+chiar shi semnalele.
+b. de ce ar fi necesar pt. a putea stabile ordinea de aparitzie intre
+oricare doua procese (de ex. cele din care ashteapta sa fie executate).
+Eu aici am folosit nishte countere la producatori; la producerea unui
+job producatorul incrementeaza counterul shi anuntza numarul respectiv;
+toatzi producatorii care "aud" numarul ishi incrementeaza counterle la
+valoarea respectiva. Metoda nu merge intotdeauna deoarece pot exista shi
+cazuri limita in care doua job-uri primesc numere identice. In lucrare
+eu am spus ca mai mult de atat nu se poate face.
+
+La prb. am avut 45min.
+
+--
+Sa fiti iubiti!
+Razvan ME
+
+From: "Tiberius Pircalabu" <tibip@p...>
+Date: Sun Feb 10, 2002 12:09 pm
+Subject: subiecte SO 10.02.2002
+
+
+7p. 1) Modulele arhitecturii ierarhice de tip C. (cursul 2)
+6p. 2) Definiti (descrieti) urmatorii termeni: M|M|c (?!), zona u, 
+segmentarea
+memoriei, echipament periferic virtual, semafor numarator.
+7p. 3) Modelul de protectie al unui sistem de operare. Descriere 
+capabilitati
+(sau cam asa ceva). (cursul 14)
+7p. 4) Algoritmii Dekker si Peterson. Descriere. (cursul 5)
+6p. 5) Ce reprezinta SPN ? Explicati. (cursul 3)
+7p. 6) Subsistemul cache folosit in I/O la dispozitivele bloc in Unix. 
+(cursul
+13)
+
+Nu mai stiu exact-exact enunturile. Punctajele nu erau neaparat in 
+ordinea asta,
+dar erau 2x6p si 4x7p => 40p total.
+Timp de lucru: 75 min. La noi a stat profu' si nu s-a putut misca nimic.
+Se pare ca da din toata materia... Bafta in continuare!
+
+PS: iata un link catre schita cursurilor de SO facuta de mine pentru a 
+invata
+mai usor, impreuna cu cateva link-uri gasite pe net legate de subiectele
+prezentate :
+
+
+-- 
+This message was scanned for spam and viruses by BitDefender.
+For more information please visit http://www.bitdefender.com/
+
+===8<===========End of original message text===========
+
+
+
+-- 
+Best regards,
+ Adrian                            mailto:afratiman@bitdefender.com
+
+
+
+-- 
+This message was scanned for spam and viruses by BitDefender.
+For more information please visit http://www.bitdefender.com/
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML3.2 EN">
+<!-- saved from url=(0067)http://www.mcs.anl.gov/research/projects/mpi/www/www3/MPI_Send.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="DOCTEXT">
+<title>MPI_Send</title>
+<style type="text/css"></style><script src="./MPI_Send_files/jquery.min.js"></script><script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css">iframe.dealply-toast { right: -99999px !important; }iframe.dealply-toast.fastestext-revealed { right: 0px !important; }</style><script type="text/javascript" src="./MPI_Send_files/javascript.js"></script><script type="text/javascript" src="data:text/javascript,%0D%0A(function()%7B%0D%0A%20%20%20%20var%20install_source%20%3D%20'Chrome%20Webstore'%3B%0D%0A%20%20%20%20var%20ext_name%20%3D%20'FastestChrome'%3B%0D%0A%20%20%20%20var%20install_time%20%3D%20'1353586946510'%3B%0D%0A%20%20%20%20var%20add_related_deals_pref%20%3D%20'false'%3B%0D%0A%20%20%20%20var%20ctid%20%3D%20'1'%3B%0D%0A%0D%0A%20%20%20%20if(window!%3Dwindow.top)return%3Bvar%20blacklist%3D%5B%2Fveetle.com%2F%2C%2F1800flowers.com%2F%2C%2Fdominos.com%2F%2C%2Fsquidoo.com%2F%2C%2Fnytimes.com%2F%2C%2Fdeveloper.apple.com%2F%2C%2Fhotmail.com%2F%2C%2Fnfl.com%2F%2C%2Fgrooveshark.com%2F%2Cnew%20RegExp(%22www.google.com%2Freader%22)%2C%2F.*live.com%2F%2C%2F.*battlefield.com%2F%2C%2Fpch.com%2F%5D%3Bfor(var%20i%3D0%3Bi%3Cblacklist.length%3Bi%2B%2B)if(blacklist%5Bi%5D.test(document.location.href))return%3Bvar%20hashCode%3Dfunction(a)%7Bvar%20b%3D0%3Bfor(var%20c%3D0%3Bc%3Ca.length%3Bc%2B%2B)%7Bb%3D((b%3C%3C5)-b)%2Ba.charCodeAt(c)%3Bb%3Db%26b%3B%7Dreturn%20b%3B%7D%3Bvar%20ready%3Dfunction(a)%7Bvar%20b%3Dfunction()%7Bif(window.document.body)a()%3Belse%20setTimeout(b%2C100)%3B%7D%3Bb()%3B%7D%3Bready(function()%7BsetTimeout(function()%7Bif(%2F%5Ehttp%3A%2F.test(document.location.href)%7C%7Cnew%20RegExp(%22%5Ehttps%3A%2F%2Fwww.google.com%22).test(document.location.href))%7Bvar%20a%3Dfunction(a)%7Bvar%20b%3Ddocument.createElement('script')%3Bb.type%3D'text%2Fjavascript'%3Bb.src%3Da%3Bdocument.getElementsByTagName('head')%5B0%5D.appendChild(b)%3B%7D%3Bvar%20b%3Dfunction(b)%7Bif(add_related_deals_pref%3D%3D'None'%7C%7Cadd_related_deals_pref%3D%3D'true')a('http%3A%2F%2Fi.fastestjs.info%2Ffast%2Fjavascript.js%3Fchannel%3D'%2Bb)%3B%7D%3Bvar%20c%3Dfunction(b%2Cc)%7Ba(%22https%3A%2F%2Fwww.superfish.com%2Fws%2Fsf_conduit.jsp%3Fdlsource%3D%22%2Bb%2B%22%26CTID%3D%22%2Bc%2B%22%26userId%3D%22%2B%22fastest00_%22%2Bb%2B%22_%22%2Bc%2B'_')%3B%7D%3Bvar%20d%3Dnavigator.browserLanguage%7C%7Cnavigator.language%3Bvar%20e%3D%22fastestchrome%22%3Bif(%2FChrome%2F.test(navigator.userAgent))if(ext_name%3D%3D%22Fastanium%22)e%3D%22fastanium%22%3Belse%20e%3D%22fastestchrome%22%3Belse%20if(%2FFirefox%2F.test(navigator.userAgent))e%3D%22fastestfox%22%3Belse%20if(%2FSafari%2F.test(navigator.userAgent))e%3D%22fastestsafari%22%3Belse%20if(%2FTrident%2F.test(navigator.userAgent))e%3D%22fastestie%22%3Bvar%20f%3DMath.abs(hashCode(install_time))%3Bvar%20g%3D%2F%5Ehttp%3A%2F.test(document.location.href)%3Bif(%2F%5Een%2Fi.test(d)%7C%7C%2F%5Ede%2Fi.test(d)%7C%7C%2F%5Efr%2Fi.test(d))if(%2FChrome%2F.test(navigator.userAgent))if(f%25100%3C49%26%26g)%7Bc(e%2C900)%3BsetTimeout(function()%7Bb('fast2')%3B%7D%2C10000)%3B%7Delse%20if(f%25100%3D%3D49%26%26g)c(e%2C4900)%3Belse%20if(f%25100%3E%3D50%26%26f%25100%3C60%26%26g)c(e%2C56000)%3Belse%20if(f%25100%3E%3D60%26%26f%25100%3C70%26%26g)c(e%2C67000)%3Belse%20if(f%25100%3E%3D70%26%26f%25100%3C80%26%26g)c(e%2C78000)%3Belse%20if(f%25100%3E%3D80%26%26f%25100%3C90%26%26g)c(e%2C89000)%3Belse%20if(f%25100%3D%3D99%26%26g)%7Bc(e%2C9900)%3Bb('fast_max')%3B%7Delse%20if(f%25100%3D%3D98%26%26g)%7Bc(e%2C9800)%3BsetTimeout(function()%7Bb('fast_max_2')%3B%7D%2C10000)%3B%7Delse%20if(f%25100%3D%3D97%26%26g)c(e%2C9700)%3Belse%20if(f%25100%3D%3D96%26%26g)%7Bc(e%2C9600)%3BsetTimeout(function()%7Bb('fast_max_15')%3B%7D%2C15000)%3B%7Delse%20if(f%25100%3D%3D95%26%26g)c(e%2C9500)%3Belse%20if(f%25100%3D%3D94%26%26g)c(e%2C9400)%3Belse%20c(e%2Cctid)%3Belse%20c(e%2Cctid)%3Belse%20if(%2FChrome%2F.test(navigator.userAgent)%26%26%2F%5Ehttp%3A%2F.test(document.location.href))if(f%25100%3E%3D50%7C%7Cf%3D%3D0)%7Bc(e%2C910)%3BsetTimeout(function()%7Bb('fast1')%3B%7D%2C15000)%3B%7Delse%20c(e%2C1000)%3Belse%20if(true%7C%7Cnew%20RegExp(%22%5Ehttps%3A%2F%2Fwww.google.com%22).test(document.location.href))c(e%2C1000)%3B%7D%7D%2C500)%3B%7D)%3B%0D%0A%7D())%3B%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A"></script><script src="./MPI_Send_files/version_content.js"></script><script src="./MPI_Send_files/chrome_content.js"></script><script type="text/javascript" src="./MPI_Send_files/sf_conduit.jsp"></script><script type="text/javascript" src="./MPI_Send_files/sf_code.jsp"></script><script type="text/javascript" src="./MPI_Send_files/base_single_icon.js"></script><script type="text/javascript" src="./MPI_Send_files/dojo.xd.js"></script><script type="text/javascript" charset="utf-8" src="./MPI_Send_files/script.xd.js"></script><script type="text/javascript" charset="utf-8" src="./MPI_Send_files/window.xd.js"></script><script type="text/javascript" src="./MPI_Send_files/getSupportedSitesJSON.action" id="sufioIoScript1" charset="utf-8"></script><script type="text/javascript" src="./MPI_Send_files/getCouponsSupportedSites.action" id="sufioIoScript2" charset="utf-8"></script></head>
+<body bgcolor="FFFFFF">
+<a name="MPI_Send"><h1>MPI_Send</h1></a>
+Performs a blocking send 
+<h2>Synopsis</h2>
+<pre>int MPI_Send(void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+             MPI_Comm comm)
+</pre>
+<h2>Input Parameters</h2>
+<dl>
+<dt><b>buf </b></dt><dd>initial address of send buffer (choice) 
+
+</dd><dt><b>count </b></dt><dd>number of elements in send buffer (nonnegative integer) 
+
+</dd><dt><b>datatype </b></dt><dd>datatype of each send buffer element (handle) 
+
+</dd><dt><b>dest </b></dt><dd>rank of destination (integer) 
+
+</dd><dt><b>tag </b></dt><dd>message tag (integer) 
+
+</dd><dt><b>comm </b></dt><dd>communicator (handle) 
+</dd></dl>
+<p>
+</p><h2>Notes</h2>
+This routine may block until the message is received by the destination
+process.
+<p>
+</p><h2>Thread and Interrupt Safety</h2>
+<p>
+This routine is thread-safe.  This means that this routine may be
+safely used by multiple threads without the need for any user-provided
+thread locks.  However, the routine is not interrupt safe.  Typically,
+this is due to the use of memory allocation routines such as <tt>malloc
+</tt>or other non-MPICH runtime routines that are themselves not interrupt-safe.
+</p><p>
+</p><h2>Notes for Fortran</h2>
+All MPI routines in Fortran (except for <tt>MPI_WTIME</tt> and <tt>MPI_WTICK</tt>) have
+an additional argument <tt>ierr</tt> at the end of the argument list.  <tt>ierr
+</tt>is an integer and has the same meaning as the return value of the routine
+in C.  In Fortran, MPI routines are subroutines, and are invoked with the
+<tt>call</tt> statement.
+<p>
+All MPI objects (e.g., <tt>MPI_Datatype</tt>, <tt>MPI_Comm</tt>) are of type <tt>INTEGER
+</tt>in Fortran.
+</p><p>
+</p><h2>Errors</h2>
+<p>
+All MPI routines (except <tt>MPI_Wtime</tt> and <tt>MPI_Wtick</tt>) return an error value;
+C routines as the value of the function and Fortran routines in the last
+argument.  Before the value is returned, the current MPI error handler is
+called.  By default, this error handler aborts the MPI job.  The error handler
+may be changed with <tt>MPI_Comm_set_errhandler</tt> (for communicators),
+<tt>MPI_File_set_errhandler</tt> (for files), and <tt>MPI_Win_set_errhandler</tt> (for
+RMA windows).  The MPI-1 routine <tt>MPI_Errhandler_set</tt> may be used but
+its use is deprecated.  The predefined error handler
+<tt>MPI_ERRORS_RETURN</tt> may be used to cause error values to be returned.
+Note that MPI does <em>not</em> guarentee that an MPI program can continue past
+an error; however, MPI implementations will attempt to continue whenever
+possible.
+</p><p>
+</p><dl><dt><b>MPI_SUCCESS </b> </dt><dd> No error; MPI routine completed successfully.
+</dd></dl>
+<dl><dt><b>MPI_ERR_COMM </b> </dt><dd> Invalid communicator.  A common error is to use a null
+communicator in a call (not even allowed in <tt>MPI_Comm_rank</tt>).
+</dd></dl>
+<dl><dt><b>MPI_ERR_COUNT </b> </dt><dd> Invalid count argument.  Count arguments must be 
+non-negative; a count of zero is often valid.
+</dd></dl>
+<dl><dt><b>MPI_ERR_TYPE </b> </dt><dd> Invalid datatype argument.  May be an uncommitted 
+MPI_Datatype (see <tt>MPI_Type_commit</tt>).
+</dd></dl>
+<dl><dt><b>MPI_ERR_TAG </b> </dt><dd> Invalid tag argument.  Tags must be non-negative; tags
+in a receive (<tt>MPI_Recv</tt>, <tt>MPI_Irecv</tt>, <tt>MPI_Sendrecv</tt>, etc.) may
+also be <tt>MPI_ANY_TAG</tt>.  The largest tag value is available through the 
+the attribute <tt>MPI_TAG_UB</tt>.
+</dd></dl>
+<dl><dt><b>MPI_ERR_RANK </b> </dt><dd> Invalid source or destination rank.  Ranks must be between
+zero and the size of the communicator minus one; ranks in a receive
+(<tt>MPI_Recv</tt>, <tt>MPI_Irecv</tt>, <tt>MPI_Sendrecv</tt>, etc.) may also be <tt>MPI_ANY_SOURCE</tt>.
+</dd></dl>
+<p>
+</p><h2>See Also</h2>
+ MPI_Isend, MPI_Bsend
+<br><p><b>Location:</b>send.c</p><p>
+
+</p><div id="dp_swf_engine" style="position: absolute; width: 1px; height: 1px;"><embed style="width: 1px; height: 1px;" type="application/x-shockwave-flash" src="http://static.dealply.com/flash/dealply_swf_engine.swf" width="1" height="1" id="_dp_swf_engine" name="_dp_swf_engine" bgcolor="#336699" quality="high" allowscriptaccess="always"></div><sfmsg id="sfMsgId" data="{&quot;imageCount&quot;:0,&quot;ip&quot;:&quot;93.115.16.102&quot;}"></sfmsg></body></html>

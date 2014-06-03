@@ -1,0 +1,69 @@
+In general subiectele sunt toate din cele de mai jos.
+Pe langa asta, se mai da ceva gen: descrieti structura
+calc. personal... adica lucruri de cultura generala.
+
+Sunt cam 10 subiecte de teorie, se da si o problema,
+dar nu am exemple de asa ceva.
+
+- structura PMS din reteaua locala (facultate, camin
+etc.)
+- clasificarea FLYNN a sistemelor multiprocesor
+- comutator trunchi K ierarhic si neierarhic
+- sa se proiecteze o retea delta cu 9/16/16 procesoare
+si 4/9/16 
+memorii si sa se calea intre procesorul x si memoria y
+- sa se scrie unitatea de comanda a memoriei local de
+la magistrala 
+(Kml)
+- salturi neconditionate in SIMD si MIMD
+- paralela intre structurile SIMD si MIMD
+- comunicatia interclustere de la retelele slab
+cuplate
+- intercomutare - interclasare perfecta
+- sa se adune elementele a 2 vectori in SIMD si MIMD
+- sa se scrie unitatea de comanda pentru accesul la
+magistrala (Kmag)
+- paralela intre salturile la SIMD si MIMD
+- implementarea salturilor la MIMD
+- moduri de stocare a datelor la SIMD
+- mecanisme de sincronizare la sistemele multiprocesor
+- descrierea algoritmului de aflare a maximului pe
+fiecare coloana a 
+unei matrice nxn in SIMD
+- clasificarea sistemelor de calcul in functie de
+fluxul de 
+instructiuni si de date
+- retea de tip intercalare perfecta
+- comunicatia interclustere
+- structurarea datelor in sisteme SIMD
+- descrieti primitiva M (memorie) utilizand PMS
+- sa se calculeze probabilitatea de satisfacere a unei
+cereri intr-un 
+switch crossbar cu P procesoare si M memorii
+- considerand o structura multiprocesor pe o
+magistrala comuna 
+descrieti unitatea de acces la memoria locala
+- comparatie generala intre SIMD si MIMD
+- succesiunea operatiilor unui cluster
+- probabilitatea de a rezolva o cerere in cadrul unui
+comutator 
+crossbar cu 16 procesoare si 9 memorii
+- comparatie intre comutator crossbar si trunchi K
+- comunicarea interclustere la MIMD slab cuplate
+- comutator cu intercalare perfecta shuffle (ambele
+situatii)
+- definiti probabilitatea de acceptare a unei cereri
+oarecare la o 
+retea crossbar
+- inmultirea a 2 vectori an si bn in SIMD si MIMD unde
+c[i]=a[i]*b[i]
+- retea de comutare delta 25 proc si 25 mem - calea de
+la Pi la Mi
+- implementarea JOIN si FORK la MIMD
+- caracteristicile principale ale sistemelor strans
+cuplate si slab 
+cuplate
+
+
+Mircea
+

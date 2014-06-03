@@ -1,0 +1,72 @@
+332 si 333CA 
+1. Structura PMS, descriere generala. Prezentare calculator propriu cu 
+primitive pms 
+2. Organizarea datelor la SIMD 
+3. Comparatie SIMD MIMD la algoritmi 
+4. Probabilitatea ca o cerere sa fie acceptata la un comutator CB 
+(formula) 
+5. Structura Kmap 
+6. Comparatie permutare baza, permutare perfecta 
+7. Comunicatia intercluster 
+8. Retea delta 16x16, default i , memory i 
+9. Organigrama Kbus 
+10. program impartire vectori SIMD + MIMD, comparatii intre ele 
+
+
+335CC
+1. Block placement in cache. 
+2. Retele Delta 8x27. 
+3. Arhitectura procesorului PMAP. 
+4. Comutator legatura multipla (CrossBar) ierarhic. 
+5. Salturi conditionate SIMD. 
+6. Comparatie SIMD vs SISD pe exemplu de cod. 
+7. Cel mai popular mod de conectare in top500. Cel mai popular SO. Cea mai 
+populara arhitectura. 
+(vroia 3 cuv, maxim o fraza: InfiniBand, Linux, Cluster) 
+8. Mituri despre Cell BE. 
+9. Benchmark-uri, probleme si rezolvari legate de acestea (ceva de genu). 
+(nu trebuia sa zici de HPCC si LINPACK) 
+10. Tipuri de paralelizare la sistemele cu prelucrare paralela. 
+
+
+???
+1. Structuri SN. P i/e structura 
+2. Comutatoare ierarhice TK 
+3. Descrierea schemei logice Kbus 
+4. Block replacement 
+5. Determinarea dimensiunii cache-ului 
+6. Salturi conditionate SIMD 
+7. Comunicatia Kbus â Pmap 
+8. Permutarea Butterfly 
+9. Benchmark-uri pentru sisteme seriale 
+10. Cel mai utilizat SO din top500 
+
+331CC
+1) MIMD, Exemplu pe progr cu dependinte de date 
+2) Cell BE bariere si solutii. 
+3) comparatie intre permutarea de baza si perfect shuffle 
+4) Memorii distribuite 
+5) comunicare in cadrul unui cluster 
+6) optimizari programe (trebuia vb de cache) 
+7) Comutatoare in cuplarea memorie procesor 
+8) Pe ce nivele se face benchmark la HPC. De ce e bine ca sunt mai 
+multe metrici? 
+
+Problema clasica anul trecut:
+Ai N bile punctiforme pentru care ti se dau : 
+x 
+y coordinate initiale (coordonateme extremitatii initiala a 
+segmentului pe care se deplaseaza bila) 
+v viteza de deplasare 
+x_ext 
+y_ext coordonateme extremitatii finale a segmentului pe care se 
+deplaseaza bila 
+Daca doua bile se ciocnesc atunci dispar din sistem. 
+Se cere sa se afiseze coordonatele la care o bila dispare din system 
+(daca s-a ciocnit cu a olta bila) sau coordonatele extremitatii finale 
+pentru bilele care au ajuns in extremitati in perioada T de timp 
+(data). 
+a) utilizand instr SIMD calculate distanta parcursa de fiecare bila 
+(se dadea formula distantei dintre 2 pct) 
+b) sa se modeleze sistemul cu threaduri (pthreads/python threads) 
+c) sa se modeleze sistemul in Cell

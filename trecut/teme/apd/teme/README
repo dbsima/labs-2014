@@ -1,0 +1,128 @@
+APD - TEMA3
+Calcul paralel folosind MPI
+Sima Dragos-Bogdan 332CA
+
+Cuprins
+1.Cerinta
+2.Utilizare
+3.Implementare
+4.Testare
+5.Continutul Arhivei
+
+1. Cerinta
+    Să se scrie un program care să calculeze mulțimile Mandelbrot și Julia 
+pentru o funcție polinomială complexă de forma f(z) = z^2 + c şi să le afişeze 
+sub formă de imagini grayscale. Programul va fi scris in C/C++ și va fi 
+paralelizat utilizând MPI.
+
+    1.1 Mulțimea Mandelbrot:
+
+    foreach c in the complex plane do
+        z ← 0 + 0i
+        step ← 0
+        while |z| < 2 and step < MAX_STEPS do
+            z ← z*z + c
+            step ← step + 1
+        color ← step mod NUM_COLORS
+        plot(c.x,c.y,color)
+
+    1.2 Mulțimi Julia: 
+
+    foreach c in the complex plane do
+        z ← 0 + 0i
+        step ← 0
+        while |z| < 2 and step < MAX_STEPS do
+            z ← z*z + c
+            step ← step + 1
+        color ← step mod NUM_COLORS
+        plot(c.x,c.y,color)
+
+    1.3 Algoritm:
+    Cei doi algoritmi se vor paraleliza folosind MPI, procesele lucrând pe 
+submulțimi de date aproximativ egale. Astfel, un proces master va citi fișierul 
+de intrare, după care va trimite x_min, x_max, y_min, y_max, rezoluția și 
+numărul de iterații la celelalte procese (se consideră deci că doar master-ul 
+are acces la fișier și la aceste informații). Mai departe, fiecare proces în 
+parte (inclusiv master-ul) își va calcula intervalul din matricea finală de 
+pixeli pe care lucrează și va aplica algoritmul corespunzător asupra acestuia. 
+    La final, fiecare proces va trimite master-ului datele calculate, iar maste-
+r-ul va crea matricea imaginii finale și o va scrie în fișierul PGM de ieșire.
+
+2. Utilizare
+- dezarhivare arhiva Sima_Dragos_332CA_Tema3APD.zip
+- copiere teste in directorul Sima_Dragos_332CA_Tema1APD
+- cd Sima_Dragos_332CA_Tema1APD
+- rulare make
+- rulale script
+- ./imgdiff out.pgm nume_fisier_de_verificat.pgm
+
+3. Implementare
+
+README  				- descrierea temei
+tema3.c                 - fisier sursa principal
+Makefile                - fisier cu reguli de compilare si clean 
+serial.sh               - script cu comanda de rulare a executabilului
+    -- primul parametru este numarul de thread-uri
+    -- al doilea parametru este fisierul de intrare
+    -- al treilea parametru este fisirul de iesire
+ex:
+qsub -S /bin/bash -q ibm-quad.q script.sh 4 julia1.in julia1_test.pgm
+
+    3.1 Algoritm:
+    Dupa citirea datelor din fisierul de intrare, se initializeaza lumea proce-
+selor. Procesul de rang 0 va fi master-ul care la inceput va asigna pentru fie-
+care proces un fragment din imagine de prelucrat. Fragmentele asignate au exact
+acceasi lungime de randuri daca numarul total de randuri este divizibil cu numa-
+rul de procese, sau difera pentru ultimul proces, in caz contrar.
+    Dupa asignare, master-ul trimite celorlalte procese datele necesare prelu-
+crarii fragmentului si prelucreaza la randul sau fragmentul destinat lui.
+    Toate procesele calculeaza valoarea pixelilor pentru bucata sa din viitoarea
+matrice finala conform tipului de set cerut si o trimite procesului master ala-
+turi de randul unde a inceput prelucrarea, si randul unde a terminat.
+    La final procesul de rang 0, aduna "mini-matricile" de la toate procesele si
+le adauga la pozitia corespunzatoare in matricea rezultat. Dupa completarea ei
+aceasta este copiata in fisierul rezultat.
+    Desi am vorbit despre matrice finala si "mini-matrici", acesti termeni sunt
+teoretici - utili in gandirea algoritmului. In realitare pentru transportul si
+depozitarea pixelilor am folosit vectori de pointeri - transmisibili in MPI.
+
+4. Testare pe cluster
+
+    4.1 Mandelbrot Set:
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 2 mandelbrot1.in mandelbrot1.pgm 
+    real    0m8.121s
+    user    0m9.841s
+    sys     0m0.301s
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 4 mandelbrot1.in mandelbrot1.pgm 
+    real    0m7.849s
+    user    0m9.572s
+    sys     0m0.305s
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 8 mandelbrot1.in mandelbrot1.pgm 
+    real    0m6.379s
+    user    0m9.605s
+    sys     0m0.438s
+    
+    4.2 Julia Set
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 2 julia6.in julia6.pgm 
+    real    0m1.663s
+    user    0m1.003s
+    sys     0m0.045s
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 4 julia6.in julia6.pgm 
+    real    0m1.422s
+    user    0m0.934s
+    sys     0m0.068s
+
+    qsub -S /bin/bash -q ibm-quad.q script.sh 8 julia6.in julia6.pgm 
+    real    0m1.310s
+    user    0m0.826s
+    sys     0m0.147s
+
+Observatie:
+- scalare - performanta creste o data cu cresterea numarului de threaduri
+- corectitudine algoritm - pentru fiecare imagine generata am verificat daca
+este identica cu cea daca etalon

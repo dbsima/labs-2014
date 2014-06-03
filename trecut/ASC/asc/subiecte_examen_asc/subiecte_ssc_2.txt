@@ -1,0 +1,120 @@
+ssc - 26.01.2004
+------------------
+1.  pms, primitive si descriere calc personal in pms
+2.  switch,trunchi k ierarhic +neierarhic
+3.  Kmag (sch logica)
+4.  inmultire 2 vectori in simd si mimd si comparatii
+5.  implem salturilor la simd
+6.  structurarea datelor la simd
+7.  elem de procesare blitzen
+8.  mec de referinta intercluster
+9.  protectia sist la acces METRIC (tip protectie...nu prea am inteles)
+10. un switch delta cu 16 proc si 9 memorii
+prb
+- se dadea o retea de calculatoare in forma de stea desenta, in mj este un arbitru si mai e o statie de stocare conectata la arbitru si care are o memo cache si o zona in care se stocheaza datele. erau mai multe cerinte si in mare trebuia sa scrii pseudocod pt o statie si pt arbitru astfel incat statiile sa citeasca datele din zona de 
+stocare in mod exclusive read, cred ca si write trebuia, un mecanism prin care statiile aduc pagini din cache-ul statiei de stocare cand nu au ele suficienta memorie (....aici nu prea mi-e clar la problema asta) nu trebuia python sau blitzen ci pseudocod+imaginatie
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Clasificarea sistemelor de calcul avand in vedere fluxul de instructiuni si fluxul de date.
+Caracteristicile principale ale sistemelor strans cuplate si slab cuplate.
+Retea de comutare de tip intercalare perfecta
+Structura generala a Kmap-ului
+Comparatie intre permutarea de baza si intercalarea perfecta.
+Sa se realizeze o retea de comutare Delta intre 16 procesoare si 16 memorii (procesorul i - memoria i)
+Comutatorul de tip trunchi K ierarhic si neierarhic
+Clasificarea Flynn a sistemelor de calcul
+Comunicata intercluster in structurile MIMD slab cuplate
+Retele de comutare directe ortogonale
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+					SSC 341CA
+1).  Structura PMS la ce se intampla in laborator
+2).  Sa se scrie programul SIMD si MIMD care aduna 2 vectori (pe elemente). Sa se analizeze 
+performantele.
+3).  Sa se realizeze un comutator delta intre 16 procesoare si 16 memorii.
+4).  Sa se calculeze probabilitatea de satisfacere a unei cereri intr-un switch cross-bar cu p 
+procesoare si m memorii
+5).  Sa se clasifice sistemele de calcul in functie de fluxul de instructiuni si cel de date
+6).  Comutatoare de tip trunchi K ierarhic si neierarhic
+7).  Implementarea salturilor in instructiunile de tip SIMD 
+8).  Structurarea datelor in sisteme SIMD
+9).  Comunicarea intercluster
+10). Permutare fundamentala de tip intercalare perfecta				
+Probleme 
+1.Sa se realizeze schema logica si organigrama pentru un comutator 2:3 fullduplex.
+2.Sa se realizeze organigrama si codul C pentru un program ce simuleaza o retea tip token ring cu
+3 statii folosind trei cozi care fac legatura intre 2 statii.Se va realiza codul doar pentru una
+din statii (simulare transmisiei tata-fiu) .Se utilizeaza un fisier de configurare pe care 
+fiecare student si-l va defini cum doreste.Se pot folosi mecanisme de tip pipa dar nu se vor 
+folosi alte tipuri de mecanisme IPC.Programul nu trebuie sa aiba parametrii la linia de comanda.
+(+ o gramada de alte conditii care m-au depasit ca de altfel intreaga problema).
+				SSC 348 CB
+1)   Descrieti primitiva M (memorie) utillizand PMS
+2)   Considerand o structura multiprocesor pe o magistrala comuna descrieti unitatea de acces la 
+memoria locala
+3)   Sa se scrie programul de adunare a doi vectori de dimensiune n pentru o structura SIMD si 
+pentru una MIMD;(specificati organizarea datelor)
+4)   Implementarea salturilor conditionate in structura SIMD si in MIMD
+5)   Comparatia generala intre SIMD si MIMD
+6)   Succesiunea operatiilor in unui cluster
+7)   Comutarea de tip interclasare perfecta
+8)   Sa se proiecteze o retea de comutare de tip delta intre 16 procesoare si 9 module de memorie (specificati calea intre   procesorul 8 si memoria 3)
+9)   Probabilitatea de a rezolva o cerere in cadrul unui comutator CROSSBAR 16 procesoare si 9 memorii
+10)  Descrieti PMS structura laboratorului
+					SSC 348 CB Probleme
+1) 0,5 puncte     
+     2a-2b (2 procesoare si 2 memorii) .
+   a)	Schema logica 
+   b)	Organigrama cu arbitru care sa functioneze full-duplex
+2) 1,5 puncte
+   a)  Un vector de 3n/2 dimensiune n+1 procesoare prin metoda interclasarii perfecte suma 
+elementelor (pseudocod)
+   b) Sa se implementeze algoritmul de mai sus in C sau C++ vectorul se citeste din fisier iar 
+in loc de procesoare se folosesc procese
+					SSC 345 CB
+1)   Definiti PMS si dati exemple de primitive
+2)   Comparatie intre comutatorul Cross-Bar si Trunchi K
+3)   Comparatie intre SIMD si MIMD
+4)   Comparatie intre instructiunile de salt conditionat la SIMD si MIMD
+5)   Comparatie intre structura datelor la SIMD si MIMD
+6)   Comunicarea interclustere la MIMD slab cuplate
+7)   Comutator cu intercalare perfecta shuffle (ambele situatii)
+8)   Se da o retea delta de 16 procesoare si 16 memorii. Sa se arate drumul de la procesorul 7 la memoria 6
+9)   Definiti probabilitatea de acceptare a unei cereri oarecare la o retea Cross-Bar
+10)  Inmultirea a doi vectori an si bn in SIMD si MIMD unde c[i]=a[i]*b[i]
+					SSC 345 CB Probleme
+1) 0,5 puncte
+	2 procesoare si 3 memorii schema bloc si schema logica
+2)  1,5 puncte
+        Un vector de 3n/4 numere de adunat si n procesoare unde n putere a lui 2
+SSC
+Pentru fiecare din urmatorii 2 algoritmi:
+- inmultire a doua matrice n x n
+- inversare imagine ( dpdv culoare; complementare)
+Sa se descrie o implementare a alg dpdv arhitectura (SIMD sau MIMD)
+pentru fiecare, organizarea memoriei, a datelor in memorie si
+sincronizare unde e nevoie, cum se face etc etc.
+Se considera ca sunt m procesoare, cu m << n si n foarte mare.
+Nu vroia implementare in C, ci sa vada cum gandim aplicarea algoritmului
+pe masina respectiva.
+Azi: biatlon, etapa pe scoala...
+
+SSC Proba 1 - eliminatorie: trebuie nimerite cat mai multe tinte din cele 10
+prezentate mai jos
+1) Prezentarea in PMS a resurselor retelei de computatoare din
+facultate. (computator = calculator in Limba Moldoveneasca).
+2) Descrieti primitiva M cu ajutorul PMS.
+3) Asemanari si deosebiri intre instructiunile de salt pe MIMD si SIMD.
+4) Se cere implementarea unui algoritm ce determina maximul de pe
+coloane pentru o matrice A[n x n] pe o masina SIMD.
+5) Comunicatia intercluster pentru MIMD slab cuplate.
+6) Se cere construirea unei retele DELTA cu 25 procesoare x 25 memorii
+si cuplajul sa fie memorie(i) <-> procesor(i).
+7) Organigrama KMG de la SBC-uri.
+8) Clasificarea FLYNN a sistemelor de calcul.
+9) Implementarea JOIN si FORK la MIMD.
+10) Caracteristicile principale ale sistemelor strans si slab cuplate.
+
+Subiectele au fost individuale si date pe biletele. Distribuirea
+biletelelor in sala s-a facut dupa metoda interclasarii perfecte.
+
+
+

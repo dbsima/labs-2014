@@ -1,0 +1,64 @@
+Examen SSC - CB342
+31.01.2006
+PARTEA I
+1).  Structura PMS la ce se intampla in laborator
+2).  Sa se realizeze un comutator delta intre 16 procesoare si 16 
+     memorii. (procesor i - memoria i)
+3).  Comunicarea intercluster
+4).  Implementarea salturilor in instructiunile de tip SIMD si MIMD
+5).  Structurarea datelor in sisteme SIMD si MIMD
+6).  Kmag (sch logica)
+7).  Comutatoare de tip trunchi K ierarhic si neierarhic
+8).  Se cere implementarea unui algoritm ce determina maximul de pe
+     coloane pentru o matrice A[n x n] pe o masina SIMD si MIMD
+9).  |
+10). | => nu imi amintesc, dar le gasiti printre subiectele posibile
+
+PARTEA II
+Se cere sa se simuleze un sistem ce contine un Switch pentru controlul
+luminilor de semnalizare
+a accesului trenurilor pe liniile existente intr-o gara.
+- trebuie tinut cont de prioritatile diferite ale trenurilor, 
+   astfel ca :
+   prioritate personal < prioritate accelerat < prioritate rapid
+- un tren face o cerere catre procesul ce controleaza comutarea 
+   Switch-ului; trenul specifica numarul minim de minute pentru care 
+   se doreste stationarea pe o linie, precum si un numar maxim
+   de minute pentru care poate fi stationat in gara
+- procesul de control al Switc-ului ii raspunde indicand numarul de 
+   minute pentru care i s-a acordat accesul in gara (cuprins intre min
+   si max), fie ii indica folosind lumina de semnalizare, ca trebuie 
+   sa mai astepte pana cand se elibereaza o linie pentru cel putin min
+   minute 
+- la plecarea din gara, fiecare tren anunta procesul de control al 
+   Switch-ului faptul ca s-a eliberat o linie.
+
+CERINTE :
+1. Justificati implementarea (pseudocod) - 6p
+2. Implementati in Python sistemul - 4p
+  (40 minute - pentru problema)
+
+Subiectele au fost, ca de obcei in numar de 10:
+
+1.Descrierea resursei P - procesorul de acasa.
+2.Conectarea a 16 procesoare cu 36 de memorii.
+3.Descrierea Kmag .Schema logica .
+4.Descriere Kmap. Schema si explicatii.
+5.Comunicatia intre clustere.
+6.Organizarea datelor la SIMD si MIMD.
+7.
+8.9.10 Chiar nu mai stiu... Poate isi mai aminteste
+altcineva si restul... Oricum TOATE sunt printre
+subiectele puse pe acest grup anterior.
+
+Problema.
+   Recunoastere de imagini. Se da o imagine sub forma
+unei matrice monocrome - alb de ex. - si o multime de
+obiecte, tot sub forma de matrice mai mici, incluse in
+matricea imagine. Obiectele de asemenea au aceeasi
+culoare - sa zicem negru. Se cerea mai intai
+stabilirea unei structuri de calcul potrivite si
+proiectarea unui algoritm pentru recunoasterea si
+numararea obiectelor din cadrul imaginii. Apoi se
+cereau implementarea in pseudocod si la punctul 3
+codul in python.

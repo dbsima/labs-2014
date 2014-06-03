@@ -1,0 +1,6 @@
+File with instruction for gnuplot
+
+install
+	sudo apt-get install gnuplot
+run
+	./hist.gnu 

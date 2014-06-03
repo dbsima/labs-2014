@@ -13,7 +13,7 @@ define(['app', 'jquery', 'marionette', 'backbone', 'vent', 'templates'], functio
             var page_id = document.getElementById('btnDeletePage').getAttribute('data-id')
             console.log(page_id);
             $.ajax({
-                async: "false",
+                //async: "false",
                 type: "DELETE",
                 url: "/pages/" + page_id,
                 success: function (response) {

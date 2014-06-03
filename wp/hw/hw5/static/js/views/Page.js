@@ -17,7 +17,7 @@ define(['jquery', 'marionette', 'backbone', 'vent', 'templates'], function ($, M
             var page_id = document.getElementById('btnDeletePage').getAttribute('data-id');
 
             $.ajax({
-                async: "false",
+                //async: "false",
                 type: "DELETE",
                 url: "/pages/" + page_id,
                 success: function (response) {

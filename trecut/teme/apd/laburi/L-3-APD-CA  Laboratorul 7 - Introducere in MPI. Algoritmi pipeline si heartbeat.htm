@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)http://cs.curs.pub.ro/2012/mod/page/view.php?id=2500 -->
+<html dir="ltr" lang="ro" xml:lang="ro" xmlns="http://www.w3.org/1999/xhtml" class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>L-3-APD-CA: Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat</title>
+    <link rel="shortcut icon" href="http://cs.curs.pub.ro/2012/theme/image.php/sky_high/theme/1361453064/favicon">
+    <meta name="description" content="">
+    
+<meta name="keywords" content="moodle, L-3-APD-CA: Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat">
+<link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo.php"><script type="text/javascript" async="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/ga.js"></script><script type="text/javascript" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(1).php"></script><script type="text/javascript" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(2).php"></script>
+<link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(3).php">
+<script charset="utf-8" id="yui_3_5_1_1_1363544537130_2" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(4).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544537130_8" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(5).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544537130_9" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?3.5.1/build/overlay/assets/skins/sam/overlay.css&3.5.1/build/widget-base/assets/skins/sam/widget-base.css&3.5.1/build/widget-stack/assets/skins/sam/widget-stack.css"><script charset="utf-8" id="yui_3_5_1_1_1363544537130_10" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(6).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544537130_11" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(7).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544537130_12" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?moodle/1361453064/enrol/notification/notification.css"><script charset="utf-8" id="yui_3_5_1_1_1363544537130_13" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(8).php" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544537130_29" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/dock.js" async=""></script><script charset="utf-8" id="yui_3_5_1_1_1363544537130_30" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(9).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_5_1_1_1363544537130_794" href="http://cs.curs.pub.ro/2012/theme/yui_combo.php?3.5.1/build/node-menunav/assets/skins/sam/node-menunav.css"><script charset="utf-8" id="yui_3_5_1_1_1363544537130_795" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/yui_combo(10).php" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/all">
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {}; var moodleConfigFn = function(me) {var p = me.path, b = me.name.replace(/^moodle-/,'').split('-', 3), n = b.pop();if (/(skin|core)/.test(n)) {n = b.pop();me.type = 'css';};me.path = b.join('-')+'/'+n+'/'+n+'.'+me.type;}; var galleryConfigFn = function(me) {var p = me.path,v=M.yui.galleryversion,f;if(/-(skin|core)/.test(me.name)) {me.type = 'css';p = p.replace(/-(skin|core)/, '').replace(/\.js/, '.css').split('/'), f = p.pop().replace(/(\-(min|debug))/, '');if (/-skin/.test(me.name)) {p.splice(p.length,0,v,'assets','skins','sam', f);} else {p.splice(p.length,0,v,'assets', f);};} else {p = p.split('/'), f = p.pop();p.splice(p.length,0,v, f);};me.path = p.join('/');};
+M.yui.loader = {"base":"http:\/\/cs.curs.pub.ro\/2012\/lib\/yui\/3.5.1\/build\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","insertBefore":"firstthemesheet","modules":{"yui2-event":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event\/event-min.js","async":false},"yui2-animation":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/animation\/animation-min.js","async":false},"yui2-swfstore":{"type":"js","requires":["yui2-element","yui2-cookie","yui2-swf"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swfstore\/swfstore-min.js","async":false},"yui2-datatable":{"requires":["yui2-element","yui2-datasource"],"type":"js","optional":["yui2-calendar","yui2-dragdrop","yui2-paginator"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datatable\/datatable-min.js","async":false},"yui2-swfdetect":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swfdetect\/swfdetect-min.js","async":false},"yui2-menu":{"requires":["yui2-containercore"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/menu\/menu-min.js","async":false},"yui2-treeview":{"requires":["yui2-event","yui2-dom"],"type":"js","optional":["yui2-json","yui2-animation","yui2-calendar"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/treeview\/treeview-min.js","async":false},"yui2-get":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/get\/get-min.js","async":false},"yui2-progressbar":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/progressbar\/progressbar-min.js","async":false},"yui2-uploader":{"type":"js","requires":["yui2-element"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/uploader\/uploader-min.js","async":false},"yui2-datasource":{"requires":["yui2-event"],"type":"js","optional":["yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datasource\/datasource-min.js","async":false},"yui2-profiler":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/profiler\/profiler-min.js","async":false},"yui2-connection":{"supersedes":["yui2-connectioncore"],"requires":["yui2-event"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/connection\/connection-min.js","async":false},"yui2-json":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/json\/json-min.js","async":false},"yui2-datemath":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/datemath\/datemath-min.js","async":false},"yui2-calendar":{"supersedes":["yui2-datemath"],"requires":["yui2-event","yui2-dom"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/calendar\/calendar-min.js","async":false},"yui2-simpleeditor":{"requires":["yui2-element"],"type":"js","optional":["yui2-containercore","yui2-menu","yui2-button","yui2-animation","yui2-dragdrop"],"pkg":"editor","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/editor\/simpleeditor-min.js","async":false},"yui2-swf":{"supersedes":["yui2-swfdetect"],"requires":["yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/swf\/swf-min.js","async":false},"yui2-event-simulate":{"type":"js","requires":["yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-simulate\/event-simulate-min.js","async":false},"yui2-yuiloader-dom-event":{"supersedes":["yui2-yahoo","yui2-dom","yui2-event","yui2-get","yui2-yuiloader","yui2-yahoo-dom-event"],"rollup":5,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuiloader-dom-event\/yuiloader-dom-event.js","async":false},"yui2-storage":{"requires":["yui2-yahoo","yui2-event","yui2-cookie"],"type":"js","optional":["yui2-swfstore"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/storage\/storage-min.js","async":false},"yui2-container":{"supersedes":["yui2-containercore"],"requires":["yui2-dom","yui2-event"],"type":"js","optional":["yui2-dragdrop","yui2-animation","yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/container\/container-min.js","async":false},"yui2-profilerviewer":{"requires":["yui2-profiler","yui2-yuiloader","yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/profilerviewer\/profilerviewer-min.js","async":false},"yui2-imagecropper":{"requires":["yui2-dragdrop","yui2-element","yui2-resize"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/imagecropper\/imagecropper-min.js","async":false},"yui2-paginator":{"requires":["yui2-element"],"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/paginator\/paginator-min.js","async":false},"yui2-tabview":{"requires":["yui2-element"],"type":"js","optional":["yui2-connection"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/tabview\/tabview-min.js","async":false},"yui2-layout":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation","yui2-dragdrop","yui2-resize","yui2-selector"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/layout\/layout-min.js","async":false},"yui2-imageloader":{"type":"js","requires":["yui2-event","yui2-dom"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/imageloader\/imageloader-min.js","async":false},"yui2-containercore":{"requires":["yui2-dom","yui2-event"],"type":"js","pkg":"container","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/container\/container_core-min.js","async":false},"yui2-event-mouseenter":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-mouseenter\/event-mouseenter-min.js","async":false},"yui2-logger":{"requires":["yui2-event","yui2-dom"],"type":"js","optional":["yui2-dragdrop"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/logger\/logger-min.js","async":false},"yui2-cookie":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/cookie\/cookie-min.js","async":false},"yui2-stylesheet":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/stylesheet\/stylesheet-min.js","async":false},"yui2-connectioncore":{"requires":["yui2-event"],"type":"js","pkg":"connection","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/connection\/connection_core-min.js","async":false},"yui2-utilities":{"supersedes":["yui2-yahoo","yui2-event","yui2-dragdrop","yui2-animation","yui2-dom","yui2-connection","yui2-element","yui2-yahoo-dom-event","yui2-get","yui2-yuiloader","yui2-yuiloader-dom-event"],"rollup":8,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/utilities\/utilities.js","async":false},"yui2-dragdrop":{"type":"js","requires":["yui2-dom","yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/dragdrop\/dragdrop-min.js","async":false},"yui2-colorpicker":{"requires":["yui2-slider","yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/colorpicker\/colorpicker-min.js","async":false},"yui2-event-delegate":{"requires":["yui2-event"],"type":"js","optional":["yui2-selector"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/event-delegate\/event-delegate-min.js","async":false},"yui2-yuiloader":{"type":"js","supersedes":["yui2-yahoo","yui2-get"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuiloader\/yuiloader-min.js","async":false},"yui2-button":{"requires":["yui2-element"],"type":"js","optional":["yui2-menu"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/button\/button-min.js","async":false},"yui2-resize":{"requires":["yui2-dragdrop","yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/resize\/resize-min.js","async":false},"yui2-element":{"requires":["yui2-dom","yui2-event"],"type":"js","optional":["yui2-event-mouseenter","yui2-event-delegate"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/element\/element-min.js","async":false},"yui2-history":{"type":"js","requires":["yui2-event"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/history\/history-min.js","async":false},"yui2-yahoo":{"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yahoo\/yahoo-min.js","async":false},"yui2-element-delegate":{"type":"js","requires":["yui2-element"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/element-delegate\/element-delegate-min.js","async":false},"yui2-charts":{"type":"js","requires":["yui2-element","yui2-json","yui2-datasource","yui2-swf"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/charts\/charts-min.js","async":false},"yui2-slider":{"requires":["yui2-dragdrop"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/slider\/slider-min.js","async":false},"yui2-selector":{"type":"js","requires":["yui2-yahoo","yui2-dom"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/selector\/selector-min.js","async":false},"yui2-yuitest":{"requires":["yui2-logger"],"type":"js","optional":["yui2-event-simulate"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yuitest\/yuitest-min.js","async":false},"yui2-carousel":{"requires":["yui2-element"],"type":"js","optional":["yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/carousel\/carousel-min.js","async":false},"yui2-autocomplete":{"requires":["yui2-dom","yui2-event","yui2-datasource"],"type":"js","optional":["yui2-connection","yui2-animation"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/autocomplete\/autocomplete-min.js","async":false},"yui2-yahoo-dom-event":{"supersedes":["yui2-yahoo","yui2-event","yui2-dom"],"rollup":3,"type":"js","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/yahoo-dom-event\/yahoo-dom-event.js","async":false},"yui2-dom":{"type":"js","requires":["yui2-yahoo"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/dom\/dom-min.js","async":false},"yui2-editor":{"supersedes":["yui2-simpleeditor"],"requires":["yui2-menu","yui2-element","yui2-button"],"type":"js","optional":["yui2-animation","yui2-dragdrop"],"fullpath":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?2.9.0\/build\/editor\/editor-min.js","async":false},"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/lib\/javascript.php\/1361453064\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","moodle-core_filepicker"]},"core_dock":{"name":"core_dock","fullpath":"http:\/\/cs.curs.pub.ro\/2012\/lib\/javascript.php\/1361453064\/blocks\/dock.js","requires":["base","node","event-custom","event-mouseenter","event-resize"]}},"groups":{"moodle":{"name":"moodle","base":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?moodle\/1361453064\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"moodle\/1361453064\/","patterns":{"moodle-":{"group":"moodle","configFn":moodleConfigFn},"root":"moodle"}},"local":{"name":"gallery","base":"http:\/\/cs.curs.pub.ro\/2012\/lib\/yui\/gallery\/","comboBase":"http:\/\/cs.curs.pub.ro\/2012\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"gallery\/","patterns":{"gallery-":{"group":"gallery","configFn":galleryConfigFn},"root":"gallery"}}}};
+M.cfg = {"wwwroot":"http:\/\/cs.curs.pub.ro\/2012","sesskey":"HIRSLZGN1J","loadingicon":"http:\/\/cs.curs.pub.ro\/2012\/theme\/image.php\/sky_high\/core\/1361453064\/i\/loading_small","themerev":"1361453064","slasharguments":1,"theme":"sky_high","jsrev":"1361453064"};
+//]]>
+</script>
+<script type="text/javascript" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/javascript-static.js"></script>
+<script type="text/javascript" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/head"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3568376-26']);
+  _gaq.push(['_setDomainName', '.curs.pub.ro']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+<body id="page-mod-page-view" class=" path-mod path-mod-page safari dir-ltr lang-ro yui-skin-sam yui3-skin-sam cs-curs-pub-ro--2012 pagelayout-incourse course-95 context-19552 cmid-2500 category-10 side-pre-only has_custom_menu background jsenabled">
+<div class="skiplinks"><a class="skip" href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=2500#maincontent">Salt la conţinutul principal</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<div id="page">
+    <div id="wrapper" class="clearfix">
+
+<!-- START OF HEADER -->
+
+    <div id="page-header" class="clearfix">
+        <div id="page-header-wrapper">
+                            <img class="logo" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/UPB_header_logo_cs.png" alt="Custom logo here"><h1 class="headerwlogo">- Algoritmi paraleli şi distribuiţi (Seria: CA)</h1>
+            
+            <div class="headermenu">
+                <div class="logininfo">Sunteţi autentificat ca <a href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715">Dragoş - Bogdan SIMA</a>  (<a href="http://cs.curs.pub.ro/2012/login/logout.php?sesskey=HIRSLZGN1J">Ieşire</a>)</div>            </div>
+        </div>
+    </div>
+
+<!-- END OF HEADER -->
+
+<!-- START OF CONTENT -->
+      <div id="custommenu"><div id="custom_menu_1" class="yui3-menu yui3-menu-horizontal" role="menu"><div class="yui3-menu-content" role="presentation"><ul role="presentation" class="first-of-type"><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Cursuri UPB" href="http://www.curs.pub.ro/" role="menuitem" tabindex="0" id="yui_3_5_1_1_1363544537130_837">Cursuri UPB</a></li><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Portal studenti" href="https://studenti.pub.ro/" role="menuitem" tabindex="-1" id="yui_3_5_1_1_1363544537130_839">Portal studenti</a></li><li role="presentation"><a class="yui3-menu-label" title="Ajutor Site" href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=2500#cm_submenu_1" id="yui_3_5_1_1_1363544537130_803" role="menuitem" aria-haspopup="true" tabindex="-1">Ajutor Site</a><div id="cm_submenu_1" class="yui3-menu custom_menu_submenu yui3-menu-hidden" role="menu" aria-labelledby="yui_3_5_1_1_1363544537130_802" aria-hidden="true"><div class="yui3-menu-content" role="presentation"><ul role="presentation" class="first-of-type"><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Tips&amp;Tricks Wiki" href="http://www.curs.pub.ro/" role="menuitem">Tips&amp;Tricks Wiki</a></li><li class="yui3-menuitem" role="presentation"><a class="yui3-menuitem-content" title="Moodle Docs" href="http://docs.moodle.org/" role="menuitem">Moodle Docs</a></li></ul></div></div></li></ul></div></div></div>
+<div class="navbar clearfix">
+        <div class="breadcrumb"><span class="accesshide">Cale pagină</span><ul><li><a title="Pagina mea" href="http://cs.curs.pub.ro/2012/my/">Pagina mea</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <span tabindex="0">Cursurile mele</span></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Algoritmi paraleli şi distribuiţi (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <span tabindex="0"> 12 noiembrie -  18 noiembrie</span></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Page" href="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat.htm">...ntroducere in MPI. Algoritmi pipeline si heartbeat</a></li></ul></div>
+    <div class="navbutton"> </div>
+    </div>
+
+<div id="page-content-wrapper">
+    <div id="page-content">
+        <div id="region-main-box">
+            <div id="region-post-box">
+
+                <div id="region-main-wrap">
+                    <div id="region-main">
+                        <div class="region-content">
+                            <span id="maincontent"></span><h2 id="pageheading" class="main">Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat</h2><div class="box generalbox center clearfix"><div class="no-overflow"><h1 style="font-weight: bold">
+  <span style="font-size: medium;">MPI - Introducere</span>
+</h1>
+<p>
+  MPI (Message Passing Interface) este un standard pentru
+  programarea bazata pe comunicare de mesaje, dezvoltat cu scopul
+  de a obtine portabilitate, dar si performanta ridicata.
+  Specificatiile MPI au fost implementate ca biblioteci pentru
+  diverse limbaje de programare, cum ar fi C, C++ si Fortran.
+</p>
+<p>
+  Functionalitatile MPI includ rutine pentru comunicare
+  punct-la-punct si colectiva de diverse tipuri, functii de
+  sincronizare si suport pentru topologii virtuale. Versiunea
+  curenta de MPI este 2, care fata de versiunile anterioare ofera
+  noi facilitati cum ar fi gestiunea dinamica a proceselor si
+  operatii de I/O scalabile.
+</p>
+<p>
+  Surse de documentare pentru MPI:
+</p>
+<ul>
+  <li>
+    <a href="http://www.ats.ucla.edu/rct/hpc/parallel_computing/mpi-intro.htm">
+    http://www.ats.ucla.edu/rct/hpc/parallel_computing/mpi-intro.htm</a>
+    - An introduction to MPI
+  </li>
+  <li>
+    <a href="http://www.netlib.org/utk/papers/mpi-book/mpi-book.html">http://www.netlib.org/utk/papers/mpi-book/mpi-book.html</a>
+    - MPI: The complete reference
+  </li>
+  <li>
+    <a href="http://www.llnl.gov/computing/tutorials/mpi/">http://www.llnl.gov/computing/tutorials/mpi/</a>
+    - MPI tutorial
+  </li>
+</ul>
+<p>
+  Una dintre cele mai populare implementari ale standardului MPI
+  este OpenMPI, care poate fi obtinuta de pe acest site: <a href="http://www.open-mpi.org/">http://www.open-mpi.org/<br></a>
+</p>
+<hr>
+<h3>
+  Prelucrarea in banda de asamblare (pipeline)
+</h3>
+<p>
+  O banda de asamblare poate fi privita ca o serie de procese
+  filtru, conectate liniar. Prelucrarea in banda de asamblare aduce
+  un plus de eficienta daca la fiecare pas al algoritmului (sau la
+  anumiti pasi), o parte dintre aceste procese lucreaza in paralel.
+  Acest lucru poate fi realizat in urmatoarele situatii :
+</p>
+<ul>
+  <li>avem de rezolvat mai multe instante ale unei probleme
+  </li>
+  <li>avem de procesat o serie de structuri de date, si pentru
+  fiecare dintre acestea trebuiesc executate mai multe operatii
+  </li>
+  <li>in cadrul prelucrarii, informatia necesara pentru a porni
+  urmatorul proces este disponibila inainte ca procesul curent sa
+  se termine
+  </li>
+</ul>
+<p>
+  In aceasta <a href="http://cs.curs.pub.ro/2012/pluginfile.php/19552/mod_page/content/3/exemple_pipeline.zip">
+  arhiva</a> se gaseste rezolvarea problemei N-body in MPI.
+</p>
+<hr>
+<p>
+  <span style="font-weight: bold;">Algoritmi Heartbeat</span>
+</p>
+<p>
+  Algoritmii Heartbeat se folosesc in rezolvarea unor probleme in
+  care avem de-a face cu un paralelism de date iterativ.<br>
+  De exemplu acestia se pot folosi atunci cand datele sunt
+  impartite intre procese, fiecare dintre acestea fiind responsabil
+  cu actualizarea unei submultimi a multimii de date pentru
+  respectiva problema si in plus valorile noi ale datelor depind de
+  valorile detinute de catre procese sau de catre vecinii imediati
+  ai acestora.<br>
+  Paradigma Heartbeat exprima deci un model de interactie intre
+  procese:
+</p>
+<table style="background-color: #EEEEEE; width: 100%" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="direction: ltr;">
+        <code>process Worker[i = 1 to NW] {<br></code>
+        <div style="margin-left: 40px;">
+          <code>declare local variables;</code><br>
+          <code>initialize local variables;</code><br>
+          <code>while ( not done ) {</code><br>
+          <div style="margin-left: 40px;">
+            <code>send values to neighbours;</code><br>
+            <code>receive values from neighbours;</code><br>
+            <code>update local values;</code>
+          </div><code>}</code><br>
+        </div><code>}</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br>
+  Numele provine de la modul de functionare al proceselor, care se
+  aseamana batailor inimii: fiecare proces trimite date, primeste
+  date, proceseaza si repeta.
+</p>
+<h4>
+  Exemple
+</h4>
+<h4>
+  1. Region Labelling
+</h4>
+<p>
+  Sa presupunem existenta unei imagini, matrice de pixeli, in care
+  avem de-a face cu pixeli avand doar doua valori (1-aprins sau
+  0-stins). Problema consta in gasirea unor regiuni de pixeli de
+  acelasi tip. Doi pixeli apartin aceleiasi regiuni daca acestia
+  sunt vecini in matricea imaginii, vecin insemnand deasupra,
+  dedesubt, la stanga sau la dreapta (nu si pe diagonala).<br>
+  Pentru rezolvarea problemei vom presupune existenta unei a doua
+  matrici in care pastram eticheta curenta a fiecarui pixel.<br>
+  Prima metoda care se poate folosi pentru rezolvarea problemei
+  este cea iterativa. La fiecare iteratie examinam fiecare pixel si
+  vecinii acestuia. Daca pixelul si un vecin al acestuia sunt ambii
+  de aceiasi valoare atunci setam valoarea etichetei fiecarui pixel
+  la valoarea maxima a etichetelor celor doi pixeli. Putem si
+  paraleliza aceasta rezolvarea presupunand existenta cate unui
+  proces care se ocupa de fiecare pixel. Acest algoritm se termina
+  atunci cand pentru o iteratie nu mai reusim sa producem nici o
+  modificare de valoare de eticheta. Complexitatea acestui algoritm
+  se dovedeste totusi a fi O(m, n) in cazurile cele mai
+  defavorabile.
+</p>
+<table style="background-color: #EEEEEE; width: 100%" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+        <code>for (int i = 0; i &lt; m; i++) {<br>
+        for (int j = 0; j &lt; n; j++) {<br></code>
+        <div style="margin-left: 40px;">
+          <code>if (image[i,j] == 1)</code><br>
+          <code>label[i,j] = i*n+j; // eticheta unica pentru
+          fiecare pixel</code><br>
+        </div><code>}<br>
+        }<br>
+        change = true;<br>
+        while (change) {<br>
+        change = false;<br>
+        for (int i = 0; i &lt; m; i++) {<br></code>
+        <div style="margin-left: 40px;">
+          <code>for (int j = 0; j &lt; n; j++) {</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>int oldlabel = label[i,j];</code><br>
+          <code>if (image[i,j] == 1) {</code><br>
+        </div>
+        <div style="margin-left: 120px;">
+          <code>label[i,j] = max(label for
+          neighbours);</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>}</code><br>
+          <code>if (label[i,j] !=
+          oldlabel)</code><code>{</code><br>
+        </div>
+        <div style="margin-left: 120px;">
+          <code>change = true;</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>}</code><br>
+        </div>
+        <div style="margin-left: 40px;">
+          <code>}</code><br>
+        </div><code>}<br></code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br>
+  O alta solutie de rezolvare a acestei probleme presupune
+  folosirea paradigmei Heartbeat. Putem imparti imaginea in P fasii
+  sau blocuri de pixeli si sa asignam cate un proces Worker
+  fiecarei submultimi astfel formata. Este de preferat impartirea
+  imaginii in fisii din doua motive: este mai simplu de programat
+  din perspectiva indexilor la imaginea initiala si de asemenea
+  rezolvarea implica un numar mai mic de mesaje schimbare deoarece
+  fiecare proces worker are doar doi vecini in loc de patru.
+  Algoritmul de rezolvare este urmatorul:
+</p>
+<table style="background-color: #EEEEEE; width: 100%" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+        <code>chan first[1:P] (int edge[n]); # for exchanges
+        edges<br>
+        chan second[1:P] (int edge[n]);<br>
+        chan answer[1:P] (bool); # for termination check<br>
+        process Worker(w = 1 to P) {<br></code>
+        <div style="margin-left: 40px;">
+          <code>int stripSize = m / W; # local values plus
+          edges</code><br>
+          <code>int image[stripSize+2, n]; # from
+          neighbors</code><br>
+          <code>int label[stripSize+2, n];</code><br>
+          <code>int change = true;</code><br>
+          <code>initialize image[1:stripSize, *] and
+          label[1:stripSize, *];</code><br>
+          <code>#exchange edges and image with
+          neighbors</code><br>
+          <code>if (w != 1)</code><br>
+          <div style="margin-left: 40px;">
+            <code>send first[w-1](image[1,*]); # to worker
+            above</code>
+          </div><code>if (w != P)</code><br>
+          <div style="margin-left: 40px;">
+            <code>send second[w+1](image[stripSize,*]); # to worker
+            below</code>
+          </div><code>if (w != P)</code><br>
+          <div style="margin-left: 40px;">
+            <code>receive first[w](image[stripSize+1,*]); # from
+            worker below</code>
+          </div><code>if (w != 1)</code><br>
+          <div style="margin-left: 40px;">
+            <code>receive second[w](image[0,*]); # from worker
+            above</code>
+          </div><code>while (change) {</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>exchange edges of label with neighbors, as
+          above;</code><br>
+          <code>update label[1:stripSize, *] and set change to true
+          if</code><br>
+          <code>the value of the label changes;</code><br>
+          <code>send result(change); # tell
+          coordinator</code><br>
+          <code>receive answer[w](change); # and get back the
+          answer</code><br>
+        </div>
+        <div style="margin-left: 40px;">
+          <code>}</code><br>
+        </div><code>}<br>
+        chan result(bool); # for results from workers<br>
+        process coordinator {<br></code>
+        <div style="margin-left: 40px;">
+          <code>bool chg, change = true;</code><br>
+          <code>while (change) {</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>change = false;</code><br>
+          <code># see if there has been a change in any
+          strip</code><br>
+          <code>for [i = 1 to P] {</code><br>
+        </div>
+        <div style="margin-left: 120px;">
+          <code>receive result(chg);</code><br>
+          <code>change = change or chg;</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>}</code><br>
+          <code># broadcast answer to every worker</code><br>
+          <code>for (i = 1 to P) {</code><br>
+        </div>
+        <div style="margin-left: 120px;">
+          <code>send answer[i](change);</code><br>
+        </div>
+        <div style="margin-left: 80px;">
+          <code>}</code><br>
+        </div>
+        <div style="margin-left: 40px;">
+          <code>}</code><br>
+        </div><code>}</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br>
+  Implementare secventiala pentru region labelling: <a href="http://cs.curs.pub.ro/2012/pluginfile.php/19552/mod_page/content/3/RegionS.c">
+  RegionS.c</a>. <a href="http://cs09.curs.pub.ro/file.php/90/lab07/RegionS.c"><br></a>
+  Implementare paralela, in MPI, pentru region labelling: <a href="http://cs.curs.pub.ro/2011/2010/draftfile.php/17958/user/draft/933605987/RegionP_incomplete.c">
+  </a><a href="http://cs.curs.pub.ro/2012/pluginfile.php/19552/mod_page/content/3/RegionP_incomplete.c">RegionP.c</a>
+  (varianta incompleta)
+</p></div></div><div class="modified">Ultima modificare: luni, 12 noiembrie 2012, 1:17 </div>                        </div>
+                    </div>
+                </div>
+
+                                <div id="region-pre" class="block-region">
+                    <div class="region-content">
+                        <a href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=2500#sb-1" class="skip-block">Omite Navigation</a><div id="inst4" class="block_navigation  block"><div class="header"><div class="title" id="yui_3_5_1_1_1363544537130_865"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Ascunde blocul Navigation" title="Ascunde blocul Navigation" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Arată blocul Navigation" title="Arată blocul Navigation" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/switch_plus"><input type="image" class="moveto customcommand requiresjs" alt="Mută asta pe doc" title="Mută asta pe doc" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/block_to_dock"></div><h2>Navigation</h2><div class="commands"></div></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch navigation_node"><a title="Pagina mea" href="http://cs.curs.pub.ro/2012/my/">Pagina mea</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a title="Pagina principală" href="http://cs.curs.pub.ro/2012/?redirect=0"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Pagina principală</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="Cursuri Facultatea de Automatica si Calculatoare" tabindex="0">Pagini site</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Site blogs" href="http://cs.curs.pub.ro/2012/blog/index.php?courseid=0"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Site blogs</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Etichete" href="http://cs.curs.pub.ro/2012/tag/search.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Etichete</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Calendar" href="http://cs.curs.pub.ro/2012/calendar/view.php?view=month"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Calendar</a></p></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Forum" href="http://cs.curs.pub.ro/2012/mod/forum/view.php?id=1421"><img alt="Forum" class="smallicon navicon" title="Forum" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/icon">Ştiri site</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Profilul meu</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Vezi profilul" href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Vezi profilul</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Intervenţii forum</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Intervenţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Intervenţii</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discuţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Discuţii</a></p></li></ul></li>
+<li class="type_unknown depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="View all of my entries" href="http://cs.curs.pub.ro/2012/blog/index.php?userid=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Adaugă intrare nouă" href="http://cs.curs.pub.ro/2012/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Adaugă intrare nouă</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Blog RSS feed" href="http://cs.curs.pub.ro/2012/rss/file.php/1/c3c6a16fabc4dee472136ab64c17b5f5/blog/user/2715/rss.xml"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Mesaje" href="http://cs.curs.pub.ro/2012/message/index.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Mesaje</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Fişierele mele personale" href="http://cs.curs.pub.ro/2012/user/files.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Fişierele mele personale</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><span tabindex="0">Cursurile mele</span></p><ul><li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_1"><a title="Ingineria programelor" href="http://cs.curs.pub.ro/2012/course/view.php?id=118">L-3-IPr-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_2"><a title="Sisteme de operare (Seria: 3CA, 3CB, 3CC)" href="http://cs.curs.pub.ro/2012/course/view.php?id=116">L-3-SO</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_3"><a title="Arhitectura sistemelor de calcul" href="http://cs.curs.pub.ro/2012/course/view.php?id=115">L-3-ASC</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_4"><a title="Proiectarea cu microprocesoare (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=114">L-3-PM</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_5"><a title="Elemente de grafică pe calculator (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=105">L-3-EGC-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_6"><a title="Reţele locale (Serii multiple)" href="http://cs.curs.pub.ro/2012/course/view.php?id=101">L-3-RL</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_7"><a title="Reţele locale (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=100">L-3-RL-CA</a></p></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_8"><a title="Limbaje formale si automate (Seria: CA &amp;amp; CB)" href="http://cs.curs.pub.ro/2012/course/view.php?id=98">L-3-LFA-CA&amp;CB</a></p></li>
+<li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="Algoritmi paraleli şi distribuiţi (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Participanţi" href="http://cs.curs.pub.ro/2012/user/index.php?id=95">Participanţi</a></p><ul><li class="type_custom depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Course blogs" href="http://cs.curs.pub.ro/2012/blog/index.php?courseid=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Course blogs</a></p></li>
+<li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Dragoş - Bogdan SIMA" href="http://cs.curs.pub.ro/2012/user/view.php?id=2715&course=95">Dragoş - Bogdan SIMA</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Vezi profilul" href="http://cs.curs.pub.ro/2012/user/view.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Vezi profilul</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Intervenţii forum</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Intervenţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Intervenţii</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discuţii" href="http://cs.curs.pub.ro/2012/mod/forum/user.php?id=2715&course=95&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Discuţii</a></p></li></ul></li>
+<li class="type_unknown depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="View all of my entries" href="http://cs.curs.pub.ro/2012/blog/index.php?userid=2715"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Adaugă intrare nouă" href="http://cs.curs.pub.ro/2012/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Adaugă intrare nouă</a></p></li>
+<li class="type_setting depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Blog RSS feed" href="http://cs.curs.pub.ro/2012/rss/file.php/1/c3c6a16fabc4dee472136ab64c17b5f5/blog/user/2715/rss.xml"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Mesaje" href="http://cs.curs.pub.ro/2012/message/index.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Mesaje</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Fişierele mele personale" href="http://cs.curs.pub.ro/2012/user/files.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Fişierele mele personale</a></p></li></ul></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_9"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_10"><span tabindex="0"> 1 octombrie -  7 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_11"><span tabindex="0"> 8 octombrie -  14 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_12"><span tabindex="0"> 15 octombrie -  21 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_13"><span tabindex="0"> 22 octombrie -  28 octombrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_14"><span tabindex="0"> 29 octombrie -  4 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_15"><span tabindex="0"> 5 noiembrie -  11 noiembrie</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0"> 12 noiembrie -  18 noiembrie</span></p><ul><li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat.htm"><img alt="Page" class="smallicon navicon" title="Page" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/icon(1)">...ntroducere in MPI. Algoritmi pipeline si heartbeat</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Folder" href="http://cs.curs.pub.ro/2012/mod/folder/view.php?id=2497"><img alt="Folder" class="smallicon navicon" title="Folder" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/icon(2)">Resurse lab 7</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_16"><span tabindex="0"> 19 noiembrie -  25 noiembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_17"><span tabindex="0"> 26 noiembrie -  2 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_18"><span tabindex="0"> 3 decembrie -  9 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_19"><span tabindex="0"> 10 decembrie -  16 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_20"><span tabindex="0"> 17 decembrie -  23 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_21"><span tabindex="0"> 24 decembrie -  30 decembrie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_22"><span tabindex="0"> 31 decembrie -  6 ianuarie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_23"><span tabindex="0"> 7 ianuarie -  13 ianuarie</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_24"><span tabindex="0"> 14 ianuarie -  20 ianuarie</span></p></li></ul></li>
+<li class="type_course depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_25"><a title="Structuri de date (Seria: CA)" href="http://cs.curs.pub.ro/2012/course/view.php?id=39">L-1-SD-CA</a></p></li></ul></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="http://cs.curs.pub.ro/2012/mod/page/view.php?id=2500#sb-2" class="skip-block">Omite Settings</a><div id="inst5" class="block_settings  block"><div class="header"><div class="title" id="yui_3_5_1_1_1363544537130_886"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Ascunde blocul Settings" title="Ascunde blocul Settings" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Arată blocul Settings" title="Arată blocul Settings" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/switch_plus"><input type="image" class="moveto customcommand requiresjs" alt="Mută asta pe doc" title="Mută asta pe doc" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/block_to_dock"></div><h2>Settings</h2><div class="commands"></div></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_course collapsed contains_branch" aria-expanded="false"><p class="tree_item branch root_node"><span tabindex="0">Administrare curs</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Note" href="http://cs.curs.pub.ro/2012/grade/report/index.php?id=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/grades">Note</a></p></li></ul></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><hr><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">Setări profilul meu</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Editează profil" href="http://cs.curs.pub.ro/2012/user/edit.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Editează profil</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Schimbă parola" href="http://cs.curs.pub.ro/2012/login/change_password.php?id=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Schimbă parola</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Security keys" href="http://cs.curs.pub.ro/2012/user/managetoken.php?sesskey=HIRSLZGN1J"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Security keys</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Mesagerie" href="http://cs.curs.pub.ro/2012/message/edit.php?id=2715&course=95"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Mesagerie</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Bloguri</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Preferences" href="http://cs.curs.pub.ro/2012/blog/preferences.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Preferences</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="External blogs" href="http://cs.curs.pub.ro/2012/blog/external_blogs.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">External blogs</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Register an external blog" href="http://cs.curs.pub.ro/2012/blog/external_blog_edit.php"><img alt="" class="smallicon navicon" title="" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/navigationitem">Register an external blog</a></p></li></ul></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span>                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF CONTENT -->
+
+</div>
+
+<!-- END OF WRAPPER -->
+
+<!-- START OF FOOTER -->
+        <div id="page-footer">
+
+<!-- START OF FOOTER-INNER -->
+
+        <div id="page-footer-inner">
+            <div class="footnote"><p>Acest site este hostat pe platfoma hardware achitionata din proiectul nr. 154/323 cod SMIS – 4428, "Platforma de e-learning si curricula e-content pentru invatamantul superior tehnic". Pentru mai multe detalii vezi <a href="https://cluster.grid.pub.ro/index.php/cursuri-upb-despre-proiect" _mce_href="https://cluster.grid.pub.ro/index.php/cursuri-upb-despre-proiect">http://www.curs.pub.ro</a>.</p></div>
+            <div class="logininfo">Sunteţi autentificat ca <a href="http://cs.curs.pub.ro/2012/user/profile.php?id=2715">Dragoş - Bogdan SIMA</a>  (<a href="http://cs.curs.pub.ro/2012/login/logout.php?sesskey=HIRSLZGN1J">Ieşire</a>)</div>        </div>
+
+<!-- END OF FOOTER-INNER -->
+
+        <p class="helplink"></p>
+        <div class="homelink"><a href="http://cs.curs.pub.ro/2012/course/view.php?id=95">L-3-APD-CA</a></div>        
+
+</div>
+
+<!-- END OF FOOTER -->
+
+</div>
+
+<!-- END OF PAGE -->
+<script type="text/javascript" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Ultima modificare","name":"Nume","error":"Eroare","info":"Informa\u0163ii","viewallcourses":"Vezi toate cursurile","cancel":"Anuleaz\u0103","yes":"Da"},"repository":{"type":"Tip","size":"Dimensiune","invalidjson":"\u0218ir de caractere JSON invalid","nofilesattached":"Nu exist\u0103 fi\u0219iere ata\u0219ate","filepicker":"Selector de fi\u0219iere","logout":"Ie\u0219ire","nofilesavailable":"Nu sunt fi\u0219iere disponibile","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"Fi\u0219ierul exist\u0103","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Redenumi\u021bi ca \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source"},"block":{"addtodock":"Mut\u0103 asta pe doc","undockitem":"Deandocheaz\u0103 acest obiect","undockall":"Deandocheaz\u0103 tot"},"langconfig":{"thisdirectionvertical":"btt"},"admin":{"confirmation":"Confirmare"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions4 = [{"id":"expandable_branch_1","key":"118","type":20},{"id":"expandable_branch_2","key":"116","type":20},{"id":"expandable_branch_3","key":"115","type":20},{"id":"expandable_branch_4","key":"114","type":20},{"id":"expandable_branch_5","key":"105","type":20},{"id":"expandable_branch_6","key":"101","type":20},{"id":"expandable_branch_7","key":"100","type":20},{"id":"expandable_branch_8","key":"98","type":20},{"id":"expandable_branch_9","key":"1599","type":30},{"id":"expandable_branch_10","key":"1600","type":30},{"id":"expandable_branch_11","key":"1601","type":30},{"id":"expandable_branch_12","key":"1602","type":30},{"id":"expandable_branch_13","key":"1603","type":30},{"id":"expandable_branch_14","key":"1604","type":30},{"id":"expandable_branch_15","key":"1605","type":30},{"id":"expandable_branch_16","key":"1607","type":30},{"id":"expandable_branch_17","key":"1608","type":30},{"id":"expandable_branch_18","key":"1609","type":30},{"id":"expandable_branch_19","key":"1610","type":30},{"id":"expandable_branch_20","key":"1611","type":30},{"id":"expandable_branch_21","key":"1612","type":30},{"id":"expandable_branch_22","key":"1613","type":30},{"id":"expandable_branch_23","key":"1614","type":30},{"id":"expandable_branch_24","key":"1615","type":30},{"id":"expandable_branch_25","key":"39","type":20}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI(M.yui.loader).use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"4","instance":"4","candock":true,"courselimit":"20","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"5","instance":"5","candock":true});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("node-menunav",function() {(function(){M.core_custom_menu.init(Y, "custom_menu_1");
+})();
+});
+M.util.init_block_hider(Y, {"id":"inst4","title":"Navigation","preference":"block4hidden","tooltipVisible":"Ascunde blocul Navigation","tooltipHidden":"Arat\u0103 blocul Navigation"});
+M.util.init_block_hider(Y, {"id":"inst5","title":"Settings","preference":"block5hidden","tooltipVisible":"Ascunde blocul Settings","tooltipHidden":"Arat\u0103 blocul Settings"});
+
+});
+//]]>
+</script>
+
+
+<div id="dock" role="menubar" class="dock dock_left_vertical nothingdocked"><div class="buttons_container" id="yui_3_5_1_1_1363544537130_49"><div class="dockeditem_container"></div><div class="controls"><img alt="Deandochează tot" title="Deandochează tot" tabindex="0" src="./L-3-APD-CA  Laboratorul 7 - Introducere in MPI. Algoritmi pipeline si heartbeat_files/dock_to_block"></div></div></div><div style="display: none;"></div></body></html>

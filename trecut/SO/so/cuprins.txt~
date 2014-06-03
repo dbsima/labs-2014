@@ -1,0 +1,58 @@
+Laborator 02 - Operații I/O simple
+- Fișiere. Sisteme de fișiere
+
+Laborator 03 - Procese
+- fork, exec, pipe
+
+Laborator 04 - Gestiunea memoriei
+- 
+
+Laborator 05 - IPC
+- obiecte de sincronizare (mutex, semafor)
+- cozi de mesaje
+- memorie partajata
+- pipe-uri
+- socketi
+
+Laborator 06 - Semnale
+
+Laborator 07 - Memoria virtuală
+- Maparea fișierelor
+- Maparea memoriei
+- Maparea dispozitivelor
+
+- mmap
+- munmap
+
+- blocarea paginarii
+
+Laborator 08 - Thread-uri Linux
+- mutex (mosteniri de prioritate, ocupare/eliberare, incercare neblocanta de ocupare, futex)
+- semafoare (cu nume, anonime)
+- variabile de condiție (bloca firul curent până la îndeplinirea unei condiții, folosita in mod necesar cu un mutex)
+- bariere
+
+Laborator 09 - Thread-uri Windows
+- Mutex
+- Semafor
+- Secțiune critică (excludere mutuală în cadrul aceluiași proces)
+- Variabilă de condiție
++ Eveniment
++ Timer
+
+- Windows Thread Pooling
+
+Laborator 10 - Operații IO avansate - Windows
+- I/O asincron (overlapped)
+- I/O Completion Ports
+- Zero-copy I/O
+
+Laborator 11 - Operații IO avansate - Linux
+- multiplexarea I/O
+- select,  poll, epoll
+- operații asincrone
+- Zero-copy I/O (splice)
+- Vectored I/O
+
+
+

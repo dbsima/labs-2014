@@ -1,0 +1,56 @@
+ASC - TEMA1
+Simularea activitatii unui cluster
+Sima Dragos-Bogdan 332CA
+
+Cuprins
+1.Functionalitate
+2.Utilizare
+3.Implementare
+4.Testare
+5.Continutul Arhivei
+
+1. Functionalitate
+	Aplicatia simuleaza comportamentul nodurilor dintr-un cluster (colectie de
+noduri - calculatoare individuale conectate intre ele):
+	- Front-End Processors: coordoneaza accesul utilizatorilor la cluster
+	- Noduri computationale si de stocare - prelucreaza cererile utilizatorilor
+	si stocheaza datele din cluster
+
+	Activitatea unui cluster urmeaza urmatorii pasi:
+	- utilizatorii trimit FEP-urilor job-urile care vor fi prelucrate de
+	cluster; fiecare job este format din mai multe task-uri
+	- FEP-urile distribuie task-urile din job-urile primite catre nodurile
+	computationale din cluster; deoarece nodurile sunt echipate cu procesoare
+	multi-core mai multe task-uri pot fi atribuite unui singur nod
+	- nodurile computationale incep executia task-urilor interogand nodurile de
+	stocare in functie de necesitatile task-ului
+
+	In aceasta aplicatie job-urile trimise de utilizatori presupun inmultirea a
+2 matrici patratice de dimensiuni mari. Fiecare job va fi format din mai multe 
+task-uri, fiecare task necesitand calcularea unui bloc din matricea finala.
+
+
+2. Utilizare
+- dezarhivare arhiva Sima_Dragos_332CA_Tema1ASC.zip
+- $ cd Sima_Dragos_332CA_Tema1ASC
+- copiere fisierele infrastructurii de testare in Sima_Dragos_332CA_Tema1ASC
+- $ ./run_tests.sh
+- $ vim out
+
+3. Implementare
+	
+
+4. Testare
+	4.1 Mediu de testare:
+		Hardware:
+			Memory: 3.7 GiB
+			Processor: Intel Core i5-2410M CPU @ 2.30GHz x 4
+		Software:
+			OS: Release 13 (maya) 64-bit Kernel: Linux 3.2.0-23-generic 
+				Windows 7 Ultimate 64-bit
+	4.2 Rezultate
+		Testele oferite au fost executate cu succes pe ambele platforme.
+
+5. Continutul Arhivei
+	README  - fisier cu detaliile implementarii temei
+	node.py - fisier cu implementarea clasei Node

@@ -20,7 +20,7 @@ define(['jquery', 'marionette', 'vent', 'templates'], function ($, Marionette, v
             if (page_name) {
                 $("#error").hide();
                 $.ajax({
-                    async: "false",
+                    //async: "false",
                     type: "POST",
                     url: "/pages/" + page_name,
                     success: function (response) {

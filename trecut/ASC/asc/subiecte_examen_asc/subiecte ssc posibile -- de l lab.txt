@@ -1,0 +1,10 @@
+1. Clasificareea sistemelor de calcul in functie de fluxul de date
+	SIMD SISD etc stream
+	schemele - simple
+
+
+2. Paralela intre SIMD si MIMD
+3. Incrementarea salturilor conditionate la SIMD ( varianta cu MIMD .. nu e in curs.. de gandit )
+4. Structurarea datelor
+5. Adunarea a 2 vectori folosind structuri SIMD sau MIMD
+6. Inmultirea matricilor
